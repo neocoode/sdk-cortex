@@ -1,19 +1,10 @@
-# sdk-cortex
-SDK Cortex IA
+# SDK Cortex
 
-# Cortex
+SDK para integração com o sistema Cortex IA, uma plataforma avançada de processamento de linguagem natural e análise de texto.
 
-Cortex é um sistema avançado de processamento de linguagem natural (NLP) e análise de texto, desenvolvido em Go.
+## 🚀 Visão Geral
 
-## 🚀 Características
-
-- Processamento de linguagem natural
-- Análise e classificação de tokens
-- Sistema de dicionário e definições
-- Categorização de conteúdo
-- Gerenciamento de usuários e chats
-- API RESTful
-- Suporte a Docker
+O SDK Cortex é uma ferramenta que permite a integração com o sistema Cortex IA, oferecendo uma interface simplificada para processamento de linguagem natural, análise de texto e gerenciamento de dados.
 
 ## 🛠️ Tecnologias
 
@@ -25,93 +16,79 @@ Cortex é um sistema avançado de processamento de linguagem natural (NLP) e an�
 ## 📁 Estrutura do Projeto
 
 ```
-cortex/
-├── apis/           # Integrações com APIs externas
-├── config/         # Configurações do sistema
-├── dataTrain/      # Dados de treinamento
-├── plugins/        # Plugins e extensões
-├── src/           # Código fonte
-│   ├── modules/   # Módulos do sistema
-│   ├── models/    # Modelos de dados
-│   └── utils/     # Utilitários
-└── templates/     # Templates do sistema
+sdk-cortex/
+├── plugins/           # Plugins e extensões do SDK
+│   └── promptflt/    # Plugin de filtragem de prompts
+├── .cursor/          # Configurações do Cursor IDE
+├── .git/             # Controle de versão
+├── .env              # Variáveis de ambiente
+├── .fvmrc            # Configuração do Flutter Version Manager
+├── start.sh          # Script de inicialização
+└── LICENSE           # Licença do projeto
 ```
 
 ## 🏗️ Arquitetura
 
-O sistema é construído com uma arquitetura modular, onde cada componente tem uma responsabilidade específica:
+O SDK é construído com uma arquitetura modular e extensível:
 
-- **Core**: Módulo central que gerencia a lógica principal
-- **AnalyzerNPL**: Sistema de análise de linguagem natural
-- **Repositories**: Gerenciamento de dados para diferentes entidades
-- **APIs**: Integração com serviços externos
+- **Plugins**: Sistema de plugins para extensão de funcionalidades
+- **Core**: Módulo central do SDK
+- **Integrations**: Integrações com serviços externos
+- **Utils**: Utilitários e helpers
 
-## 📚 Dados de Treinamento
-
-O sistema possui um conjunto extenso de dados de treinamento em JSON, incluindo:
-
-- Definições de palavras
-- Profissões
-- Unidades de medida
-- Histórico de eventos
-- Definições técnicas
-- Sistema de categorização
-
-## 🚀 Como Executar
+## 🚀 Como Começar
 
 1. Clone o repositório
 ```bash
 git clone [url-do-repositorio]
 ```
 
-2. Instale as dependências
-```bash
-go mod download
-```
-
-3. Configure o ambiente
+2. Configure o ambiente
 ```bash
 cp .env.example .env
 # Edite o arquivo .env com suas configurações
 ```
 
-4. Execute o script de preparação
+3. Instale as dependências
 ```bash
-./prepare.sh
+go mod download
 ```
 
-5. Inicie o sistema
+4. Execute o projeto
 ```bash
-./start_all.sh
+./start.sh
 ```
 
-## 🐳 Docker
+## 📦 Plugins Disponíveis
 
-O projeto inclui suporte a Docker para facilitar o desenvolvimento e deploy:
-
-```bash
-# Construir a imagem
-./docker_build.sh
-
-# Executar o container
-docker-compose up
-```
+### PromptFLT
+Plugin para filtragem e processamento de prompts, localizado em `plugins/promptflt/`.
 
 ## 🔒 Segurança
 
-- Autenticação de usuários
-- Gerenciamento de sessões
-- Thread-safe com mutex
+- Autenticação via tokens
+- Gerenciamento seguro de sessões
 - Variáveis de ambiente para configurações sensíveis
+- Validação de inputs
 
 ## 📝 Licença
 
-Este projeto está sob a licença [inserir tipo de licença].
+Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
 
 ## 👥 Contribuição
 
-Contribuições são bem-vindas! Por favor, leia o guia de contribuição antes de submeter um pull request.
+Contribuições são bem-vindas! Por favor, siga estas diretrizes:
 
-## 📫 Contato
+1. Fork o projeto
+2. Crie uma branch para sua feature (`git checkout -b feature/AmazingFeature`)
+3. Commit suas mudanças (`git commit -m 'feat: add some amazing feature'`)
+4. Push para a branch (`git push origin feature/AmazingFeature`)
+5. Abra um Pull Request
 
-[Inserir informações de contato] 
+## 📫 Suporte
+
+Para suporte, por favor abra uma issue no repositório ou entre em contato com a equipe de suporte.
+
+---
+
+Desenvolvido com ❤️ pela equipe Neocoode 
