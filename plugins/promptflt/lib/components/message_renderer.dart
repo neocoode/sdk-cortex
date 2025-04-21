@@ -1,9 +1,12 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'renderer/schema_table.dart';
+import 'package:promptflt/components/renderer/plainText.dart';
+import 'package:promptflt/components/renderer/plainTextDefault.dart';
+import 'renderer/schemaTable.dart';
 import 'renderer/link_text.dart';
-import 'renderer/code_block.dart';
-import 'renderer/plain_text.dart';
+import 'renderer/codeBlock.dart';
+import 'renderer/plainMessage.dart';
+import 'renderer/title_text.dart';
 
 class MessageRenderer extends StatelessWidget {
   final Map<String, dynamic> message;
@@ -20,6 +23,12 @@ class MessageRenderer extends StatelessWidget {
     }
 
     switch (type) {
+      case 'title':
+        return TitleText(content: value.toString());
+      case 'message':
+        return PlainMessage(content: value.toString());
+      case 'text':
+        return PlainText(content: value.toString());
       case 'table':
         final decodedValue = jsonDecode(value);
         final innerType = decodedValue['type'];
@@ -38,7 +47,7 @@ class MessageRenderer extends StatelessWidget {
       case 'xml':
         return CodeBlock(content: value.toString());
       default:
-        return PlainText(content: value.toString());
+        return PlainTextDefault(content: value.toString());
     }
   }
 }

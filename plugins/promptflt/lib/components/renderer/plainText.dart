@@ -8,12 +8,14 @@ class PlainText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.symmetric(vertical: 10),
+      margin: const EdgeInsets.only(),
       padding: const EdgeInsets.all(8),
       decoration: BoxDecoration(borderRadius: BorderRadius.circular(8)),
       child: Text(
         content,
-        style: const TextStyle(color: Colors.white, fontSize: 20),
+        textAlign: TextAlign.justify,
+        style: const TextStyle(
+            color: Color.fromARGB(255, 220, 220, 220), fontSize: 20),
       ),
     );
   }

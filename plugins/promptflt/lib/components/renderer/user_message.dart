@@ -22,7 +22,7 @@ class UserMessage extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.end,
       children: [
         Container(
-          margin: const EdgeInsets.only(top: 10, bottom: 10),
+          margin: const EdgeInsets.only(top: 5, bottom: 10),
           padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
           decoration: BoxDecoration(
             color: Colors.grey[600],
