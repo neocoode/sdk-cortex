@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'dart:async';
 
-import '../components/message_bubble.dart';
-import '../components/message_input.dart';
+import '../components/messageBubble.dart';
+import '../components/messageInput.dart';
 import '../services/api_service.dart';
 import '../services/session_service.dart';
+import '../configs/app_config.dart';
 import 'warning_view.dart';
 
 class ChatView extends StatefulWidget {
@@ -76,16 +77,16 @@ class _ChatViewState extends State<ChatView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF232323),
+      backgroundColor: appConfig.theme.background,
       body: Container(
-        margin: const EdgeInsets.symmetric(horizontal: 0, vertical: 30),
+        margin: EdgeInsets.symmetric(horizontal: 0, vertical: appConfig.theme.spacingLarge),
         child: Column(
           children: [
             Expanded(
               child: ListView.builder(
                 itemCount: messages.length,
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 50,
+                padding: EdgeInsets.symmetric(
+                  horizontal: appConfig.theme.spacingXLarge,
                   vertical: 0,
                 ),
                 itemBuilder:
@@ -96,22 +97,30 @@ class _ChatViewState extends State<ChatView> {
               ),
             ),
             Container(
-              margin: const EdgeInsets.symmetric(horizontal: 40),
+              margin: EdgeInsets.symmetric(horizontal: appConfig.theme.spacingXLarge),
               child: MessageInput(
                 onSend: sendMessage,
                 isProcessing: _isProcessing,
               ),
             ),
-            const Padding(
-              padding: EdgeInsets.only(bottom: 8),
+            Padding(
+              padding: EdgeInsets.only(bottom: appConfig.theme.spacingSmall),
               child: Text(
-                "Cortex beta - 02/2025",
-                style: TextStyle(fontSize: 22, color: Colors.grey),
+                "Luma Beta - ${appConfig.currentTheme.toString().split('.').last} - ${_getCurrentDate()}",
+                style: TextStyle(
+                  fontSize: appConfig.theme.fontSizeXLarge,
+                  color: appConfig.theme.textSecondary,
+                ),
               ),
             ),
           ],
         ),
       ),
     );
+  }
+
+  String _getCurrentDate() {
+    final now = DateTime.now();
+    return '${now.month.toString().padLeft(2, '0')}/${now.year}';
   }
 }

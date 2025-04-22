@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:promptflt/components/renderer/user_message.dart';
-
-import 'message_renderer.dart';
+import '../configs/app_config.dart';
+import 'renderer/userMessage.dart';
+import 'messageRenderer.dart';
 
 class MessageBubble extends StatefulWidget {
   final Map<String, dynamic> message;
@@ -39,17 +39,29 @@ class _MessageBubbleState extends State<MessageBubble> {
       );
     }
 
-    // Mensagens do sistema/renderizadas
+    // Estilos do assistant
+    final assistantStyle = appConfig.theme.components.assistantMessage;
+
     return Align(
       alignment: Alignment.centerLeft,
       child: Container(
-        margin: EdgeInsets.zero,
-        padding: const EdgeInsets.symmetric(vertical: 2, horizontal: 8),
-        decoration: BoxDecoration(
-          color: Colors.transparent,
-          borderRadius: BorderRadius.circular(18),
+        margin: EdgeInsets.symmetric(
+          vertical: appConfig.theme.spacingSmall / 2,
+          horizontal: appConfig.theme.spacingSmall,
         ),
-        child: MessageRenderer(message: widget.message),
+        padding: EdgeInsets.all(appConfig.theme.spacingMedium),
+        decoration: BoxDecoration(
+          color: assistantStyle.backgroundColor,
+          borderRadius: BorderRadius.circular(appConfig.theme.borderRadiusLarge),
+        ),
+        child: DefaultTextStyle(
+          style: TextStyle(
+            color: assistantStyle.textColor,
+            fontSize: appConfig.theme.fontSizeMedium,
+            fontFamily: appConfig.theme.fontFamily,
+          ),
+          child: MessageRenderer(message: widget.message),
+        ),
       ),
     );
   }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:universal_html/html.dart' as html;
+import '../../configs/app_config.dart';
 
 class SchemaTable extends StatelessWidget {
   final List<Map<String, dynamic>> fields;
@@ -10,10 +11,7 @@ class SchemaTable extends StatelessWidget {
   void _downloadCSV() {
     if (fields.isEmpty) return;
 
-    // Cabeçalho do CSV
     final headers = ['Campo', 'Tipo', 'Exemplo', 'Descrição', 'Fonte'];
-
-    // Converter dados para CSV
     final csvData = StringBuffer();
     csvData.writeln(headers.join(','));
 
@@ -29,7 +27,6 @@ class SchemaTable extends StatelessWidget {
       csvData.writeln(row);
     }
 
-    // Criar blob e fazer download
     final bytes = utf8.encode(csvData.toString());
     final blob = html.Blob([bytes]);
     final url = html.Url.createObjectUrlFromBlob(blob);
@@ -43,129 +40,121 @@ class SchemaTable extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = appConfig.theme;
+    final style = theme.components.schemaTable;
+
     if (fields.isEmpty) {
-      return const Text(
+      return Text(
         "Erro: tabela sem dados",
-        style: TextStyle(color: Colors.red),
+        style: TextStyle(color: theme.error),
       );
     }
 
     return Container(
-      margin: const EdgeInsets.symmetric(vertical: 10),
-      padding: const EdgeInsets.all(0),
+      margin: EdgeInsets.symmetric(vertical: theme.spacingSmall),
+      padding: EdgeInsets.zero,
       decoration: BoxDecoration(
-        color: Colors.black,
-        borderRadius: BorderRadius.circular(6),
+        color: style.rowBackground,
+        borderRadius: BorderRadius.circular(theme.borderRadiusMedium),
+        border: Border.all(color: style.borderColor),
+        boxShadow: [
+          BoxShadow(
+            color: style.shadowColor,
+            blurRadius: 4,
+            offset: const Offset(0, 2),
+          )
+        ],
       ),
       width: double.infinity,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          // Header
           Container(
             decoration: BoxDecoration(
-              color: const Color.fromARGB(255, 50, 50, 50),
-              borderRadius: BorderRadius.circular(4),
+              color: style.headerBackground,
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(theme.borderRadiusMedium),
+                topRight: Radius.circular(theme.borderRadiusMedium),
+              ),
             ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Padding(
-                  padding: EdgeInsets.all(8.0),
+                Padding(
+                  padding: EdgeInsets.all(theme.spacingSmall),
                   child: Text(
                     'Tabela Schema',
                     style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 16,
+                      color: style.headerTextColor,
+                      fontSize: theme.fontSizeMedium,
                       fontWeight: FontWeight.bold,
+                      fontFamily: theme.fontFamily,
                     ),
                   ),
                 ),
                 IconButton(
-                  icon:
-                      const Icon(Icons.download, color: Colors.white, size: 16),
-                  padding: const EdgeInsets.all(8),
+                  icon: Icon(
+                    Icons.download,
+                    color: style.headerTextColor,
+                    size: 20,
+                  ),
+                  padding: EdgeInsets.all(theme.spacingSmall),
                   onPressed: _downloadCSV,
                 ),
               ],
             ),
           ),
+          // Conteúdo
           Padding(
-            padding: const EdgeInsets.all(6.0),
+            padding: EdgeInsets.all(theme.spacingSmall),
             child: SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: DataTable(
                 headingRowColor: MaterialStateProperty.all(
-                  const Color.fromARGB(255, 67, 67, 67),
+                  style.headerBackground.withOpacity(0.1),
                 ),
-                dataRowColor: MaterialStateProperty.all(
-                  const Color.fromARGB(255, 48, 48, 48),
-                ),
-                columns: const [
-                  DataColumn(
+                dataRowColor: MaterialStateProperty.all(style.rowBackground),
+                columnSpacing: theme.spacingMedium,
+                columns: [
+                  'Campo',
+                  'Tipo',
+                  'Exemplo',
+                  'Descrição',
+                  'Fonte',
+                ].map(
+                  (header) => DataColumn(
                     label: Text(
-                      'Campo',
-                      style: TextStyle(color: Colors.white),
+                      header,
+                      style: TextStyle(
+                        color: style.headerTextColor,
+                        fontSize: theme.fontSizeSmall,
+                        fontWeight: FontWeight.bold,
+                        fontFamily: theme.fontFamily,
+                      ),
                     ),
                   ),
-                  DataColumn(
-                    label: Text(
-                      'Tipo',
-                      style: TextStyle(color: Colors.white),
-                    ),
-                  ),
-                  DataColumn(
-                    label: Text(
-                      'Exemplo',
-                      style: TextStyle(color: Colors.white),
-                    ),
-                  ),
-                  DataColumn(
-                    label: Text(
-                      'Descrição',
-                      style: TextStyle(color: Colors.white),
-                    ),
-                  ),
-                  DataColumn(
-                    label: Text(
-                      'Fonte',
-                      style: TextStyle(color: Colors.white),
-                    ),
-                  ),
-                ],
+                ).toList(),
                 rows: fields.map((field) {
                   return DataRow(
                     cells: [
-                      DataCell(
+                      field['field'] ?? '',
+                      field['type'] ?? '',
+                      field['example'] ?? '',
+                      field['description'] ?? '',
+                      field['source'] ?? '',
+                    ].map(
+                      (value) => DataCell(
                         Text(
-                          field['field'] ?? '',
-                          style: const TextStyle(color: Colors.white),
+                          value,
+                          style: TextStyle(
+                            color: style.rowTextColor,
+                            fontSize: theme.fontSizeSmall,
+                            fontFamily: theme.fontFamily,
+                          ),
                         ),
                       ),
-                      DataCell(
-                        Text(
-                          field['type'] ?? '',
-                          style: const TextStyle(color: Colors.white),
-                        ),
-                      ),
-                      DataCell(
-                        Text(
-                          field['example'] ?? '',
-                          style: const TextStyle(color: Colors.white),
-                        ),
-                      ),
-                      DataCell(
-                        Text(
-                          field['description'] ?? '',
-                          style: const TextStyle(color: Colors.white),
-                        ),
-                      ),
-                      DataCell(
-                        Text(
-                          field['source'] ?? '',
-                          style: const TextStyle(color: Colors.white),
-                        ),
-                      ),
-                    ],
+                    ).toList(),
                   );
                 }).toList(),
               ),

@@ -1,25 +1,26 @@
 import 'package:flutter/material.dart';
 import '../../configs/app_config.dart';
 
-class PlainText extends StatelessWidget {
+class TitleText extends StatelessWidget {
   final String content;
 
-  const PlainText({
+  const TitleText({
     super.key,
     required this.content,
   });
 
   @override
   Widget build(BuildContext context) {
-    final style = appConfig.theme.components.plainText;
+    final style = appConfig.theme.components.titleText;
 
     return Container(
-      margin: EdgeInsets.symmetric(vertical: appConfig.theme.spacingSmall / 2),
+      margin: EdgeInsets.symmetric(vertical: appConfig.theme.spacingSmall),
       child: Text(
         content,
         style: TextStyle(
           color: style.textColor,
-          fontSize: appConfig.theme.fontSizeMedium,
+          fontSize: appConfig.theme.fontSizeXLarge,
+          fontWeight: style.fontWeight,
         ),
       ),
     );

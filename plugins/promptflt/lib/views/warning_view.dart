@@ -4,6 +4,7 @@ import '../services/connection_service.dart';
 import '../services/session_service.dart';
 import '../services/api_service.dart';  // Para ApiService
 import 'chat_view.dart';
+import '../configs/app_config.dart';
 
 class WarningView extends StatefulWidget {
   const WarningView({
@@ -77,51 +78,45 @@ class _WarningViewState extends State<WarningView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF232323),
+      backgroundColor: appConfig.theme.background,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text(
-              'Cortex',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 48,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            const SizedBox(height: 8),
             Text(
-              _getCurrentDate(),
-              style: const TextStyle(
-                color: Colors.grey,
+              'Atenção',
+              style: TextStyle(
                 fontSize: 24,
+                fontWeight: FontWeight.bold,
+                color: appConfig.theme.textPrimary,
               ),
             ),
-            const SizedBox(height: 20),
-            SizedBox(
-              width: 200,
-              child: ValueListenableBuilder<int>(
-                valueListenable: _countdown,
-                builder: (context, countdown, _) {
-                  final progress = (10 - countdown) / 10;
-                  return Column(
-                    children: [
-                      ClipRRect(
-                        borderRadius: BorderRadius.circular(4),
-                        child: LinearProgressIndicator(
-                          value: progress,
-                          backgroundColor: Colors.grey[800],
-                          valueColor: const AlwaysStoppedAnimation<Color>(
-                            Colors.red,
-                          ),
-                          minHeight: 8,
-                        ),
-                      ),
-                    ],
-                  );
-                },
+            const SizedBox(height: 16),
+            Text(
+              'Mensagem de aviso',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 16,
+                color: appConfig.theme.textSecondary,
               ),
+            ),
+            const SizedBox(height: 32),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: appConfig.theme.components.messageInput.buttonBackground,
+                foregroundColor: appConfig.theme.components.messageInput.iconColor,
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 32,
+                  vertical: 16,
+                ),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12),
+                ),
+              ),
+              onPressed: () {
+                // Implementar lógica de retry
+              },
+              child: const Text('Tentar Novamente'),
             ),
           ],
         ),

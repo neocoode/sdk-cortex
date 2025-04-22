@@ -1,67 +1,99 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_highlight/flutter_highlight.dart';
+import 'package:flutter_highlight/themes/monokai-sublime.dart';
+import '../../configs/app_config.dart';
 
 class CodeBlock extends StatelessWidget {
   final String content;
 
-  const CodeBlock({super.key, required this.content});
+  const CodeBlock({
+    super.key,
+    required this.content,
+  });
+
+  void _copyToClipboard(BuildContext context) {
+    Clipboard.setData(ClipboardData(text: content));
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(
+          'Código copiado para a área de transferência',
+          style: TextStyle(
+            color: appConfig.theme.onPrimary,
+          ),
+        ),
+        backgroundColor: appConfig.theme.primary,
+        duration: const Duration(seconds: 2),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
+    final style = appConfig.theme.components.codeBlock;
+
     return Container(
-      margin: const EdgeInsets.symmetric(vertical: 10),
-      padding: const EdgeInsets.all(0),
+      margin: EdgeInsets.symmetric(vertical: appConfig.theme.spacingSmall),
       decoration: BoxDecoration(
-        color: Colors.black,
-        borderRadius: BorderRadius.circular(6),
+        color: style.backgroundColor,
+        borderRadius: BorderRadius.circular(appConfig.theme.borderRadiusLarge),
+        border: Border.all(
+          color: appConfig.theme.border,
+          width: 1,
+        ),
       ),
-      width: double.infinity,
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
+          // Top bar com título e botão copiar
           Container(
+            padding: EdgeInsets.symmetric(
+              horizontal: appConfig.theme.spacingMedium,
+              vertical: appConfig.theme.spacingSmall,
+            ),
             decoration: BoxDecoration(
-              color: const Color.fromARGB(255, 50, 50, 50),
-              borderRadius: BorderRadius.circular(4),
+              color: appConfig.theme.surfaceLight,
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(appConfig.theme.borderRadiusLarge),
+                topRight: Radius.circular(appConfig.theme.borderRadiusLarge),
+              ),
             ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Padding(
-                  padding: EdgeInsets.all(8.0), // Adiciona padding ao texto
-                  child: Text(
-                    '',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 12,
-                      fontWeight: FontWeight.bold,
-                    ),
+                Text(
+                  'Código',
+                  style: TextStyle(
+                    color: style.textColor,
+                    fontSize: appConfig.theme.fontSizeMedium,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
                 IconButton(
-                  icon: const Icon(Icons.copy, color: Colors.white, size: 16),
-                  padding: const EdgeInsets.all(8), // Adiciona padding ao ícone
-                  onPressed: () {
-                    // Lógica para copiar o conteúdo
-                    Clipboard.setData(ClipboardData(text: content));
-                  },
+                  icon: Icon(
+                    Icons.copy,
+                    color: style.iconColor,
+                    size: 20,
+                  ),
+                  onPressed: () => _copyToClipboard(context),
                 ),
               ],
             ),
           ),
-          const SizedBox(height: 8),
-          Padding(
-            padding: const EdgeInsets.all(
-                8.0), // Adiciona padding ao texto do content
-            child: SelectableText(
+
+          // Bloco de código com highlight
+          Container(
+            padding: EdgeInsets.all(appConfig.theme.spacingMedium),
+            child: HighlightView(
               content,
-              style: const TextStyle(
-                color: Color.fromARGB(255, 245, 245, 245),
+              language: 'dart',
+              theme: monokaiSublimeTheme,
+              padding: EdgeInsets.zero,
+              textStyle: TextStyle(
+                fontSize: appConfig.theme.fontSizeMedium,
                 fontFamily: 'monospace',
-                fontSize: 16,
-                height: 1.4,
+                color: style.textColor,
               ),
-              textAlign: TextAlign.start,
             ),
           ),
         ],

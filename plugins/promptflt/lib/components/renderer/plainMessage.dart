@@ -1,21 +1,31 @@
 import 'package:flutter/material.dart';
+import '../../configs/app_config.dart';
 
 class PlainMessage extends StatelessWidget {
   final String content;
 
-  const PlainMessage({super.key, required this.content});
+  const PlainMessage({
+    super.key,
+    required this.content,
+  });
 
   @override
   Widget build(BuildContext context) {
+    final style = appConfig.theme.components.plainMessage;
+
     return Container(
-      margin: const EdgeInsets.only(),
-      padding: const EdgeInsets.all(8),
-      decoration: BoxDecoration(borderRadius: BorderRadius.circular(8)),
+      margin: EdgeInsets.symmetric(vertical: appConfig.theme.spacingSmall / 2),
+      padding: EdgeInsets.all(appConfig.theme.spacingSmall),
+      decoration: BoxDecoration(
+        color: style.backgroundColor,
+        borderRadius: BorderRadius.circular(appConfig.theme.borderRadiusLarge),
+      ),
       child: Text(
         content,
-        textAlign: TextAlign.justify,
-        style: const TextStyle(
-            color: Color.fromARGB(255, 220, 220, 220), fontSize: 20),
+        style: TextStyle(
+          color: style.textColor,
+          fontSize: appConfig.theme.fontSizeMedium,
+        ),
       ),
     );
   }
