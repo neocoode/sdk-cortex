@@ -7,7 +7,6 @@ import 'renderer/linkText.dart';
 import 'renderer/codeBlock.dart';
 import 'renderer/titleText.dart';
 import 'renderer/imageGallery.dart';
-import 'renderer/userMessage.dart';
 import 'renderer/plainText.dart';
 import 'renderer/plainTextDefault.dart';
 import 'renderer/plainMessage.dart';
@@ -21,7 +20,6 @@ class MessageRenderer extends StatelessWidget {
   Widget build(BuildContext context) {
     final type = message['type'];
     final value = message['value'];
-    final style = appConfig.theme.components.messageRenderer;
 
     if (value == null || value.toString().isEmpty) {
       return const SizedBox.shrink();
@@ -48,7 +46,8 @@ class MessageRenderer extends StatelessWidget {
         final innerType = decodedValue['type'];
 
         if (innerType == 'schema') {
-          final fields = List<Map<String, dynamic>>.from(decodedValue['fields']);
+          final fields =
+              List<Map<String, dynamic>>.from(decodedValue['fields']);
           return SchemaTable(fields: fields);
         }
         return const SizedBox.shrink();

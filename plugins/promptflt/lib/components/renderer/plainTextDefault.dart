@@ -11,16 +11,20 @@ class PlainTextDefault extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final style = appConfig.theme.components.plainTextDefault;
+    final style = appConfig.theme.plainTextDefault;
 
     return Container(
-      margin: EdgeInsets.symmetric(vertical: appConfig.theme.spacingSmall / 2),
+      margin: EdgeInsets.only(
+          top: appConfig.theme.spacingXLarge,
+          left: appConfig.theme.spacingSmall / 2,
+          right: appConfig.theme.spacingSmall / 2),
       child: Text(
         content,
         style: TextStyle(
           color: style.textColor,
-          fontSize: appConfig.theme.fontSizeMedium,
+          fontSize: appConfig.theme.fontSizeLarge,
         ),
+        textAlign: TextAlign.justify,
       ),
     );
   }

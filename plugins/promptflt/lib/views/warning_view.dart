@@ -1,8 +1,6 @@
-import 'dart:async';  // Para Timer
+import 'dart:async'; // Para Timer
 import 'package:flutter/material.dart';
-import '../services/connection_service.dart';
 import '../services/session_service.dart';
-import '../services/api_service.dart';  // Para ApiService
 import 'chat_view.dart';
 import '../configs/app_config.dart';
 
@@ -34,7 +32,7 @@ class _WarningViewState extends State<WarningView> {
 
   void _startCountdown() {
     _countdown.value = 10;
-    
+
     _countdownTimer?.cancel();
     _countdownTimer = Timer.periodic(
       const Duration(seconds: 1),
@@ -52,7 +50,7 @@ class _WarningViewState extends State<WarningView> {
   Future<void> _validateAndRetry() async {
     try {
       final ready = await SessionService.ensureValidSession();
-      
+
       if (ready) {
         if (mounted) {
           Navigator.of(context).pushReplacement(
@@ -88,7 +86,7 @@ class _WarningViewState extends State<WarningView> {
               style: TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
-                color: appConfig.theme.textPrimary,
+                color: appConfig.theme.text,
               ),
             ),
             const SizedBox(height: 16),
@@ -103,8 +101,8 @@ class _WarningViewState extends State<WarningView> {
             const SizedBox(height: 32),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
-                backgroundColor: appConfig.theme.components.messageInput.buttonBackground,
-                foregroundColor: appConfig.theme.components.messageInput.iconColor,
+                backgroundColor: appConfig.theme.primary,
+                foregroundColor: appConfig.theme.onPrimary,
                 padding: const EdgeInsets.symmetric(
                   horizontal: 32,
                   vertical: 16,
@@ -123,9 +121,4 @@ class _WarningViewState extends State<WarningView> {
       ),
     );
   }
-
-  String _getCurrentDate() {
-    final now = DateTime.now();
-    return '${now.month.toString().padLeft(2, '0')}/${now.year}';
-  }
-} 
+}

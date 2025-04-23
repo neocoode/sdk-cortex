@@ -15,7 +15,7 @@ class UserMessage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final userStyle = appConfig.theme.components.userMessage;
+    final style = appConfig.theme.userMessage;
 
     return Container(
       margin: EdgeInsets.symmetric(
@@ -24,10 +24,10 @@ class UserMessage extends StatelessWidget {
       ),
       padding: EdgeInsets.all(appConfig.theme.spacingMedium),
       decoration: BoxDecoration(
-        color: userStyle.backgroundColor,
+        color: style.backgroundColor,
         borderRadius: BorderRadius.circular(appConfig.theme.borderRadiusLarge),
         border: Border.all(
-          color: userStyle.borderColor,
+          color: style.borderColor,
           width: 1,
         ),
       ),
@@ -38,7 +38,7 @@ class UserMessage extends StatelessWidget {
             child: Text(
               message['value'].toString(),
               style: TextStyle(
-                color: userStyle.textColor,
+                color: style.textColor,
                 fontSize: appConfig.theme.fontSizeMedium,
                 fontFamily: appConfig.theme.fontFamily,
               ),
@@ -48,7 +48,7 @@ class UserMessage extends StatelessWidget {
           IconButton(
             icon: Icon(
               Icons.refresh,
-              color: userStyle.iconColor,
+              color: style.iconColor,
               size: 20,
             ),
             onPressed: () => onResend(message['value'].toString()),

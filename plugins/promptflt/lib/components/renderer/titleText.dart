@@ -11,10 +11,13 @@ class TitleText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final style = appConfig.theme.components.titleText;
+    final style = appConfig.theme.titleText;
 
     return Container(
-      margin: EdgeInsets.symmetric(vertical: appConfig.theme.spacingSmall),
+      margin: EdgeInsets.only(
+          top: appConfig.theme.spacingXLarge,
+          left: appConfig.theme.spacingSmall / 2,
+          right: appConfig.theme.spacingSmall / 2),
       child: Text(
         content,
         style: TextStyle(

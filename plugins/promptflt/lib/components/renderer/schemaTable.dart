@@ -41,7 +41,7 @@ class SchemaTable extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = appConfig.theme;
-    final style = theme.components.schemaTable;
+    final style = theme.schemaTable;
 
     if (fields.isEmpty) {
       return Text(
@@ -51,7 +51,10 @@ class SchemaTable extends StatelessWidget {
     }
 
     return Container(
-      margin: EdgeInsets.symmetric(vertical: theme.spacingSmall),
+      margin: EdgeInsets.only(
+          top: appConfig.theme.spacingXLarge,
+          left: appConfig.theme.spacingSmall / 2,
+          right: appConfig.theme.spacingSmall / 2),
       padding: EdgeInsets.zero,
       decoration: BoxDecoration(
         color: style.rowBackground,
@@ -122,19 +125,21 @@ class SchemaTable extends StatelessWidget {
                   'Exemplo',
                   'Descrição',
                   'Fonte',
-                ].map(
-                  (header) => DataColumn(
-                    label: Text(
-                      header,
-                      style: TextStyle(
-                        color: style.headerTextColor,
-                        fontSize: theme.fontSizeSmall,
-                        fontWeight: FontWeight.bold,
-                        fontFamily: theme.fontFamily,
+                ]
+                    .map(
+                      (header) => DataColumn(
+                        label: Text(
+                          header,
+                          style: TextStyle(
+                            color: style.headerTextColor,
+                            fontSize: theme.fontSizeSmall,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: theme.fontFamily,
+                          ),
+                        ),
                       ),
-                    ),
-                  ),
-                ).toList(),
+                    )
+                    .toList(),
                 rows: fields.map((field) {
                   return DataRow(
                     cells: [
@@ -143,18 +148,20 @@ class SchemaTable extends StatelessWidget {
                       field['example'] ?? '',
                       field['description'] ?? '',
                       field['source'] ?? '',
-                    ].map(
-                      (value) => DataCell(
-                        Text(
-                          value,
-                          style: TextStyle(
-                            color: style.rowTextColor,
-                            fontSize: theme.fontSizeSmall,
-                            fontFamily: theme.fontFamily,
+                    ]
+                        .map(
+                          (value) => DataCell(
+                            Text(
+                              value,
+                              style: TextStyle(
+                                color: style.rowTextColor,
+                                fontSize: theme.fontSizeSmall,
+                                fontFamily: theme.fontFamily,
+                              ),
+                            ),
                           ),
-                        ),
-                      ),
-                    ).toList(),
+                        )
+                        .toList(),
                   );
                 }).toList(),
               ),

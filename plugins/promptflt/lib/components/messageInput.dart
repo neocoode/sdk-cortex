@@ -43,131 +43,136 @@ class MessageInputState extends State<MessageInput> {
   }
 
   @override
-Widget build(BuildContext context) {
-  final style = appConfig.theme.components.messageInput;
+  Widget build(BuildContext context) {
+    final style = appConfig.theme.messageInput;
 
-  return SafeArea(
-    child: Container(
-      margin: EdgeInsets.all(appConfig.theme.spacingMedium),
-      padding: EdgeInsets.symmetric(
-        horizontal: appConfig.theme.spacingMedium,
-        vertical: appConfig.theme.spacingMedium,
-      ),
-      decoration: BoxDecoration(
-        color: style.containerBackground,
-        borderRadius: BorderRadius.circular(appConfig.theme.borderRadiusXLarge),
-      ),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          // Campo de texto
-          Container(
-            padding: const EdgeInsets.all(0),
-            decoration: BoxDecoration(
-              color: style.textFieldBackground,
-              borderRadius: BorderRadius.circular(appConfig.theme.borderRadiusLarge),
-            ),
-            child: TextField(
-              controller: controller,
-              focusNode: _focusNode,
-              style: TextStyle(
-                fontSize: appConfig.theme.fontSizeLarge,
-                color: style.textColor,
+    return SafeArea(
+      child: Container(
+        margin: EdgeInsets.all(appConfig.theme.spacingMedium),
+        padding: EdgeInsets.symmetric(
+          horizontal: appConfig.theme.spacingMedium,
+          vertical: appConfig.theme.spacingMedium,
+        ),
+        decoration: BoxDecoration(
+          color: style.containerBackground,
+          borderRadius:
+              BorderRadius.circular(appConfig.theme.borderRadiusXLarge),
+          border: Border.all(color: style.borderColor),
+        ),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            // Campo de texto
+            Container(
+              padding: const EdgeInsets.all(0),
+              decoration: BoxDecoration(
+                color: style.textFieldBackground,
+                borderRadius:
+                    BorderRadius.circular(appConfig.theme.borderRadiusLarge),
               ),
-              decoration: InputDecoration(
-                hintText: 'Pergunte alguma coisa',
-                hintStyle: TextStyle(
+              child: TextField(
+                controller: controller,
+                focusNode: _focusNode,
+                style: TextStyle(
                   fontSize: appConfig.theme.fontSizeLarge,
-                  color: style.hintColor,
+                  color: style.textColor,
                 ),
-                border: InputBorder.none,
-                filled: false,
-                contentPadding: EdgeInsets.symmetric(
-                  horizontal: appConfig.theme.spacingMedium,
+                decoration: InputDecoration(
+                  hintText: 'Pergunte alguma coisa',
+                  hintStyle: TextStyle(
+                    fontSize: appConfig.theme.fontSizeLarge,
+                    color: style.hintColor,
+                  ),
+                  border: InputBorder.none,
+                  filled: false,
+                  contentPadding: EdgeInsets.symmetric(
+                    horizontal: appConfig.theme.spacingMedium,
+                  ),
                 ),
+                onSubmitted: (_) => _send(),
               ),
-              onSubmitted: (_) => _send(),
             ),
-          ),
 
-          SizedBox(height: appConfig.theme.spacingMedium),
+            SizedBox(height: appConfig.theme.spacingMedium),
 
-          // Linha de botões + enviar
-          Row(
-            children: [
-              // Botão "+"
-              Container(
-                padding: EdgeInsets.all(appConfig.theme.spacingSmall),
-                decoration: BoxDecoration(
-                  color: style.textFieldBackground,
-                  shape: BoxShape.circle,
-                ),
-                child: SvgPicture.asset(
-                  'assets/plus.svg',
-                  height: 24,
-                  colorFilter: ColorFilter.mode(
-                    style.iconColor,
-                    BlendMode.srcIn,
+            // Linha de botões + enviar
+            Row(
+              children: [
+                // Botão "+"
+                Container(
+                  padding: EdgeInsets.all(appConfig.theme.spacingSmall),
+                  decoration: BoxDecoration(
+                    color: style.textFieldBackground,
+                    shape: BoxShape.circle,
                   ),
-                ),
-              ),
-
-              SizedBox(width: appConfig.theme.spacingSmall),
-
-              // Botão "..."
-              Container(
-                padding: EdgeInsets.all(appConfig.theme.spacingSmall),
-                decoration: BoxDecoration(
-                  color: style.textFieldBackground,
-                  shape: BoxShape.circle,
-                ),
-                child: SvgPicture.asset(
-                  'assets/more.svg',
-                  height: 24,
-                  colorFilter: ColorFilter.mode(
-                    style.iconColor,
-                    BlendMode.srcIn,
-                  ),
-                ),
-              ),
-
-              const Spacer(),
-
-              // Botão de ação (enviar, gravar ou processando)
-              ValueListenableBuilder<bool>(
-                valueListenable: widget.isProcessing,
-                builder: (context, isProcessing, child) {
-                  final isTyping = _isTyping.value;
-                  final String iconPath = isProcessing
-                      ? 'assets/process.svg'
-                      : (isTyping ? 'assets/send.svg' : 'assets/record.svg');
-
-                  return Container(
-                    padding: EdgeInsets.all(appConfig.theme.spacingSmall),
-                    decoration: BoxDecoration(
-                      color: isTyping ? style.buttonBackground : Colors.transparent,
-                      shape: BoxShape.circle,
+                  child: SvgPicture.asset(
+                    'assets/plus.svg',
+                    height: 24,
+                    colorFilter: ColorFilter.mode(
+                      style.iconColor,
+                      BlendMode.srcIn,
                     ),
-                    child: IconButton(
-                      icon: SvgPicture.asset(
-                        iconPath,
-                        height: 24,
-                        colorFilter: ColorFilter.mode(
-                          style.iconColor,
-                          BlendMode.srcIn,
-                        ),
+                  ),
+                ),
+
+                SizedBox(width: appConfig.theme.spacingSmall),
+
+                // Botão "..."
+                Container(
+                  padding: EdgeInsets.all(appConfig.theme.spacingSmall),
+                  decoration: BoxDecoration(
+                    color: style.textFieldBackground,
+                    shape: BoxShape.circle,
+                  ),
+                  child: SvgPicture.asset(
+                    'assets/more.svg',
+                    height: 24,
+                    colorFilter: ColorFilter.mode(
+                      style.iconColor,
+                      BlendMode.srcIn,
+                    ),
+                  ),
+                ),
+
+                const Spacer(),
+
+                // Botão de ação (enviar, gravar ou processando)
+                ValueListenableBuilder<bool>(
+                  valueListenable: widget.isProcessing,
+                  builder: (context, isProcessing, child) {
+                    final isTyping = _isTyping.value;
+                    final String iconPath = isProcessing
+                        ? 'assets/process.svg'
+                        : (isTyping ? 'assets/send.svg' : 'assets/record.svg');
+
+                    return Container(
+                      padding: EdgeInsets.all(appConfig.theme.spacingSmall),
+                      decoration: BoxDecoration(
+                        color: isTyping
+                            ? style.buttonBackground
+                            : Colors.transparent,
+                        shape: BoxShape.circle,
                       ),
-                      onPressed: isTyping && !isProcessing ? _send : null,
-                      tooltip: isTyping ? 'Enviar' : 'Gravar áudio',
-                    ),
-                  );
-                },
-              ),
-            ],
-          ),
-        ],
+                      child: IconButton(
+                        icon: SvgPicture.asset(
+                          iconPath,
+                          height: 24,
+                          colorFilter: ColorFilter.mode(
+                            style.iconColor,
+                            BlendMode.srcIn,
+                          ),
+                        ),
+                        onPressed: isTyping && !isProcessing ? _send : null,
+                        tooltip: isTyping ? 'Enviar' : 'Gravar áudio',
+                      ),
+                    );
+                  },
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
-    ),
     );
   }
 

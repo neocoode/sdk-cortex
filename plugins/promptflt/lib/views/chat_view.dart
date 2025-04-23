@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'dart:async';
 
 import '../components/messageBubble.dart';
@@ -64,12 +63,12 @@ class _ChatViewState extends State<ChatView> {
       for (var res in responses) {
         setState(() => messages.add(res));
       }
-      
+
       _isProcessing.value = false;
     } catch (e) {
       print('[ERRO] Falha ao enviar mensagem: $e');
       _isProcessing.value = false;
-      
+
       _navigateToWarning();
     }
   }
@@ -79,7 +78,8 @@ class _ChatViewState extends State<ChatView> {
     return Scaffold(
       backgroundColor: appConfig.theme.background,
       body: Container(
-        margin: EdgeInsets.symmetric(horizontal: 0, vertical: appConfig.theme.spacingLarge),
+        margin: EdgeInsets.symmetric(
+            horizontal: 0, vertical: appConfig.theme.spacingLarge),
         child: Column(
           children: [
             Expanded(
@@ -89,15 +89,15 @@ class _ChatViewState extends State<ChatView> {
                   horizontal: appConfig.theme.spacingXLarge,
                   vertical: 0,
                 ),
-                itemBuilder:
-                    (_, index) => MessageBubble(
-                      message: messages[index],
-                      onResend: sendMessage,
-                    ),
+                itemBuilder: (_, index) => MessageBubble(
+                  message: messages[index],
+                  onResend: sendMessage,
+                ),
               ),
             ),
             Container(
-              margin: EdgeInsets.symmetric(horizontal: appConfig.theme.spacingXLarge),
+              margin: EdgeInsets.symmetric(
+                  horizontal: appConfig.theme.spacingXLarge),
               child: MessageInput(
                 onSend: sendMessage,
                 isProcessing: _isProcessing,
@@ -106,7 +106,7 @@ class _ChatViewState extends State<ChatView> {
             Padding(
               padding: EdgeInsets.only(bottom: appConfig.theme.spacingSmall),
               child: Text(
-                "Luma Beta - ${appConfig.currentTheme.toString().split('.').last} - ${_getCurrentDate()}",
+                "Lunar Beta - ${appConfig.theme.toString().split('.').last} - ${_getCurrentDate()}",
                 style: TextStyle(
                   fontSize: appConfig.theme.fontSizeXLarge,
                   color: appConfig.theme.textSecondary,

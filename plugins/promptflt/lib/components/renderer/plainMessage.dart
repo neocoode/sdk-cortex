@@ -11,11 +11,13 @@ class PlainMessage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final style = appConfig.theme.components.plainMessage;
+    final style = appConfig.theme.plainMessage;
 
     return Container(
-      margin: EdgeInsets.symmetric(vertical: appConfig.theme.spacingSmall / 2),
-      padding: EdgeInsets.all(appConfig.theme.spacingSmall),
+      margin: EdgeInsets.only(
+          top: appConfig.theme.spacingXLarge,
+          left: appConfig.theme.spacingSmall / 2,
+          right: appConfig.theme.spacingSmall / 2),
       decoration: BoxDecoration(
         color: style.backgroundColor,
         borderRadius: BorderRadius.circular(appConfig.theme.borderRadiusLarge),
@@ -24,8 +26,9 @@ class PlainMessage extends StatelessWidget {
         content,
         style: TextStyle(
           color: style.textColor,
-          fontSize: appConfig.theme.fontSizeMedium,
+          fontSize: appConfig.theme.fontSizeLarge,
         ),
+        textAlign: TextAlign.justify,
       ),
     );
   }

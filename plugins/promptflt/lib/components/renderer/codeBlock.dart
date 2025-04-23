@@ -22,7 +22,7 @@ class CodeBlock extends StatelessWidget {
             color: appConfig.theme.onPrimary,
           ),
         ),
-        backgroundColor: appConfig.theme.primary,
+        backgroundColor: appConfig.theme.backgroundSecondary,
         duration: const Duration(seconds: 2),
       ),
     );
@@ -30,15 +30,18 @@ class CodeBlock extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final style = appConfig.theme.components.codeBlock;
+    final style = appConfig.theme.codeBlock;
 
     return Container(
-      margin: EdgeInsets.symmetric(vertical: appConfig.theme.spacingSmall),
+      margin: EdgeInsets.only(
+          top: appConfig.theme.spacingXLarge,
+          left: appConfig.theme.spacingSmall / 2,
+          right: appConfig.theme.spacingSmall / 2),
       decoration: BoxDecoration(
         color: style.backgroundColor,
         borderRadius: BorderRadius.circular(appConfig.theme.borderRadiusLarge),
         border: Border.all(
-          color: appConfig.theme.border,
+          color: style.borderColor,
           width: 1,
         ),
       ),
@@ -52,7 +55,7 @@ class CodeBlock extends StatelessWidget {
               vertical: appConfig.theme.spacingSmall,
             ),
             decoration: BoxDecoration(
-              color: appConfig.theme.surfaceLight,
+              color: style.surfaceLight,
               borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(appConfig.theme.borderRadiusLarge),
                 topRight: Radius.circular(appConfig.theme.borderRadiusLarge),
@@ -64,7 +67,7 @@ class CodeBlock extends StatelessWidget {
                 Text(
                   'Código',
                   style: TextStyle(
-                    color: style.textColor,
+                    color: style.titleColor,
                     fontSize: appConfig.theme.fontSizeMedium,
                     fontWeight: FontWeight.bold,
                   ),
@@ -83,16 +86,23 @@ class CodeBlock extends StatelessWidget {
 
           // Bloco de código com highlight
           Container(
-            padding: EdgeInsets.all(appConfig.theme.spacingMedium),
+            decoration: BoxDecoration(
+              color: style.backgroundColor,
+              borderRadius: BorderRadius.only(
+                bottomLeft: Radius.circular(appConfig.theme.borderRadiusLarge),
+                bottomRight: Radius.circular(appConfig.theme.borderRadiusLarge),
+              ),
+            ),
             child: HighlightView(
+              padding: EdgeInsets.all(appConfig.theme.spacingMedium),
               content,
               language: 'dart',
               theme: monokaiSublimeTheme,
-              padding: EdgeInsets.zero,
               textStyle: TextStyle(
                 fontSize: appConfig.theme.fontSizeMedium,
-                fontFamily: 'monospace',
+                fontFamily: appConfig.theme.fontFamily,
                 color: style.textColor,
+                height: 1.5,
               ),
             ),
           ),

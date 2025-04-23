@@ -40,23 +40,23 @@ class _MessageBubbleState extends State<MessageBubble> {
     }
 
     // Estilos do assistant
-    final assistantStyle = appConfig.theme.components.assistantMessage;
+    final style = appConfig.theme.assistantMessage;
 
     return Align(
       alignment: Alignment.centerLeft,
       child: Container(
         margin: EdgeInsets.symmetric(
-          vertical: appConfig.theme.spacingSmall / 2,
           horizontal: appConfig.theme.spacingSmall,
         ),
-        padding: EdgeInsets.all(appConfig.theme.spacingMedium),
+        padding: EdgeInsets.all(appConfig.theme.spacingSuperSmall),
         decoration: BoxDecoration(
-          color: assistantStyle.backgroundColor,
-          borderRadius: BorderRadius.circular(appConfig.theme.borderRadiusLarge),
+          color: style.backgroundColor,
+          borderRadius:
+              BorderRadius.circular(appConfig.theme.borderRadiusLarge),
         ),
         child: DefaultTextStyle(
           style: TextStyle(
-            color: assistantStyle.textColor,
+            color: style.textColor,
             fontSize: appConfig.theme.fontSizeMedium,
             fontFamily: appConfig.theme.fontFamily,
           ),

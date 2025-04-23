@@ -19,39 +19,34 @@ class LinkText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final style = appConfig.theme.components.linkText;
+    final style = appConfig.theme.linkText;
 
-    return Container(
-      margin: EdgeInsets.symmetric(vertical: appConfig.theme.spacingSmall / 2),
-      child: InkWell(
-        onTap: _launchUrl,
-        child: Container(
-          padding: EdgeInsets.all(appConfig.theme.spacingSmall),
-          decoration: BoxDecoration(
-            color: style.backgroundColor,
-            borderRadius: BorderRadius.circular(appConfig.theme.borderRadiusLarge),
-          ),
-          child: Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Icon(
-                Icons.link,
-                color: style.iconColor,
-                size: 20,
-              ),
-              SizedBox(width: appConfig.theme.spacingSmall),
-              Flexible(
-                child: Text(
-                  url,
-                  style: TextStyle(
-                    color: style.textColor,
-                    fontSize: appConfig.theme.fontSizeMedium,
-                    decoration: TextDecoration.underline,
-                  ),
+    return InkWell(
+      onTap: _launchUrl,
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius:
+              BorderRadius.circular(appConfig.theme.borderRadiusLarge),
+        ),
+        child: Row(
+          children: [
+            Icon(
+              Icons.link,
+              color: style.iconColor,
+              size: 20,
+            ),
+            SizedBox(width: appConfig.theme.spacingSmall / 2),
+            Flexible(
+              child: Text(
+                url,
+                style: TextStyle(
+                  color: style.textColor,
+                  fontSize: appConfig.theme.fontSizeMedium,
+                  decoration: TextDecoration.underline,
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

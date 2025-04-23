@@ -11,7 +11,7 @@ class ImageGallery extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final style = appConfig.theme.components.imageGallery;
+    final style = appConfig.theme.imageGallery;
 
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 8),
