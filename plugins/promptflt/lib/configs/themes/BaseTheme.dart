@@ -1,5 +1,35 @@
 import 'package:flutter/material.dart';
 
+class CustomThemeItems {
+  final Color? topBarBackground;
+  final Color? topBarTextColor;
+  final Color? topBarIconColor;    
+  final Color? backgroundColor;
+  final Color? titleColor;
+  final Color? borderColor;
+  final Color? textColor;
+  final Color? iconColor;
+  final Color? surfaceLight;
+  final Color? rowBackground;
+  final Color? rowTextColor;
+  final FontWeight? fontWeight;
+
+  const CustomThemeItems({
+    this.titleColor,
+    this.backgroundColor,
+    this.topBarBackground,
+    this.topBarTextColor,
+    this.topBarIconColor,
+    this.borderColor,
+    this.textColor,
+    this.iconColor,
+    this.surfaceLight,
+    this.rowBackground,
+    this.rowTextColor,
+    this.fontWeight,
+  });
+}
+
 class UserMessageStyle {
   final Color backgroundColor;
   final Color borderColor;
@@ -56,24 +86,6 @@ class ImageGalleryStyle {
   });
 }
 
-class CodeBlockStyle {
-  final Color titleColor;
-  final Color backgroundColor;
-  final Color borderColor;
-  final Color textColor;
-  final Color iconColor;
-  final Color surfaceLight;
-
-  const CodeBlockStyle({
-    required this.titleColor,
-    required this.backgroundColor,
-    required this.borderColor,
-    required this.textColor,
-    required this.iconColor,
-    required this.surfaceLight,
-  });
-}
-
 class LinkTextStyle {
   final Color iconColor;
   final Color textColor;
@@ -122,6 +134,9 @@ class MessageInputStyle {
   final Color iconColor;
   final Color buttonBackground;
   final Color borderColor;
+  final Color cursorColor;
+  final Color cursorFocusedColor;
+  final Color buttonColor;
 
   const MessageInputStyle({
     required this.containerBackground,
@@ -131,24 +146,9 @@ class MessageInputStyle {
     required this.iconColor,
     required this.buttonBackground,
     required this.borderColor,
-  });
-}
-
-class SchemaTableStyle {
-  final Color headerBackground;
-  final Color headerTextColor;
-  final Color rowBackground;
-  final Color rowTextColor;
-  final Color borderColor;
-  final Color shadowColor;
-
-  const SchemaTableStyle({
-    required this.headerBackground,
-    required this.headerTextColor,
-    required this.rowBackground,
-    required this.rowTextColor,
-    required this.borderColor,
-    required this.shadowColor,
+    required this.cursorColor,
+    required this.cursorFocusedColor,
+    required this.buttonColor,
   });
 }
 
@@ -169,6 +169,7 @@ class BaseTheme {
   final Color text;
   final Color textSecondary;
   final Color shadow;
+  final Color modalBackgroundColor;
 
   final String fontFamily;
   final double fontSizeSmall;
@@ -188,17 +189,18 @@ class BaseTheme {
   final double borderRadiusLarge;
   final double borderRadiusXLarge;
 
-  final UserMessageStyle userMessage;
+  final CustomThemeItems codeBlock;
+  final CustomThemeItems schemaTable;
+  final CustomThemeItems userMessage;
+  final CustomThemeItems titleText;
+
   final AssistantMessageStyle assistantMessage;
   final MessageRendererStyle messageRenderer;
   final ImageGalleryStyle imageGallery;
-  final CodeBlockStyle codeBlock;
   final LinkTextStyle linkText;
   final PlainMessageStyle plainMessage;
   final PlainTextStyle plainText;
   final PlainTextStyle plainTextDefault;
-  final SchemaTableStyle schemaTable;
-  final TitleTextStyle titleText;
   final MessageInputStyle messageInput;
   final Color backgroundSecondary;
 
@@ -247,5 +249,6 @@ class BaseTheme {
     required this.schemaTable,
     required this.titleText,
     required this.messageInput,
+    required this.modalBackgroundColor,
   });
 }

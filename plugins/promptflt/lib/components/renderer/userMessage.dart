@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../../configs/app_config.dart';
 
 class UserMessage extends StatelessWidget {
@@ -18,16 +19,16 @@ class UserMessage extends StatelessWidget {
     final style = appConfig.theme.userMessage;
 
     return Container(
-      margin: EdgeInsets.symmetric(
-        vertical: appConfig.theme.spacingSmall / 2,
-        horizontal: appConfig.theme.spacingSmall,
+      margin: EdgeInsets.only(
+        left: appConfig.theme.spacingSmall / 2,
+        right: appConfig.theme.spacingSmall / 2,
       ),
       padding: EdgeInsets.all(appConfig.theme.spacingMedium),
       decoration: BoxDecoration(
         color: style.backgroundColor,
         borderRadius: BorderRadius.circular(appConfig.theme.borderRadiusLarge),
         border: Border.all(
-          color: style.borderColor,
+          color: style.borderColor ?? Colors.transparent,
           width: 1,
         ),
       ),
@@ -39,7 +40,7 @@ class UserMessage extends StatelessWidget {
               message['value'].toString(),
               style: TextStyle(
                 color: style.textColor,
-                fontSize: appConfig.theme.fontSizeMedium,
+                fontSize: appConfig.theme.fontSizeLarge,
                 fontFamily: appConfig.theme.fontFamily,
               ),
             ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+
 import '../configs/app_config.dart';
 
 class MessageInput extends StatefulWidget {
@@ -74,14 +75,22 @@ class MessageInputState extends State<MessageInput> {
                 controller: controller,
                 focusNode: _focusNode,
                 style: TextStyle(
-                  fontSize: appConfig.theme.fontSizeLarge,
                   color: style.textColor,
+                  fontSize: appConfig.theme.fontSizeLarge,
                 ),
                 decoration: InputDecoration(
                   hintText: 'Pergunte alguma coisa',
                   hintStyle: TextStyle(
-                    fontSize: appConfig.theme.fontSizeLarge,
                     color: style.hintColor,
+                    fontSize: appConfig.theme.fontSizeLarge,
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: style.cursorColor),
+                    borderRadius: BorderRadius.circular(appConfig.theme.borderRadiusLarge),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: style.cursorColor),
+                    borderRadius: BorderRadius.circular(appConfig.theme.borderRadiusLarge),
                   ),
                   border: InputBorder.none,
                   filled: false,
@@ -102,14 +111,14 @@ class MessageInputState extends State<MessageInput> {
                 Container(
                   padding: EdgeInsets.all(appConfig.theme.spacingSmall),
                   decoration: BoxDecoration(
-                    color: style.textFieldBackground,
+                    color: style.buttonBackground,
                     shape: BoxShape.circle,
                   ),
                   child: SvgPicture.asset(
                     'assets/plus.svg',
                     height: 24,
                     colorFilter: ColorFilter.mode(
-                      style.iconColor,
+                      style.buttonColor,
                       BlendMode.srcIn,
                     ),
                   ),
@@ -121,14 +130,14 @@ class MessageInputState extends State<MessageInput> {
                 Container(
                   padding: EdgeInsets.all(appConfig.theme.spacingSmall),
                   decoration: BoxDecoration(
-                    color: style.textFieldBackground,
+                    color: style.buttonBackground,
                     shape: BoxShape.circle,
                   ),
                   child: SvgPicture.asset(
                     'assets/more.svg',
                     height: 24,
                     colorFilter: ColorFilter.mode(
-                      style.iconColor,
+                      style.buttonColor,
                       BlendMode.srcIn,
                     ),
                   ),
@@ -148,9 +157,7 @@ class MessageInputState extends State<MessageInput> {
                     return Container(
                       padding: EdgeInsets.all(appConfig.theme.spacingSmall),
                       decoration: BoxDecoration(
-                        color: isTyping
-                            ? style.buttonBackground
-                            : Colors.transparent,
+                        color: style.buttonBackground,
                         shape: BoxShape.circle,
                       ),
                       child: IconButton(
@@ -158,7 +165,7 @@ class MessageInputState extends State<MessageInput> {
                           iconPath,
                           height: 24,
                           colorFilter: ColorFilter.mode(
-                            style.iconColor,
+                            style.buttonColor,
                             BlendMode.srcIn,
                           ),
                         ),

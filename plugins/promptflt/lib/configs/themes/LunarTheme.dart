@@ -1,13 +1,29 @@
 import 'package:flutter/material.dart';
+
 import 'BaseTheme.dart';
 
-const backgroundColor = Color.fromARGB(255, 83, 14, 14);
+const backgroundColor = Color.fromARGB(255, 29, 29, 29);
+const primaryBackgroundColor = Color.fromARGB(255, 29, 29, 29);
+const primaryBorderColor = Color.fromARGB(255, 255, 168, 63);
+
+const secondaryBackground = Color.fromARGB(255, 131, 86, 31);
+const secondaryBorderColor = Color.fromARGB(255, 149, 99, 36);
+
+const topBarBackground = Color.fromARGB(255, 64, 64, 64);
+const topBarTextColor = Color.fromARGB(255, 173, 173, 173);
+const topBarIconColor = topBarTextColor;
+
+const cardBackground = Color.fromARGB(255, 32, 32, 32);
+const cardBorderColor = Color.fromARGB(255, 66, 66, 66);
+const cardTextColor = Color.fromARGB(255, 236, 236, 236);
+
 const textColor = Color.fromARGB(255, 236, 236, 236);
 
-class MarsTheme extends BaseTheme {
-  MarsTheme()
+class LunarTheme extends BaseTheme {
+  LunarTheme()
       : super(
-          name: 'mars',
+          name: 'lunar',
+          modalBackgroundColor: const Color.fromARGB(255, 68, 130, 189),
           primary: const Color.fromARGB(255, 255, 148, 124),
           secondary: const Color.fromARGB(255, 249, 92, 56),
           background: backgroundColor,
@@ -46,11 +62,11 @@ class MarsTheme extends BaseTheme {
             codeBackground: Color(0xFFF0F0F0),
             codeTextColor: Color(0xFF333333),
           ),
-          userMessage: const UserMessageStyle(
-            backgroundColor: backgroundColor,
-            borderColor: Color.fromARGB(255, 128, 20, 20),
-            textColor: Color.fromARGB(255, 255, 255, 255),
-            iconColor: Color.fromARGB(255, 252, 158, 136),
+          userMessage: const CustomThemeItems(
+            backgroundColor: Color.fromARGB(255, 49, 68, 111),
+            borderColor: Color.fromARGB(255, 61, 83, 135),
+            textColor: textColor,
+            iconColor: Color.fromARGB(255, 158, 187, 255),
           ),
           assistantMessage: const AssistantMessageStyle(
             backgroundColor: backgroundColor,
@@ -66,12 +82,16 @@ class MarsTheme extends BaseTheme {
           plainTextDefault: const PlainTextStyle(
             textColor: textColor,
           ),
-          codeBlock: const CodeBlockStyle(
-            backgroundColor: Color.fromARGB(255, 51, 46, 46),
-            borderColor: Color.fromARGB(255, 150, 61, 61),
-            surfaceLight: Color.fromARGB(255, 111, 41, 41),
-            iconColor: Color.fromARGB(255, 241, 184, 184),
-            titleColor: Color.fromARGB(255, 241, 184, 184),
+          codeBlock: const CustomThemeItems(
+            topBarBackground: topBarBackground, 
+            topBarTextColor: topBarTextColor,
+            topBarIconColor: topBarIconColor,
+            backgroundColor:cardBackground ,
+            borderColor: cardBorderColor,
+
+            surfaceLight: Color.fromARGB(255, 71, 71, 71),
+            iconColor: Color.fromARGB(255, 201, 201, 201),
+            titleColor: Color.fromARGB(255, 201, 201, 201),
             textColor: Color.fromARGB(255, 238, 208, 208),
           ),
           linkText: const LinkTextStyle(
@@ -79,8 +99,8 @@ class MarsTheme extends BaseTheme {
             textColor: Color.fromARGB(255, 90, 172, 255),
             iconColor: Color.fromARGB(255, 133, 194, 255),
           ),
-          titleText: const TitleTextStyle(
-            textColor: textColor,
+          titleText: const CustomThemeItems(
+            textColor: Color.fromARGB(255, 88, 224, 197),
             fontWeight: FontWeight.bold,
           ),
           imageGallery: const ImageGalleryStyle(
@@ -90,22 +110,26 @@ class MarsTheme extends BaseTheme {
             errorIconColor: Color(0xFFFF3333),
             errorTextColor: Color(0xFF757575),
           ),
-          schemaTable: const SchemaTableStyle(
-            headerBackground: Color.fromARGB(255, 100, 38, 38),
-            borderColor: Color.fromARGB(255, 148, 65, 65),
-            headerTextColor: Color.fromARGB(255, 241, 184, 184),
-            rowBackground: Color.fromARGB(255, 54, 24, 24),
-            rowTextColor: Color.fromARGB(255, 238, 208, 208),
-            shadowColor: Color(0x1A000000),
+          schemaTable: const CustomThemeItems(
+            topBarBackground: topBarBackground, 
+            topBarTextColor: topBarTextColor,
+            topBarIconColor: topBarIconColor,
+            borderColor: cardBorderColor,
+            backgroundColor: cardBackground,
+            rowBackground: cardBackground,
+            rowTextColor: cardTextColor,
           ),
           messageInput: const MessageInputStyle(
-            containerBackground: Color.fromARGB(255, 100, 38, 38),
-            borderColor: Color.fromARGB(255, 123, 51, 51),
-            iconColor: Color.fromARGB(255, 246, 73, 73),
-            buttonBackground: Color.fromARGB(255, 203, 67, 37),
-            textFieldBackground: Color(0xFF1C1C1C),
-            textColor: Color(0xFFE0E0E0),
-            hintColor: Color(0xFFAAAAAA),
+            containerBackground: Color.fromARGB(255, 36, 36, 36),
+            borderColor: Color.fromARGB(255, 42, 42, 42),
+            textFieldBackground: Color.fromARGB(255, 73, 73, 73),
+            cursorColor: Color.fromARGB(255, 87, 87, 87),
+            cursorFocusedColor: Color.fromARGB(255, 173, 173, 173),
+            hintColor: Color.fromARGB(255, 133, 171, 163),
+            textColor: Color.fromARGB(255, 248, 255, 254),
+            iconColor: Color.fromARGB(255, 88, 224, 197),
+            buttonBackground: Color.fromARGB(255, 88, 224, 197),
+            buttonColor: Color.fromARGB(255, 49, 33, 14),
           ),
         );
 }

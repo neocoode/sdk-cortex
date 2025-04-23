@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import '../views/warning_view.dart';
 import '../services/session_service.dart';

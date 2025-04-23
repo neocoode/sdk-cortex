@@ -1,11 +1,12 @@
-import 'package:flutter/material.dart';
 import 'dart:async';
+
+import 'package:flutter/material.dart';
 
 import '../components/messageBubble.dart';
 import '../components/messageInput.dart';
+import '../configs/app_config.dart';
 import '../services/api_service.dart';
 import '../services/session_service.dart';
-import '../configs/app_config.dart';
 import 'warning_view.dart';
 
 class ChatView extends StatefulWidget {
@@ -106,9 +107,9 @@ class _ChatViewState extends State<ChatView> {
             Padding(
               padding: EdgeInsets.only(bottom: appConfig.theme.spacingSmall),
               child: Text(
-                "Lunar Beta - ${appConfig.theme.toString().split('.').last} - ${_getCurrentDate()}",
+                "Lunar Beta - ${_getCurrentDate()}",
                 style: TextStyle(
-                  fontSize: appConfig.theme.fontSizeXLarge,
+                  fontSize: appConfig.theme.fontSizeSmall,
                   color: appConfig.theme.textSecondary,
                 ),
               ),

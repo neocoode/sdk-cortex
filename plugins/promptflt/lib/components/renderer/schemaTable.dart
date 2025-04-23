@@ -1,7 +1,10 @@
-import 'package:flutter/material.dart';
 import 'dart:convert';
+
+import 'package:flutter/material.dart';
 import 'package:universal_html/html.dart' as html;
+
 import '../../configs/app_config.dart';
+import '../customCard.dart';
 
 class SchemaTable extends StatelessWidget {
   final List<Map<String, dynamic>> fields;
@@ -50,125 +53,77 @@ class SchemaTable extends StatelessWidget {
       );
     }
 
-    return Container(
-      margin: EdgeInsets.only(
-          top: appConfig.theme.spacingXLarge,
-          left: appConfig.theme.spacingSmall / 2,
-          right: appConfig.theme.spacingSmall / 2),
-      padding: EdgeInsets.zero,
-      decoration: BoxDecoration(
-        color: style.rowBackground,
-        borderRadius: BorderRadius.circular(theme.borderRadiusMedium),
-        border: Border.all(color: style.borderColor),
-        boxShadow: [
-          BoxShadow(
-            color: style.shadowColor,
-            blurRadius: 4,
-            offset: const Offset(0, 2),
-          )
-        ],
-      ),
-      width: double.infinity,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          // Header
-          Container(
-            decoration: BoxDecoration(
-              color: style.headerBackground,
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(theme.borderRadiusMedium),
-                topRight: Radius.circular(theme.borderRadiusMedium),
-              ),
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Padding(
-                  padding: EdgeInsets.all(theme.spacingSmall),
-                  child: Text(
-                    'Tabela Schema',
-                    style: TextStyle(
-                      color: style.headerTextColor,
-                      fontSize: theme.fontSizeMedium,
-                      fontWeight: FontWeight.bold,
-                      fontFamily: theme.fontFamily,
-                    ),
-                  ),
-                ),
-                IconButton(
-                  icon: Icon(
-                    Icons.download,
-                    color: style.headerTextColor,
-                    size: 20,
-                  ),
-                  padding: EdgeInsets.all(theme.spacingSmall),
-                  onPressed: _downloadCSV,
-                ),
-              ],
-            ),
+    return CustomCard(
+      title: 'Tabela Schema',
+      rightIcons: [
+        IconButton(
+          icon: Icon(
+            Icons.download,
+            color: style.topBarIconColor,
+            size: 20,
           ),
-          // Conteúdo
-          Padding(
-            padding: EdgeInsets.all(theme.spacingSmall),
-            child: SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: DataTable(
-                headingRowColor: MaterialStateProperty.all(
-                  style.headerBackground.withOpacity(0.1),
-                ),
-                dataRowColor: MaterialStateProperty.all(style.rowBackground),
-                columnSpacing: theme.spacingMedium,
-                columns: [
-                  'Campo',
-                  'Tipo',
-                  'Exemplo',
-                  'Descrição',
-                  'Fonte',
-                ]
-                    .map(
-                      (header) => DataColumn(
-                        label: Text(
-                          header,
-                          style: TextStyle(
-                            color: style.headerTextColor,
-                            fontSize: theme.fontSizeSmall,
-                            fontWeight: FontWeight.bold,
-                            fontFamily: theme.fontFamily,
-                          ),
+          padding: EdgeInsets.all(theme.spacingSmall),
+          onPressed: _downloadCSV,
+        ),
+      ],
+      content: Padding(
+        padding: EdgeInsets.all(theme.spacingSmall),
+        child: Container(
+          color: style.backgroundColor,
+          child: SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: DataTable(
+              columnSpacing: theme.spacingMedium,
+              columns: [
+                'Campo',
+                'Tipo',
+                'Exemplo',
+                'Descrição',
+                'Fonte',
+              ]
+                  .map(
+                    (header) => DataColumn(
+                      label: Text(
+                        header,
+                        style: TextStyle(
+                          color: style.rowTextColor,
+                          fontSize: theme.fontSizeSmall,
+                          fontWeight: FontWeight.bold,
+                          fontFamily: theme.fontFamily,
                         ),
                       ),
-                    )
-                    .toList(),
-                rows: fields.map((field) {
-                  return DataRow(
-                    cells: [
-                      field['field'] ?? '',
-                      field['type'] ?? '',
-                      field['example'] ?? '',
-                      field['description'] ?? '',
-                      field['source'] ?? '',
-                    ]
-                        .map(
-                          (value) => DataCell(
-                            Text(
-                              value,
-                              style: TextStyle(
-                                color: style.rowTextColor,
-                                fontSize: theme.fontSizeSmall,
-                                fontFamily: theme.fontFamily,
-                              ),
+                    ),
+                  )
+                  .toList(),
+              rows: fields.map((field) {
+                return DataRow(
+                  cells: [
+                    field['field'] ?? '',
+                    field['type'] ?? '',
+                    field['example'] ?? '',
+                    field['description'] ?? '',
+                    field['source'] ?? '',
+                  ]
+                      .map(
+                        (value) => DataCell(
+                          Text(
+                            value,
+                            style: TextStyle(
+                              color: style.rowTextColor,
+                              fontSize: theme.fontSizeSmall,
+                              fontFamily: theme.fontFamily,
                             ),
                           ),
-                        )
-                        .toList(),
-                  );
-                }).toList(),
-              ),
+                        ),
+                      )
+                      .toList(),
+                );
+              }).toList(),
             ),
           ),
-        ],
+        ),
       ),
+      style: style,
     );
   }
 }

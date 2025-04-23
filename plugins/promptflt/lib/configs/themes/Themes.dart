@@ -1,8 +1,8 @@
 import 'BaseTheme.dart';
-import 'MarsTheme.dart';
+import 'LunarTheme.dart';
 
 class Themes {
-  static final BaseTheme lunar = MarsTheme();
+  static final BaseTheme lunar = LunarTheme();
 
   static BaseTheme getTheme(String name) {
     switch (name.toLowerCase()) {
