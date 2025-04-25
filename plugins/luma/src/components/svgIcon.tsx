@@ -1,0 +1,33 @@
+/* eslint-disable @next/next/no-img-element */
+'use client';
+import React from 'react';
+
+interface SvgIconProps {
+  name: string; // ex: "send", "edit", "magic"
+  width?: number;
+  height?: number;
+  className?: string;
+  alt?: string;
+}
+
+const SvgIcon: React.FC<SvgIconProps> = ({
+  name,
+  width = 45,
+  height = 45,
+  className = '',
+  alt = '',
+}) => {
+  return (
+    <img
+      src={`/assets/svg/${name}.svg`}
+      alt={alt || name}
+      width={width}
+      height={height}
+      className={`rounded-full p-1 ${className}`}
+      loading="lazy"
+      draggable={false}
+    />
+  );
+};
+
+export default SvgIcon;

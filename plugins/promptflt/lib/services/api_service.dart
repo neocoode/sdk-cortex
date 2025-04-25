@@ -5,7 +5,8 @@ import 'package:http/http.dart' as http;
 import 'http_client.dart';
 
 class ApiService {
-  static const String baseUrl = "http://localhost:3525";
+  static const String baseUrl =
+      "http://ec2-18-207-238-131.compute-1.amazonaws.com:3525";
   static final http.Client _client = createHttpClient();
 
   /// Faz uma requisição GET genérica
