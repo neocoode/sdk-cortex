@@ -1,60 +1,86 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 // src/services/HttpClient.ts
-import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios';
+'use client';
+
+type HttpMethod = 'GET' | 'POST' | 'PUT' | 'DELETE' | 'PATCH';
+
+interface HttpOptions {
+  headers?: Record<string, string>;
+  cache?: RequestCache;
+}
 
 export class HttpClient {
-  private client: AxiosInstance;
+  
+  private baseUrl: string;
+  private defaultHeaders: Record<string, string>;
 
-  constructor(baseURL: string, defaultOptions: AxiosRequestConfig = {}) {
-    this.client = axios.create({
-      baseURL,
-      ...defaultOptions,
-    });
-
-    // Interceptadores globais (opcional)
-    this.client.interceptors.response.use(
-      (response) => response,
-      (error) => {
-        console.error('Erro HTTP:', error);
-        return Promise.reject(error);
-      }
-    );
+  constructor(baseURL: string, defaultOptions: HttpOptions = {}) {
+    this.baseUrl = baseURL;
+    this.defaultHeaders = {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+      ...(defaultOptions.headers ? defaultOptions.headers : {})
+    };
   }
 
-  public get<T = never>(url: string, options?: AxiosRequestConfig): Promise<AxiosResponse<T>> {
-    return this.client.get<T>(url, options);
+  setToken(token: string) {
+    this.defaultHeaders = {
+      ...this.defaultHeaders,
+      ...(token ? { 'Authorization': `Bearer ${token}` } : {})
+    }
   }
 
-  public post<T = any>(
+  private async request<T = any>(
+    method: HttpMethod,
     url: string,
     data?: any,
-    options?: AxiosRequestConfig
-  ): Promise<AxiosResponse<T>> {
-    return this.client.post<T>(url, data, options);
+    options: HttpOptions = {}
+  ): Promise<T> {
+    const fullUrl = `${this.baseUrl}${url}`;
+    const headers = {
+      ...this.defaultHeaders,
+      ...(options.headers ? options.headers : {})
+    };
+
+    const dataRequest = {
+      method,
+      headers,
+      body: data ? JSON.stringify(data) : undefined,
+      cache: options.cache || 'no-store',
+    }
+
+    const response = await fetch(fullUrl, dataRequest);
+    if (!response.ok) {
+      const errorBody = await response.text();
+      console.error(`❌ [${method}] ${url} falhou:`, errorBody);
+      throw new Error(`HTTP ${response.status}: ${errorBody}`);
+    }
+
+    const contentType = response.headers.get('content-type') || '';
+    if (contentType.includes('application/json')) {
+      return response.json() as Promise<T>;
+    }
+
+    // fallback para texto
+    return response.text() as unknown as T;
   }
 
-  public put<T = any>(
-    url: string,
-    data?: any,
-    options?: AxiosRequestConfig
-  ): Promise<AxiosResponse<T>> {
-    return this.client.put<T>(url, data, options);
+  public get<T = any>(url: string, options?: HttpOptions): Promise<T> {
+    return this.request<T>('GET', url, undefined, options);
   }
 
-  public delete<T = any>(url: string, options?: AxiosRequestConfig): Promise<AxiosResponse<T>> {
-    return this.client.delete<T>(url, options);
+  public post<T = any>(url: string, data?: any, options?: HttpOptions): Promise<T> {
+    return this.request<T>('POST', url, data, options);
   }
 
-  public patch<T = any>(
-    url: string,
-    data?: any,
-    options?: AxiosRequestConfig
-  ): Promise<AxiosResponse<T>> {
-    return this.client.patch<T>(url, data, options);
+  public put<T = any>(url: string, data?: any, options?: HttpOptions): Promise<T> {
+    return this.request<T>('PUT', url, data, options);
   }
 
-  // Getter direto para o AxiosInstance, se necessário
-  public instance(): AxiosInstance {
-    return this.client;
+  public patch<T = any>(url: string, data?: any, options?: HttpOptions): Promise<T> {
+    return this.request<T>('PATCH', url, data, options);
+  }
+
+  public delete<T = any>(url: string, options?: HttpOptions): Promise<T> {
+    return this.request<T>('DELETE', url, undefined, options);
   }
 }

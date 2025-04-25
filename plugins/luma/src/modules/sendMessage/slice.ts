@@ -1,44 +1,34 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 // src/store/modules/session/slice.ts
+import { CoreMessageResponse } from '@/interface/chats';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 interface SessionState {
   valid: boolean;
   loading: boolean;
-  userId: string | null;
-  token: string | null;
-  chatId: string | null;
+  response: CoreMessageResponse | null;
 }
 
 const initialState: SessionState = {
   valid: false,
   loading: false,
-  userId: null,
-  token: null,
-  chatId: null,
+  response: null,
 };
 
 const slice = createSlice({
-  name: 'session',
+  name: 'sendMessage',
   initialState,
   reducers: {
-    validateSessionRequest: (state) => {
+    sendMessageRequest: (state, action: PayloadAction<{ chatId: string, message: string }>) => {
       state.loading = true;
     },
-    validateSessionSuccess: (state, action: PayloadAction<any>) => {
+    sendMessageSuccess: (state, action: PayloadAction<any>) => {
       state.loading = false;
       state.valid = true;
-      
-      if (action.payload.userId) {
-        state.userId = action.payload.userId;
-      }
-
-      if (action.payload.token) {
-        state.token = action.payload.token;
-      }
+      state.response = action.payload.response;
     },
-    validateSessionFailure: (state) => {
+    sendMessageFailure: (state) => {
       state.loading = false;
       state.valid = false;
     },
@@ -46,9 +36,9 @@ const slice = createSlice({
 });
 
 export const {
-  validateSessionRequest,
-  validateSessionSuccess,
-  validateSessionFailure,
+  sendMessageRequest,
+  sendMessageSuccess,
+  sendMessageFailure,
 } = slice.actions;
 
 export default slice.reducer;

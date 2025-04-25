@@ -1,17 +1,26 @@
 'use client';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
-import LeftSidebar from '@/components/leftSidebar';
-import InputMessage from '@/components/inputMessage';
 import CustomHeader from '@/components/customHeader';
+import InputMessage from '@/components/inputMessage';
+import LeftSidebar from '@/components/leftSidebar';
+import { chatSelectedMessageClear } from '@/modules/chatSelected/slice';
+import { sendMessageRequest } from '@/modules/sendMessage/slice';
+import { RootState } from '@/store';
+import { useDispatch, useSelector } from 'react-redux';
 import CustomMessageChat from './customMessageChat';
-import { CoreMessageResponse } from '@/interface/chats';
 
 const CustomChat: React.FC = () => {
+  const dispatch = useDispatch();
+
   const [isSidebarVisible, setIsSidebarVisible] = useState(true);
   const [message, setMessage] = useState('');
-  const [messageResponse, setMessageResponse] = useState<CoreMessageResponse>();
-  
+
+  const chatSelectedState = useSelector((state: RootState) => state.chatSelected);
+
+  useEffect(() => {
+    dispatch(chatSelectedMessageClear());
+  }, []);
 
   const handleChatSelect = (chatId: string) => {
     console.log('Chat selecionado:', chatId);
@@ -25,19 +34,23 @@ const CustomChat: React.FC = () => {
     e?.preventDefault();
     if (!message.trim()) return;
 
-    console.log('Mensagem enviada:', message);
-    setMessage('');
+    if (!chatSelectedState.chatId) {
+      console.error('Chat ID não selecionado');
+      return;
+    }
+
+    dispatch(sendMessageRequest({ chatId: chatSelectedState.chatId, message }));
   };
 
   return (
-    <div className="flex w-full h-screen bg-black">
+    <div className="flex w-full h-screen bg-black relative">
       <LeftSidebar onSelectChat={handleChatSelect} isSidebarVisible={isSidebarVisible} />
 
       <main className="flex-1 flex flex-col">
         <CustomHeader toggleSidebar={toggleSidebar} />
-        <div className="flex-1 px-[4%] py-2 flex flex-col justify-between">
-          <CustomMessageChat messageResponse={messageResponse} />
-          <footer className="p-1">
+        <div className="flex h-full mx-[4%] my-2 flex-col relative">
+          <CustomMessageChat />
+          <footer className="flex flex-col m-1 bg-red-500">
             <InputMessage
               value={message}
               onChange={(e) => setMessage(e.target.value)}
@@ -54,3 +67,4 @@ const CustomChat: React.FC = () => {
 };
 
 export default CustomChat;
+

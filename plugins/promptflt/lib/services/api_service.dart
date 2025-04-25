@@ -65,8 +65,11 @@ class ApiService {
 
     final response = await _client.post(
       url,
-      headers: {'Content-Type': 'application/json'},
-      body: json.encode({'userId': userId}),
+      headers: {
+        'Content-Type': 'application/json',
+        "userId": userId,
+      },
+      body: json.encode({}),
     );
 
     print('✅ Resposta: ${response.statusCode} - ${response.body}');

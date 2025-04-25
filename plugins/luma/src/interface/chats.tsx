@@ -1,14 +1,14 @@
 
 export interface ResponseItem {
-    Type:  string,
-	Origin:  string,
-	Value:  string,
+    type:  string,
+	origin:  string,
+	value:  string,
 }
 
 export interface CoreMessageResponse {
-    Title: string,
-	Message: string,
-	Resume: string,
-	Response: ResponseItem[],
+    title: string,
+	message: string,
+	resume: string,
+	response: ResponseItem[],
 }
 

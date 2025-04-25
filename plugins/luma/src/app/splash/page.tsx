@@ -1,10 +1,10 @@
 'use client';
 
-import { useEffect } from 'react';
-import { useRouter } from 'next/navigation';
-import { useDispatch, useSelector } from 'react-redux';
 import { validateSessionRequest } from '@/modules/session/slice';
 import { RootState } from '@/store';
+import { useRouter } from 'next/navigation';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 export default function SplashPage() {
   const router = useRouter();
@@ -21,7 +21,7 @@ export default function SplashPage() {
     if (!loading && valid) {
       const timer = setTimeout(() => {
         router.push('/chat');
-      }, 2000);
+      }, 1000);
 
       return () => clearTimeout(timer);
     }
