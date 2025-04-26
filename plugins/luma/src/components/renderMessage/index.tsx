@@ -1,12 +1,13 @@
 import { EMessageType, IResponseChat } from "@/interface/chats";
 import RenderCode from "./renderCode";
+import RenderDivider from "./renderDivider";
+import RenderGroupLink from "./renderGroupLink";
 import RenderLink from "./renderLink";
 import RenderMessage from "./renderMessage";
 import RenderTable from "./renderTable";
 import RenderText from "./renderText";
 import RenderTitle from "./renderTitle";
 import RenderUser from "./renderUser";
-import RenderDivider from "./renderDivider";
 
 
 const DisplaySentenseUser: React.FC<IResponseChat> = (data) => {
@@ -19,6 +20,8 @@ const DisplaySentenseUser: React.FC<IResponseChat> = (data) => {
       return <RenderTitle {...data} />;
     case EMessageType.link:
       return <RenderLink {...data} />;
+    case EMessageType.groupLink:
+      return <RenderGroupLink {...data} />;
     case EMessageType.table:
       return <RenderTable {...data} />;
     case EMessageType.text:

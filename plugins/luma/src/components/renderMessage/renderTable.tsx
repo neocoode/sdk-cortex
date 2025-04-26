@@ -2,17 +2,20 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { IResponseChat } from "@/interface/chats";
 import { ETableType, ITable } from "@/interface/tableSchema";
-import RenderTableSchema from "./renderTableSchema";
+import { useTheme } from "@/themes/themeContext";
 import CustomCard from "../customCard";
 import SvgIcon from "../svgIcon";
+import RenderTableSchema from "./renderTableSchema";
 
-const RenderTable: React.FC<IResponseChat> = ({ value }) => {
+const RenderTable: React.FC<IResponseChat> = ({ value, key }) => {
+  const { themeSelected } = useTheme();
+
   const renderTableContent = () => {
     try {
-      const data = JSON.parse(value) as ITable;
+      const data = JSON.parse(value as string) as ITable;
       switch (data.type) {
         case ETableType.schema:
-          return <RenderTableSchema fields={data.fields} />
+          return <RenderTableSchema key={key} fields={data.fields} />
         default:
           return <></>
       }
@@ -25,7 +28,9 @@ const RenderTable: React.FC<IResponseChat> = ({ value }) => {
     <CustomCard
       title="Tabela"
       rightIcon={<div>
-        <SvgIcon name="copy" className="bg-[#4f4f4f]" width={35} height={35} />
+        <SvgIcon name="copy" className={`
+          ${themeSelected.colors.text}
+        `} width={35} height={35} />
       </div>}
     >
       {renderTableContent()}

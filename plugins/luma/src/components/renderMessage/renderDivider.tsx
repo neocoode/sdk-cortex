@@ -1,8 +1,21 @@
-
+import { useTheme } from "@/themes/themeContext";
 const RenderDivider: React.FC = () => {
+  const { themeSelected } = useTheme();
+
   return (
-    <div className="w-full flex items-center justify-center py-2 mb-4">
-      <div className="w-[98%] h-[2px] bg-[#232323] rounded-full shadow-[0_2px_6px_0_rgba(0,0,0,0.25)]" />
+    <div 
+      className={`
+        w-full flex items-center justify-center py-1 mt-2 mb-2      
+      `}
+    >
+      <div 
+        className={`
+          w-full h-[2px]
+          ${themeSelected.colors.backgroundTertiary}
+          ${themeSelected.borderRadius.xxlarge}
+          ${themeSelected.shadows.medium}
+        `} 
+      />
     </div>
   );
 };

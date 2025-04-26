@@ -21,10 +21,13 @@ export enum EMessageType {
 	text = 'text',
 	code = 'code',
 	divider = 'divider',
+	groupLink = 'groupLink',
 }
 
 export interface IResponseChat {
 	type: EMessageType | string;
-	value: string;
+	value: string | string[];
+	key?: any;
+	onReplay?: (value?: any) => void;
 }
 

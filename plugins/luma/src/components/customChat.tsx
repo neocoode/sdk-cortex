@@ -7,13 +7,16 @@ import LeftSidebar from '@/components/leftSidebar';
 import { chatSelectedMessageClear } from '@/modules/chatSelected/slice';
 import { sendMessageRequest } from '@/modules/sendMessage/slice';
 import { RootState } from '@/store';
+import { useTheme } from '@/themes/themeContext';
 import InputMessage from './inputMessage';
+import ProcessMessageStatus from './processMessageStatus';
 import CustomMessageChat from './renderMessageChat';
 
 const CustomChat: React.FC = () => {
+  const { themeSelected } = useTheme();
   const dispatch = useDispatch();
 
-  const [isSidebarVisible, setIsSidebarVisible] = useState(true);
+  const [isSidebarVisible, setIsSidebarVisible] = useState(false);
   const [message, setMessage] = useState('');
 
   const chatSelectedState = useSelector((state: RootState) => state.chatSelected);
@@ -44,12 +47,13 @@ const CustomChat: React.FC = () => {
   };
 
   return (
-    <div className="flex w-full h-screen bg-black">
+    <div className={`flex w-full h-screen ${themeSelected.colors.background}`}>
       <LeftSidebar onSelectChat={handleChatSelect} isSidebarVisible={isSidebarVisible} />
 
       <main className="flex-1 flex flex-col">
         <div className="flex h-full  flex-col relative ">
           <CustomHeader toggleSidebar={toggleSidebar} />
+          <ProcessMessageStatus />
           <CustomMessageChat />
           <InputMessage
             value={message}

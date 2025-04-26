@@ -1,3 +1,5 @@
+import { useTheme } from "@/themes/themeContext";
+
 interface CustomCardProps {
   title?: string;
   rightIcon?: React.ReactNode;
@@ -5,15 +7,30 @@ interface CustomCardProps {
 }
 
 const CustomCard: React.FC<CustomCardProps> = ({ title, rightIcon, children }) => {
+  const { themeSelected } = useTheme();
+
   return (
-    <div className="w-full bg-[#4f4f4f] text-white p-2 rounded-md">
+    <div className={`
+      w-full bg-[#4f4f4f] p-2 rounded-md
+      ${themeSelected.colors.backgroundTertiary}
+      ${themeSelected.borderRadius.xxlarge}
+      ${themeSelected.colors.textPrimary}
+    `}>
       {(title || rightIcon) && (
         <div className="flex justify-between items-center mb-1">
-          {title && <h3 className="text-xl font-bold text-[#161616]">{title}</h3>}
+          {title && <h3 className={`
+            ${themeSelected.colors.text}
+            ${themeSelected.typography.fontSize.small}
+            ${themeSelected.typography.fontWeight.xbold}
+            `}>{title}</h3>}
           {rightIcon && <div className="flex items-center">{rightIcon}</div>}
         </div>
       )}
-      <div className="w-full bg-[#1f1f1f]">
+      <div className={`
+        w-full
+        ${themeSelected.colors.backgroundPrimary}
+        ${themeSelected.borderRadius.medium}
+      `}>
         {children}
       </div>
     </div>

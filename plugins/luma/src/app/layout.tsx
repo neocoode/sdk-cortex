@@ -3,8 +3,8 @@ import type { Metadata } from 'next';
 import { Geist } from 'next/font/google';
 import { Providers } from './providers';
 
-import './globals.css';
 import Toast from '@/components/toast';
+import './globals.css';
 
 const geist = Geist({ subsets: ['latin'] });
 

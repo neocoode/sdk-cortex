@@ -1,5 +1,6 @@
 'use client';
 import SvgIcon from '@/components/svgIcon';
+import { useTheme } from '@/themes/themeContext';
 import React, { useEffect, useRef } from 'react';
 
 interface InputMessageProps {
@@ -18,6 +19,8 @@ const InputMessage: React.FC<InputMessageProps> = ({
   onChange,
   onSubmit,
 }) => {
+  const { themeSelected } = useTheme();
+
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
@@ -42,13 +45,23 @@ const InputMessage: React.FC<InputMessageProps> = ({
   const iconName = value.trim() ? 'send' : 'record';
 
   return (
-    <footer className="flex flex-col m-1 mb-5 mx-[5%] ">
+    <footer className="flex flex-col m-1 mb-5 mx-[5%] pb-10 ">
       <form
         onSubmit={onSubmitPrivate}
-        className="flex flex-col justify-between bg-[#1e1e1e] m-2 rounded-4xl overflow-hidden shadow-[0_0_10px_rgba(128,128,128,0.8)]"
+        className={`
+          flex flex-col justify-between m-2 overflow-hidden 
+          ${themeSelected.colors.backgroundPrimary} 
+          ${themeSelected.borderRadius.xxxlarge} 
+          ${themeSelected.shadows.medium}
+        `}
       >
         <div className="flex items-center p-3 w-full overflow-hidden">
-          <div className="flex items-center justify-between w-full bg-[#434343] rounded-2xl p-1">
+          <div
+            className={`
+              flex items-center justify-between w-full p-1
+              ${themeSelected.colors.backgroundAccent} 
+              ${themeSelected.borderRadius.xxlarge} 
+            `}>
             <div className="flex-1">
               <input
                 ref={inputRef}
@@ -56,7 +69,11 @@ const InputMessage: React.FC<InputMessageProps> = ({
                 value={value}
                 onChange={onChange}
                 placeholder={placeholder}
-                className="w-full p-2 bg-transparent text-white outline-none text-2xl"
+                className={`
+                  w-full py-1 px-2 bg-transparent outline-none 
+                  ${themeSelected.colors.text}
+                  ${themeSelected.typography.fontSize.large}
+                `}
                 onKeyDown={(e) => {
                   if (e.key === 'Enter') {
                     e.preventDefault();
@@ -71,14 +88,33 @@ const InputMessage: React.FC<InputMessageProps> = ({
           </div>
         </div>
         <div className="flex justify-between items-center px-4 pb-4">
-          <SvgIcon name="plus" className="text-white bg-[#464646]" onClick={onAdd} />
-          <div className="flex justify-center items-center pt-2  text-1xl">
+          <SvgIcon
+            name="plus"
+            className={`${themeSelected.colors.text} ${themeSelected.colors.backgroundSecondary}`}
+            onClick={onAdd}
+            width={30}
+            height={30}
+          />
+          <div 
+            className={`
+              flex justify-center items-center pt-2 
+              ${themeSelected.typography.fontSize.medium} 
+              ${themeSelected.colors.textSecondary}
+            `}
+          >
             Luma Beta - 04/2025
           </div>
-          <SvgIcon 
-            name={iconName} 
-            className="text-white bg-[#c5c5c5]" 
-            onClick={handleSubmit} 
+          <SvgIcon
+            name={iconName}
+            className={`
+              ${themeSelected.colors.text} 
+              ${themeSelected.colors.backgroundForeground} 
+              ${themeSelected.transitions.fast} 
+              hover:${themeSelected.colors.backgroundAccent}
+            `}
+            onClick={handleSubmit}
+            width={30}
+            height={30}
           />
         </div>
       </form>

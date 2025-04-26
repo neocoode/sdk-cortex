@@ -29,14 +29,14 @@ const LeftSidebar: React.FC<LeftSidebarProps> = ({ onSelectChat, isSidebarVisibl
         <>
           {/* Topo */}
           <div className="p-4 border-b border-gray-700 flex justify-between items-center">
-            <h3 className="font-semibold text-2xl">Chatbot</h3>
+            <h3 className="font-semibold text-2xl">Luma Beta</h3>
             <button className="text-white text-4xl">+</button>
           </div>
 
           {/* Centro - Lista de Chats */}
           <div className="flex-grow overflow-y-auto p-4">
             <div className="space-y-2">
-              <div className="p-2 hover:bg-gray-700 rounded-lg cursor-pointer">
+              {/* <div className="p-2 hover:bg-gray-700 rounded-lg cursor-pointer">
                 <div className="flex items-center space-x-3">
                   <div className="w-8 h-8 rounded-full bg-gray-600"></div>
                   <div>
@@ -44,7 +44,7 @@ const LeftSidebar: React.FC<LeftSidebarProps> = ({ onSelectChat, isSidebarVisibl
                     <p className="text-sm text-gray-400">Última mensagem...</p>
                   </div>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
 

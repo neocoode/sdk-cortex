@@ -1,8 +1,17 @@
 import { IResponseChat } from "@/interface/chats";
+import { useTheme } from "@/themes/themeContext";
 
-const RenderMessage: React.FC<IResponseChat> = ({ value }) => {
+const RenderMessage: React.FC<IResponseChat> = ({ value, key }) => {
+  const { themeSelected } = useTheme();
+
   return (
-    <div className="flex flex-wrap text-xl py-2 mb-2  text-justify text-[#b8b8b8]">
+    <div 
+      key={key} 
+      className={`
+        flex flex-wrap py-2 mb-2 text-justify 
+        ${themeSelected.colors.text}
+        ${themeSelected.typography.fontSize.large}
+      `}>
       {value}
     </div>
   );
