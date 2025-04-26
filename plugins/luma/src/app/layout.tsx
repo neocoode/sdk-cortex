@@ -4,6 +4,7 @@ import { Geist } from 'next/font/google';
 import { Providers } from './providers';
 
 import './globals.css';
+import Toast from '@/components/toast';
 
 const geist = Geist({ subsets: ['latin'] });
 
@@ -18,6 +19,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className={`h-screen relative ${geist.className} antialiased`} >
         <Providers>
           {children}
+          <Toast />
         </Providers>
       </body>
     </html>

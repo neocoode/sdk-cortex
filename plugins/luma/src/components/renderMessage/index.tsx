@@ -1,11 +1,12 @@
 import { EMessageType, IResponseChat } from "@/interface/chats";
-import RenderMessage from "./renderMessage";
-import RenderTitle from "./renderTitle";
+import RenderCode from "./renderCode";
 import RenderLink from "./renderLink";
+import RenderMessage from "./renderMessage";
 import RenderTable from "./renderTable";
 import RenderText from "./renderText";
+import RenderTitle from "./renderTitle";
 import RenderUser from "./renderUser";
-import RenderCode from "./renderCode";
+import RenderDivider from "./renderDivider";
 
 
 const DisplaySentenseUser: React.FC<IResponseChat> = (data) => {
@@ -24,6 +25,8 @@ const DisplaySentenseUser: React.FC<IResponseChat> = (data) => {
       return <RenderText {...data} />;
     case EMessageType.code:
       return <RenderCode {...data} />;
+    case EMessageType.divider:
+      return <RenderDivider />;
   }
 };
 

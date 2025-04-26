@@ -7,8 +7,8 @@ import LeftSidebar from '@/components/leftSidebar';
 import { chatSelectedMessageClear } from '@/modules/chatSelected/slice';
 import { sendMessageRequest } from '@/modules/sendMessage/slice';
 import { RootState } from '@/store';
-import CustomMessageChat from './customMessageChat';
 import InputMessage from './inputMessage';
+import CustomMessageChat from './renderMessageChat';
 
 const CustomChat: React.FC = () => {
   const dispatch = useDispatch();
@@ -40,6 +40,7 @@ const CustomChat: React.FC = () => {
     }
 
     dispatch(sendMessageRequest({ chatId: chatSelectedState.chatId, message }));
+    setMessage('');
   };
 
   return (

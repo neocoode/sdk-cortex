@@ -24,10 +24,27 @@ const InputMessage: React.FC<InputMessageProps> = ({
     inputRef.current?.focus();
   }, []);
 
+  const onSubmitPrivate = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (inputRef.current) {
+      inputRef.current.value = '';
+    }
+    onSubmit?.();
+  }
+
+  const handleSubmit = (e?: React.FormEvent) => {
+    if (e) {
+      e.preventDefault();
+    }
+    onSubmit?.();
+  }
+
+  const iconName = value.trim() ? 'send' : 'record';
+
   return (
     <footer className="flex flex-col m-1 mb-5 mx-[5%] ">
       <form
-        onSubmit={onSubmit}
+        onSubmit={onSubmitPrivate}
         className="flex flex-col justify-between bg-[#1e1e1e] m-2 rounded-4xl overflow-hidden shadow-[0_0_10px_rgba(128,128,128,0.8)]"
       >
         <div className="flex items-center p-3 w-full overflow-hidden">
@@ -43,7 +60,10 @@ const InputMessage: React.FC<InputMessageProps> = ({
                 onKeyDown={(e) => {
                   if (e.key === 'Enter') {
                     e.preventDefault();
-                    onSubmit?.();
+                    handleSubmit(e);
+                    if (inputRef.current) {
+                      inputRef.current.value = '';
+                    }
                   }
                 }}
               />
@@ -55,10 +75,11 @@ const InputMessage: React.FC<InputMessageProps> = ({
           <div className="flex justify-center items-center pt-2  text-1xl">
             Luma Beta - 04/2025
           </div>
-          <SvgIcon name="record" className="text-white bg-[#c5c5c5]" onClick={(e) => {
-            e.preventDefault(); // evita duplo envio se necessário
-            onSubmit?.();
-          }} />
+          <SvgIcon 
+            name={iconName} 
+            className="text-white bg-[#c5c5c5]" 
+            onClick={handleSubmit} 
+          />
         </div>
       </form>
     </footer>

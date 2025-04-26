@@ -20,6 +20,7 @@ export enum EMessageType {
 	table = 'table',
 	text = 'text',
 	code = 'code',
+	divider = 'divider',
 }
 
 export interface IResponseChat {
