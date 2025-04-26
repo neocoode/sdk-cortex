@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @next/next/no-img-element */
 'use client';
 import React from 'react';
@@ -8,17 +9,20 @@ interface SvgIconProps {
   height?: number;
   className?: string;
   alt?: string;
+  onClick?: (e?:any) => void;
 }
 
 const SvgIcon: React.FC<SvgIconProps> = ({
   name,
-  width = 45,
-  height = 45,
+  width = 42,
+  height = 42,
   className = '',
   alt = '',
+  onClick,
 }) => {
   return (
     <img
+      onClick={onClick && onClick}
       src={`/assets/svg/${name}.svg`}
       alt={alt || name}
       width={width}

@@ -1,11 +1,13 @@
+import { EMessageType } from "@/interface/chats";
 import { useEffect, useState } from "react";
 
-interface DisplaySentenseProps {
+interface props {
+	type: EMessageType;
   message: string;
   disableAnimation?: boolean;
 }
 
-const DisplaySentense: React.FC<DisplaySentenseProps> = ({ message, disableAnimation = false }) => {
+const RenderAmimate: React.FC<props> = ({ message, disableAnimation = false }) => {
   const [displayedWords, setDisplayedWords] = useState<string[]>([]);
   const [intervalSpeed, setIntervalSpeed] = useState<number>(50);
   const words = message.split(' ');
@@ -30,7 +32,7 @@ const DisplaySentense: React.FC<DisplaySentenseProps> = ({ message, disableAnima
   }, [message, intervalSpeed, disableAnimation]);
 
   return (
-    <div className="flex flex-wrap text-2xl">
+    <div className="flex flex-wrap text-1xl">
       {displayedWords.map((word, index) => (
         <span
           key={index}
@@ -43,4 +45,4 @@ const DisplaySentense: React.FC<DisplaySentenseProps> = ({ message, disableAnima
   );
 };
 
-export default DisplaySentense;
+export default RenderAmimate;

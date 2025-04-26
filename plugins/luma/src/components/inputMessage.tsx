@@ -25,50 +25,43 @@ const InputMessage: React.FC<InputMessageProps> = ({
   }, []);
 
   return (
-    <form
-      onSubmit={onSubmit}
-      className="flex flex-col justify-between bg-[#1e1e1e] m-3 rounded-4xl overflow-hidden"
-    >
-      <div className="flex items-center p-5 w-full overflow-hidden">
-        <div className="flex items-center justify-between w-full bg-[#434343] rounded-2xl p-1">
-          <div className="flex-1">
-            <input
-              ref={inputRef}
-              type="text"
-              value={value}
-              onChange={onChange}
-              placeholder={placeholder}
-              className="w-full p-2 bg-transparent text-white outline-none text-2xl"
-              onKeyDown={(e) => {
-                if (e.key === 'Enter') {
-                  e.preventDefault();
-                  onSubmit?.();
-                }
-              }}
-            />
+    <footer className="flex flex-col m-1 mb-5 mx-[5%] ">
+      <form
+        onSubmit={onSubmit}
+        className="flex flex-col justify-between bg-[#1e1e1e] m-2 rounded-4xl overflow-hidden shadow-[0_0_10px_rgba(128,128,128,0.8)]"
+      >
+        <div className="flex items-center p-3 w-full overflow-hidden">
+          <div className="flex items-center justify-between w-full bg-[#434343] rounded-2xl p-1">
+            <div className="flex-1">
+              <input
+                ref={inputRef}
+                type="text"
+                value={value}
+                onChange={onChange}
+                placeholder={placeholder}
+                className="w-full p-2 bg-transparent text-white outline-none text-2xl"
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter') {
+                    e.preventDefault();
+                    onSubmit?.();
+                  }
+                }}
+              />
+            </div>
           </div>
         </div>
-      </div>
-      <div className="flex justify-between items-center px-4 pb-4">
-        <button
-          type="button"
-          className="p-2 hover:bg-gray-700 rounded-full"
-          onClick={onAdd}
-        >
-          <SvgIcon name="plus" className="text-white bg-[#464646]" />
-        </button>
-        <button
-          type="submit"
-          className="p-2 hover:bg-gray-700 rounded-full"
-          onClick={(e) => {
+        <div className="flex justify-between items-center px-4 pb-4">
+          <SvgIcon name="plus" className="text-white bg-[#464646]" onClick={onAdd} />
+          <div className="flex justify-center items-center pt-2  text-1xl">
+            Luma Beta - 04/2025
+          </div>
+          <SvgIcon name="record" className="text-white bg-[#c5c5c5]" onClick={(e) => {
             e.preventDefault(); // evita duplo envio se necessário
             onSubmit?.();
-          }}
-        >
-          <SvgIcon name="record" className="text-white bg-[#c5c5c5]" />
-        </button>
-      </div>
-    </form>
+          }} />
+        </div>
+      </form>
+    </footer>
   );
 };
 

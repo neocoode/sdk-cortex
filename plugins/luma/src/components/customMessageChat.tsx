@@ -1,33 +1,27 @@
 'use client';
-import { CoreMessageResponse } from '@/interface/chats';
+import { CoreMessageResponse, IResponseChat } from '@/interface/chats';
 import { RootState } from '@/store';
 import React, { useEffect, useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
-import DisplaySentense from './displaySentense';
-import DisplaySentenseUser from './displaySentenseUser';
-
+import RenderMessage from './renderMessage';
 interface CustomMessageChatProps {
   messageResponse?: CoreMessageResponse;
 }
 
-interface ResponseChat {
-  type: string;
-  value: string;
-}
 
 const CustomMessageChat: React.FC<CustomMessageChatProps> = ({ messageResponse }) => {
   const messagesRef = useRef<HTMLDivElement>(null);
   const chatSelectedState = useSelector((state: RootState) => state.chatSelected);
-  const [messages, setMessages] = useState<ResponseChat[]>([]);
+  const [messages, setMessages] = useState<IResponseChat[]>([]);
   const [shouldScroll, setShouldScroll] = useState(false);
 
-  const formattedMessageToMessage = async (responses: CoreMessageResponse[]): Promise<ResponseChat[]> => {
-    const messages: ResponseChat[] = [];
+  const formattedMessageToMessage = async (responses: CoreMessageResponse[]): Promise<IResponseChat[]> => {
+    const messages: IResponseChat[] = [];
 
     if (Array.isArray(responses)) {
       console.log('responses:', responses);
       for (const response of responses) {
-        messages.push({ type: "messageUser", value: response.message });
+        messages.push({ type: "user", value: response.message });
 
         if (Array.isArray(responses)) {
           for (const responseItem of response.response) {
@@ -47,36 +41,26 @@ const CustomMessageChat: React.FC<CustomMessageChatProps> = ({ messageResponse }
     formattedMessageToMessage(chatSelectedState.messages);
   }, [chatSelectedState.messages]);
 
-  // useEffect(() => {
-  //   if (shouldScroll) {
-  //     messagesRef.current?.scrollTo({
-  //       top: messagesRef.current.scrollHeight,
-  //       behavior: 'smooth',
-  //     });
-  //   }
-  // }, [messageResponse, shouldScroll]);
+  useEffect(() => {
+    if (shouldScroll) {
+      messagesRef.current?.scrollTo({
+        top: messagesRef.current.scrollHeight,
+        behavior: 'smooth',
+      });
+    }
+  }, [messageResponse, shouldScroll]);
 
   return (
-    <div 
-      ref={messagesRef} 
-      className={`flex h-[77%] overflow-y-auto bg-black`}
+    <div
+      ref={messagesRef}
+      className={`flex h-full w-full overflow-y-auto px-[5%] `}
     >
-      <div className="flex flex-col">
-        {messages.map((message) => (
-          <div
-            key={message.value}
-            className={`flex flex-row ${message.type === 'messageUser' ? 'justify-end' : 'justify-start'} items-center`}
+      <div className="flex flex-col  w-full">
+        {messages.map((message, index) => (
+          <div key={index}
+            className={`flex flex-row ${message.type === 'user' ? 'justify-end' : 'justify-start'} items-center `}
           >
-            <div className={`flex p-3 ${message.type === 'messageUser'
-                ? 'text-white'
-                : 'text-white'
-              }`}>
-              {message.type === 'messageUser' ?
-                <DisplaySentenseUser message={message.value} />
-                :
-                <DisplaySentense message={message.value} disableAnimation={message.value.length > 50} />
-              }
-            </div>
+            <RenderMessage {...message} />
           </div>
         ))}
       </div>

@@ -1,14 +1,29 @@
 
 export interface ResponseItem {
-    type:  string,
-	origin:  string,
-	value:  string,
+	type: string,
+	origin: string,
+	value: string,
 }
 
 export interface CoreMessageResponse {
-    title: string,
+	title: string,
 	message: string,
 	resume: string,
 	response: ResponseItem[],
+}
+
+export enum EMessageType {
+	user = 'user',
+	message = 'message',
+	title = 'title',
+	link = 'link',
+	table = 'table',
+	text = 'text',
+	code = 'code',
+}
+
+export interface IResponseChat {
+	type: EMessageType | string;
+	value: string;
 }
 

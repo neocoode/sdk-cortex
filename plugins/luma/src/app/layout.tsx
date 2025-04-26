@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="pt-BR">
-      <body className={`${geist.className} antialiased`}>
+      <body className={`h-screen relative ${geist.className} antialiased`} >
         <Providers>
           {children}
         </Providers>
