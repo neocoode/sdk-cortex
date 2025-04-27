@@ -1,8 +1,8 @@
 {
   "name": "luma",
-  "version": "0.1.19",
+  "version": "0.1.20",
   "currentDate": "04/2025",
-  "lastCommit": "chore: clean up build manifests by removing unused entries and updating font manifest structure",
+  "lastCommit": "chore: remove .next directory cleanup from prepush script",
   "lastLoginCommit": "elio.lima",
   "lastDateCommit": "04/2025",
   "private": true,

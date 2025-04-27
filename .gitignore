@@ -58,8 +58,6 @@ dist/
 .pnp.js
 
 # Cache
-.next
-.next/*
 .cache/
 .eslintcache
 .stylelintcache
