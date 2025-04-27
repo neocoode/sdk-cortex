@@ -1,8 +1,8 @@
 {
   "name": "luma",
-  "version": "0.1.17",
+  "version": "0.1.18",
   "currentDate": "04/2025",
-  "lastCommit": "chore: replace precommit script with prepare script for husky integration",
+  "lastCommit": "fix: correct lastLoginCommit typo in package.json for consistency",
   "lastLoginCommit": "elio.lima",
   "lastDateCommit": "04/2025",
   "private": true,
