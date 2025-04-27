@@ -16,7 +16,7 @@ interface InputMessageProps {
 
 const InputMessage: React.FC<InputMessageProps> = (props) => {
   return (
-    <footer className="flex flex-col m-1 mb-5 mx-[5%] pb-10">
+    <footer className="flex flex-col m-1 mb-5 mx-[5%] pb-10 overflow-visible">
       <InputForm {...props} />
     </footer>
   );

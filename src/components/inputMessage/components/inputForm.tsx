@@ -1,9 +1,9 @@
 'use client';
 
 import { useTheme } from '@/themes/themeContext';
-import React, { useEffect, useRef } from 'react';
+import React, { RefObject, useEffect, useRef } from 'react';
 import ActionBar from './actionBar';
-import InputField from './inputField';
+import AutoCompleteInput from './autoCompleteInput';
 
 interface InputFormProps {
   onSend?: () => void;
@@ -26,6 +26,7 @@ const InputForm: React.FC<InputFormProps> = ({
   date,
 }) => {
   const { themeSelected } = useTheme();
+
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
@@ -74,8 +75,8 @@ const InputForm: React.FC<InputFormProps> = ({
             ${themeSelected.colors.backgroundAccent} 
             ${themeSelected.borderRadius.xxlarge} 
           `}>
-          <InputField
-            ref={inputRef}
+          <AutoCompleteInput
+            inputRef={inputRef as RefObject<HTMLInputElement>}
             value={value}
             onChange={onChange}
             placeholder={placeholder}

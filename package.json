@@ -1,8 +1,8 @@
 {
   "name": "luma",
-  "version": "0.1.22",
+  "version": "0.1.23",
   "currentDate": "04/2025",
-  "lastCommit": "chore: update build manifests and improve toast component timing",
+  "lastCommit": "fix: refactor InputField to use forwardRef and add focus on mount in InputForm",
   "lastLoginCommit": "elio.lima",
   "lastDateCommit": "04/2025",
   "private": true,
@@ -16,6 +16,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@headlessui/react": "^2.2.2",
     "@reduxjs/toolkit": "^2.7.0",
     "@svgr/webpack": "^8.1.0",
     "axios": "^1.9.0",
