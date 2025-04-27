@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 'use client';
 import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -21,7 +22,6 @@ const RenderMessageChat: React.FC<iprops> = ({ messageResponse }) => {
   const messagesRef = useRef<HTMLDivElement>(null);
   const chatSelectedState = useSelector((state: RootState) => state.chatSelected);
   const [messages, setMessages] = useState<IResponseChat[]>([]);
-  const [shouldScroll, setShouldScroll] = useState(true);
 
   const formattedMessageToMessage = async (responses: CoreMessageResponse[]): Promise<IResponseChat[]> => {
     try {

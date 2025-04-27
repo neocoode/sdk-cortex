@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 
 export interface ResponseItem {
 	type: string,
@@ -22,6 +23,7 @@ export enum EMessageType {
 	code = 'code',
 	divider = 'divider',
 	groupLink = 'groupLink',
+	imageUrl = 'imageUrl',
 }
 
 export interface IResponseChat {

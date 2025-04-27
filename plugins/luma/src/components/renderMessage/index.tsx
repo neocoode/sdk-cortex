@@ -8,6 +8,7 @@ import RenderTable from "./renderTable";
 import RenderText from "./renderText";
 import RenderTitle from "./renderTitle";
 import RenderUser from "./renderUser";
+import RenderImageUrl from "./renderImageUrl";
 
 
 const DisplaySentenseUser: React.FC<IResponseChat> = (data) => {
@@ -30,6 +31,8 @@ const DisplaySentenseUser: React.FC<IResponseChat> = (data) => {
       return <RenderCode {...data} />;
     case EMessageType.divider:
       return <RenderDivider />;
+    case EMessageType.imageUrl:
+      return <RenderImageUrl {...data} />;
   }
 };
 

@@ -1,8 +1,7 @@
 import { IResponseChat } from "@/interface/chats";
 import { useTheme } from "@/themes/themeContext";
-interface iprops extends IResponseChat {}
 
-const RenderLink: React.FC<iprops> = ({ value }) => {
+const RenderLink: React.FC<IResponseChat> = ({ value }) => {
   const { themeSelected } = useTheme();
 
   return (
