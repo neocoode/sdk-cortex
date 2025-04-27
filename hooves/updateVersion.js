@@ -77,7 +77,7 @@ function getLastCommitDate() {
 function updateVersion() {
     try {
         // Lê o package.json
-        const packagePath = path.join(__dirname, '..', 'package.json');
+        const packagePath = '../package.json';
         const packageJson = JSON.parse(fs.readFileSync(packagePath, 'utf8'));
 
         // Divide a versão atual em major.minor.patch
