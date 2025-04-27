@@ -1,8 +1,9 @@
 {
   "name": "luma",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "date": "04/2025",
-  "lastCommit": "chore: rename function to getCurrentCommitMessage and update related comments in updateVersion.js",
+  "lastCommit": "chore: add user login retrieval in updateVersion.js and update package.json with lastLoginCommit",
+  "lastLoginCommit": "elio.lima",
   "private": true,
   "author": "Neocoode High Tech Defintion",
   "scripts": {
@@ -40,6 +41,5 @@
     "eslint-config-prettier": "^10.1.2",
     "tailwindcss": "^4",
     "typescript": "^5"
-  },
-  "lastLoginCommit": "elio.lima"
+  }
 }
