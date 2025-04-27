@@ -11,7 +11,9 @@
     "dev": "next dev --turbopack -p 3000",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prepush": "node hooves/prepush.js",
+    "update-version": "node hooves/updateVersion.js"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.7.0",
