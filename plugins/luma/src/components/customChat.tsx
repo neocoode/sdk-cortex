@@ -52,7 +52,7 @@ const CustomChat: React.FC = () => {
 
       <main className="flex-1 flex flex-col">
         <div className="flex h-full  flex-col relative ">
-          <CustomHeader toggleSidebar={toggleSidebar} />
+          <CustomHeader toggleSidebar={toggleSidebar} isSidebarVisible={isSidebarVisible} />
           <ProcessMessageStatus />
           <CustomMessageChat />
           <InputMessage

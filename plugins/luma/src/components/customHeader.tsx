@@ -1,20 +1,25 @@
 'use client';
 import React from 'react';
-import { Settings, Download, PanelLeft } from 'lucide-react';
+import { Settings, Download, PanelLeftClose, PanelLeftOpen } from 'lucide-react';
 
 import { useTheme } from '@/themes/themeContext';
 
 interface CustomHeaderProps {
     toggleSidebar: () => void;
+    isSidebarVisible: boolean;
 }
 
-const CustomHeader: React.FC<CustomHeaderProps> = ({ toggleSidebar }) => {
+const CustomHeader: React.FC<CustomHeaderProps> = ({ toggleSidebar, isSidebarVisible }) => {
     const { themeSelected } = useTheme();
 
     return (
         <header className={`flex h-18 p-4 ${themeSelected.shadows.small} flex justify-between items-center`}>
             <div className="flex items-center">
-                <PanelLeft size={28} className={`${themeSelected.colors.text} m-2 cursor-pointer`} strokeWidth={1} onClick={toggleSidebar} />
+                {isSidebarVisible ? 
+                <PanelLeftClose size={28} className={`${themeSelected.colors.text} m-2 cursor-pointer`} strokeWidth={1} onClick={toggleSidebar} />
+                :
+                <PanelLeftOpen size={28} className={`${themeSelected.colors.text} m-2 cursor-pointer`} strokeWidth={1} onClick={toggleSidebar} />
+                }
                 <Settings size={28} className={`${themeSelected.colors.text} m-2 cursor-pointer`} strokeWidth={1} />
                 <div className={`${themeSelected.colors.text} ${themeSelected.typography.fontSize.large}`}></div>
             </div>

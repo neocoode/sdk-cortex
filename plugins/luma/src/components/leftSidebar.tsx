@@ -4,10 +4,11 @@ import { Plus } from 'lucide-react';
 import { useTheme } from '@/themes/themeContext';
 
 interface LeftSidebarProps {
+  onSelectChat?: (chatId: string) => void;
   isSidebarVisible: boolean;
 }
 
-const LeftSidebar: React.FC<LeftSidebarProps> = ({  isSidebarVisible }) => {
+const LeftSidebar: React.FC<LeftSidebarProps> = ({ onSelectChat, isSidebarVisible }) => {
   const [renderContent, setRenderContent] = useState(isSidebarVisible);
   const { themeSelected } = useTheme();
 
