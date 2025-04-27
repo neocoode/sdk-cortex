@@ -41,7 +41,6 @@ O SDK Cortex é uma ferramenta que permite a integração com o sistema Cortex I
 ```
 sdk-cortex/
 ├── plugins/           # Plugins e extensões do SDK
-│   ├── promptflt/    # Plugin de filtragem de prompts
 │   └── luma/         # Plugin de processamento de imagens
 ├── .cursor/          # Configurações do Cursor IDE
 ├── .git/             # Controle de versão
@@ -52,12 +51,6 @@ sdk-cortex/
 ```
 
 ## 📦 Plugins Disponíveis
-
-### PromptFLT
-Plugin para filtragem e processamento de prompts, localizado em `plugins/promptflt/`.
-- Filtragem de conteúdo
-- Processamento de texto
-- Validação de prompts
 
 ### Luma
 Plugin especializado em processamento de imagens e visão computacional, localizado em `plugins/luma/`.
@@ -89,7 +82,6 @@ Plugin especializado em processamento de imagens e visão computacional, localiz
 O SDK é construído com uma arquitetura modular e extensível:
 
 - **Plugins**: Sistema de plugins para extensão de funcionalidades
-  - PromptFLT: Filtragem e processamento de prompts
   - Luma: Processamento de imagens
 - **Core**: Módulo central do SDK
 - **Integrations**: Integrações com serviços externos

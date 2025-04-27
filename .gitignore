@@ -6,11 +6,11 @@
 *.out
 
 # Arquivos de build e cache
-/build/
-/dist/
-/cache/
-/tmp/
-*.log
+**/**/build/
+**/**/dist/
+**/**/cache/
+**/**/tmp/
+**/**/*.log
 
 # Módulos e dependências do Go
 go.work
@@ -43,72 +43,5 @@ cortex_mongo.tar.gz
 cortex.tar.enc
 **.tar.gz
 ***.tar.enc
-cortex_mongo.tar.gz
-cortex.tar.enc
 
 
-# Flutter & Dart
-plugins/promptflt/.dart_tool/
-plugins/promptflt/.packages
-plugins/promptflt/.pub-cache/
-plugins/promptflt/build/
-plugins/promptflt/.flutter-plugins
-plugins/promptflt/.flutter-plugins-dependencies
-plugins/promptflt/.flutter-versions
-plugins/promptflt/.metadata
-
-# IDEs
-plugins/promptflt/.idea/
-plugins/promptflt/*.iml
-
-# macOS
-plugins/promptflt/macos/Flutter/ephemeral/
-plugins/promptflt/macos/Flutter/GeneratedPluginRegistrant.swift
-plugins/promptflt/macos/Runner.xcworkspace/
-
-# iOS
-plugins/promptflt/ios/Flutter/Generated.xcconfig
-plugins/promptflt/ios/Flutter/ephemeral/
-plugins/promptflt/ios/Runner.xcworkspace/
-plugins/promptflt/ios/Pods/
-plugins/promptflt/ios/Podfile.lock
-
-# Android
-plugins/promptflt/android/.gradle/
-plugins/promptflt/android/captures/
-plugins/promptflt/android/.idea/
-plugins/promptflt/android/local.properties
-plugins/promptflt/android/app/debug
-plugins/promptflt/android/app/profile
-plugins/promptflt/android/app/release
-plugins/promptflt/android/*.jks
-
-# Web
-plugins/promptflt/web/.dart_tool/
-plugins/promptflt/web/build/
-
-# Linux
-plugins/promptflt/linux/flutter/ephemeral/
-
-# Windows
-plugins/promptflt/windows/flutter/ephemeral/
-
-# Coverage
-plugins/promptflt/coverage/
-
-# Outros arquivos temporários e sensíveis
-plugins/promptflt/*.lock
-plugins/promptflt/*.tmp
-plugins/promptflt/*.swp
-plugins/promptflt/*.log
-plugins/promptflt/*.bak
-plugins/promptflt/*.old
-plugins/promptflt/*.orig
-
-# Arquivos ocultos e secretos
-plugins/promptflt/.DS_Store
-plugins/promptflt/.env
-plugins/promptflt/.env.*
-plugins/promptflt/.secret
-plugins/promptflt/.secret.*
-plugins/promptflt/firebase.json
