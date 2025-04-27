@@ -14,14 +14,15 @@ const path = require('path');
 const { execSync } = require('child_process');
 
 /**
- * Obtém a mensagem do último commit do repositório
- * @returns {string} Mensagem do último commit ou string vazia em caso de erro
+ * Obtém a mensagem do commit atual do repositório
+ * @returns {string} Mensagem do commit atual ou string vazia em caso de erro
  */
-function getLastCommitMessage() {
+function getCurrentCommitMessage() {
     try {
+        // Pega a mensagem do commit que está sendo feito
         return execSync('git log -1 --pretty=%B').toString().trim();
     } catch (error) {
-        console.error('Erro ao obter mensagem do último commit:', error);
+        console.error('Erro ao obter mensagem do commit atual:', error);
         return '';
     }
 }
@@ -43,14 +44,19 @@ function updateVersion() {
         // Incrementa o patch
         packageJson.version = `${major}.${minor}.${patch + 1}`;
 
-        // Adiciona a descrição do último commit
-        packageJson.lastCommit = getLastCommitMessage();
+        // Adiciona a descrição do commit atual
+        const commitMessage = getCurrentCommitMessage();
+        if (commitMessage) {
+            packageJson.lastCommit = commitMessage;
+        }
 
         // Escreve o arquivo atualizado
         fs.writeFileSync(packagePath, JSON.stringify(packageJson, null, 2) + '\n');
 
         console.log(`Versão atualizada para ${packageJson.version}`);
-        console.log(`Último commit: ${packageJson.lastCommit}`);
+        if (commitMessage) {
+            console.log(`Commit atual: ${packageJson.lastCommit}`);
+        }
     } catch (error) {
         console.error('Erro ao atualizar a versão:', error);
         process.exit(1);

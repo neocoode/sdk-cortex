@@ -1,6 +1,6 @@
 {
   "name": "luma",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "date": "04/2025",
   "lastcommit": "Neocoode High Tech Defintion",
   "private": true,
@@ -41,5 +41,5 @@
     "tailwindcss": "^4",
     "typescript": "^5"
   },
-  "lastCommit": "chore: add last commit message retrieval in updateVersion.js and update package.json"
+  "lastCommit": "chore: enhance updateVersion.js with detailed comments and documentation for version increment and commit message retrieval"
 }
