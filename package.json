@@ -2,7 +2,7 @@
   "name": "luma",
   "version": "0.1.14",
   "currentDate": "04/2025",
-  "lastCommit": "fix: update package.json path in updateVersion.js to use __dirname for correct resolution",
+  "lastCommit": "fix: update package.json path in updateVersion.js to use __dirname for correct resolutions",
   "lastLoginCommit": "elio.lima",
   "lastDateCommit": "04/2025",
   "private": true,
