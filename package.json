@@ -1,8 +1,8 @@
 {
   "name": "luma",
-  "version": "0.1.13",
+  "version": "0.1.14",
   "currentDate": "04/2025",
-  "lastCommit": "chore: update package.json to include currentDate and lastDateCommit fields, and modify footer component to display date before version",
+  "lastCommit": "fix: update package.json path in updateVersion.js to use __dirname for correct resolution",
   "lastLoginCommit": "elio.lima",
   "lastDateCommit": "04/2025",
   "private": true,
@@ -13,7 +13,7 @@
     "start": "next start",
     "lint": "next lint",
     "prepush": "node hooves/prepush.js",
-    "update-version": "node hooves/updateVersion.js"
+    "precommit": "node hooves/updateVersion.js"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.7.0",
