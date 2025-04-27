@@ -1,18 +1,22 @@
-# SDK Cortex
+# Luma - Plugin de Processamento de Imagens
 
-SDK para integração com o sistema Cortex IA, uma plataforma avançada de processamento de linguagem natural e análise de texto.
+Plugin do SDK Cortex para processamento avançado de imagens e visão computacional.
 
 ## 🚀 Visão Geral
 
-O SDK Cortex é uma ferramenta que permite a integração com o sistema Cortex IA, oferecendo uma interface simplificada para processamento de linguagem natural, análise de texto e gerenciamento de dados. O SDK é construído com foco em modularidade e extensibilidade, permitindo que desenvolvedores criem e integrem seus próprios plugins.
+O Luma é um plugin especializado em processamento de imagens e visão computacional, integrado ao SDK Cortex. Ele oferece uma interface moderna e intuitiva para análise, manipulação e processamento de imagens utilizando tecnologias de ponta.
 
 ## 🛠️ Tecnologias
 
-- Next.js/React (Core e Plugins)
-- Go (Golang) - Backend
-- MongoDB - Banco de dados
-- Docker - Containerização
-- Node.js - Runtime JavaScript
+- Next.js 15.3.1
+- React 19
+- TypeScript
+- Redux Toolkit
+- Redux Saga
+- TailwindCSS
+- Axios
+- React Image Gallery
+- Keen Slider
 
 ## 📚 Bibliotecas Principais
 
@@ -25,7 +29,7 @@ O SDK Cortex é uma ferramenta que permite a integração com o sistema Cortex I
 - **axios**: ^1.9.0 - Requisições HTTP
 
 ### UI/UX
-- **tailwindcss**: ^4 - CSS Utility-first
+- **keen-slider**: ^6.8.6 - Carrossel de imagens
 - **lucide-react**: ^0.503.0 - Ícones
 - **react-image-gallery**: ^1.4.0 - Galeria de imagens
 - **react-toastify**: ^11.0.5 - Notificações
@@ -34,87 +38,33 @@ O SDK Cortex é uma ferramenta que permite a integração com o sistema Cortex I
 ### Desenvolvimento
 - **typescript**: ^5 - Tipagem estática
 - **eslint**: ^9.25.1 - Linting
+- **tailwindcss**: ^4 - CSS Utility-first
 - **@typescript-eslint**: ^8.31.0 - Regras TypeScript para ESLint
-
-## 📁 Estrutura do Projeto
-
-```
-sdk-cortex/
-├── plugins/           # Plugins e extensões do SDK
-│   └── luma/         # Plugin de processamento de imagens
-├── .cursor/          # Configurações do Cursor IDE
-├── .git/             # Controle de versão
-├── .env              # Variáveis de ambiente
-├── start.sh          # Script de inicialização
-├── run_macos.sh      # Script específico para macOS
-└── LICENSE           # Licença do projeto
-```
-
-## 📦 Plugins Disponíveis
-
-### Luma
-Plugin especializado em processamento de imagens e visão computacional, localizado em `plugins/luma/`.
-
-#### Tecnologias
-- Next.js 15.3.1
-- React 19
-- TypeScript
-- Redux Toolkit & Saga
-- TailwindCSS
-
-#### Funcionalidades
-- Análise avançada de imagens
-- Processamento de visão computacional
-- Interface moderna e responsiva
-- Galeria de imagens interativa
-- Carrossel de imagens otimizado
-- Notificações em tempo real
-- Componentes estilizados reutilizáveis
-
-#### Integrações
-- Integração com modelos de IA
-- APIs de processamento de imagem
-- Serviços de armazenamento
-- Análise de metadados
-
-## 🏗️ Arquitetura
-
-O SDK é construído com uma arquitetura modular e extensível:
-
-- **Plugins**: Sistema de plugins para extensão de funcionalidades
-  - Luma: Processamento de imagens
-- **Core**: Módulo central do SDK
-- **Integrations**: Integrações com serviços externos
-- **Utils**: Utilitários e helpers
 
 ## 🚀 Como Começar
 
-1. Clone o repositório
-```bash
-git clone [url-do-repositorio]
-```
-
-2. Configure o ambiente
-```bash
-cp .env.example .env
-# Edite o arquivo .env com suas configurações
-```
-
-3. Instale as dependências
+1. Instale as dependências
 ```bash
 npm install
 # ou
 yarn install
 ```
 
-4. Execute o projeto
+2. Configure as variáveis de ambiente
 ```bash
-# Para desenvolvimento
+cp .env.example .env.local
+# Edite o arquivo .env.local com suas configurações
+```
+
+3. Execute o projeto em desenvolvimento
+```bash
 npm run dev
 # ou
 yarn dev
+```
 
-# Para produção
+4. Para produção
+```bash
 npm run build
 npm run start
 # ou
@@ -122,43 +72,84 @@ yarn build
 yarn start
 ```
 
+## 📁 Estrutura do Projeto
+
+```
+luma/
+├── src/              # Código fonte
+├── public/           # Arquivos estáticos
+├── docs/             # Documentação
+├── .next/            # Build Next.js
+├── node_modules/     # Dependências
+└── package.json      # Configurações e dependências
+```
+
+## 🔧 Scripts Disponíveis
+
+- `dev`: Inicia o servidor de desenvolvimento com Turbopack
+- `build`: Gera a versão de produção
+- `start`: Inicia o servidor de produção
+- `lint`: Executa o linter
+
+## 🎨 UI/UX
+
+### Ícones
+Utilizamos a biblioteca [Lucide Icons](https://lucide.dev/icons/) para ícones. Para instalar:
+
+```bash
+npm install lucide-react
+# ou
+yarn add lucide-react
+```
+
+### Componentes
+O projeto utiliza uma combinação de:
+- Componentes estilizados
+- TailwindCSS para estilização
+- Keen Slider para carrosséis
+- React Image Gallery para galerias
+
 ## 🔒 Segurança
 
-- Autenticação via tokens
-- Gerenciamento seguro de sessões
-- Variáveis de ambiente para configurações sensíveis
 - Validação de inputs
 - Sanitização de dados
-- Logs de auditoria
+- Proteção contra XSS
+- Variáveis de ambiente para configurações sensíveis
 
 ## 📝 Licença
 
-Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+Este projeto está sob a licença MIT.
 
 ## 👥 Contribuição
 
-Contribuições são bem-vindas! Por favor, siga estas diretrizes:
-
 1. Fork o projeto
-2. Crie uma branch para sua feature (`git checkout -b feature/AmazingFeature`)
+2. Crie sua branch (`git checkout -b feature/AmazingFeature`)
 3. Commit suas mudanças (`git commit -m 'feat: add some amazing feature'`)
 4. Push para a branch (`git push origin feature/AmazingFeature`)
 5. Abra um Pull Request
 
-### Padrões de Commit
-Seguimos o Conventional Commits:
-- `feat:` para novas funcionalidades
-- `fix:` para correções de bugs
-- `docs:` para documentação
-- `style:` para formatação
-- `refactor:` para refatoração
-- `test:` para testes
-- `chore:` para tarefas de manutenção
-
-## 📫 Suporte
-
-Para suporte, por favor abra uma issue no repositório ou entre em contato com a equipe de suporte.
-
 ---
 
 Desenvolvido com ❤️ pela equipe Neocoode
+
+## Links Úteis
+- [Chat Vercel AI](https://chat.vercel.ai/)
+- [Lucide Icons](https://lucide.dev/icons/)
+
+## Configuração do Ambiente
+
+### Variáveis de Ambiente
+> (Adicione aqui as variáveis necessárias para o projeto)
+
+---
+
+# Ícones
+
+Para usar ícones no projeto, utilizamos a biblioteca [Lucide Icons](https://lucide.dev/icons/).
+
+### Instalação
+
+Execute o comando:
+
+```bash
+npm install lucide-react
