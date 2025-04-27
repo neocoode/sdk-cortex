@@ -1,7 +1,7 @@
 'use client';
 
 import { useTheme } from '@/themes/themeContext';
-import React, { useRef } from 'react';
+import React, { forwardRef } from 'react';
 
 interface InputFieldProps {
   value: string;
@@ -10,19 +10,18 @@ interface InputFieldProps {
   onKeyDown?: (e: React.KeyboardEvent<HTMLInputElement>) => void;
 }
 
-const InputField: React.FC<InputFieldProps> = ({
+const InputField = forwardRef<HTMLInputElement, InputFieldProps>(({
   value,
   onChange,
   placeholder = 'Digite sua mensagem...',
   onKeyDown,
-}) => {
+}, ref) => {
   const { themeSelected } = useTheme();
-  const inputRef = useRef<HTMLInputElement>(null);
 
   return (
     <div className="flex-1">
       <input
-        ref={inputRef}
+        ref={ref}
         type="text"
         value={value}
         onChange={onChange}
@@ -36,6 +35,8 @@ const InputField: React.FC<InputFieldProps> = ({
       />
     </div>
   );
-};
+});
+
+InputField.displayName = 'InputField';
 
 export default InputField; 

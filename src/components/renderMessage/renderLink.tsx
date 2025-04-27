@@ -8,6 +8,7 @@
  * - Tamanho de fonte ajustável
  * - Efeito hover na cor
  * - Texto sublinhado
+ * - Redireciona para a URL fornecida no value
  */
 
 import { IResponseChat } from "@/interface/chats";
@@ -16,9 +17,12 @@ import { useTheme } from "@/themes/themeContext";
 const RenderLink: React.FC<IResponseChat> = ({ value }) => {
   const { themeSelected } = useTheme();
 
+  if (typeof value !== "string") return <></>;
+
   return (
     <div className="flex flex-wrap pb-1">
       <a 
+        href={value as string}
         target="_blank" 
         rel="noopener noreferrer" 
         className={`

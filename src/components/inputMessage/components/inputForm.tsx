@@ -1,7 +1,7 @@
 'use client';
 
 import { useTheme } from '@/themes/themeContext';
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import ActionBar from './actionBar';
 import InputField from './inputField';
 
@@ -27,6 +27,10 @@ const InputForm: React.FC<InputFormProps> = ({
 }) => {
   const { themeSelected } = useTheme();
   const inputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    inputRef.current?.focus();
+  }, []);
 
   const onSubmitPrivate = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -71,6 +75,7 @@ const InputForm: React.FC<InputFormProps> = ({
             ${themeSelected.borderRadius.xxlarge} 
           `}>
           <InputField
+            ref={inputRef}
             value={value}
             onChange={onChange}
             placeholder={placeholder}
