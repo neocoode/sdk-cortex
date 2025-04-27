@@ -24,30 +24,32 @@ const RenderTable: React.FC<IResponseChat> = ({ value, key }) => {
 
   let lastClickTime = 0;
   return <div className="flex flex-col my-4 w-full">
-    <CustomCard
-      title="Tabela"
-      rightIcon={<div>
-        <Download
-          size={20}
-          className={`
-            cursor-pointer
-          ${themeSelected.colors.text} 
-        `}
-        onClick={() => {
-          const now = Date.now();
-          if (now - lastClickTime < 3000) return; // Previne múltiplos cliques em 1 segundo
-          lastClickTime = now;
-          if (isTableType === ETableType.schema && typeof value === 'string') {
-            downloadTableSchema(value as string, { dispatch});
-          }
-        }}
-        />
-      </div>}
-    >
-      <RenderTableContent value={value as string} key={key} setIsTableType={setIsTableType} />
-    </CustomCard>
-
-  </div>;
+      <CustomCard
+        title="Tabela"
+        rightIcon={<div>
+          <div className="tooltip">
+            <Download
+              size={20}
+              className={`
+              cursor-pointer
+              ${themeSelected.colors.text} 
+            `}
+              onClick={() => {
+                const now = Date.now();
+                if (now - lastClickTime < 3000) return; // Previne múltiplos cliques em 1 segundo
+                lastClickTime = now;
+                if (isTableType === ETableType.schema && typeof value === 'string') {
+                  downloadTableSchema(value as string, { dispatch });
+                }
+              }}
+            />
+            <span className="tooltip-text">Baixar</span>
+          </div>
+        </div>}
+      >
+        <RenderTableContent value={value as string} key={key} setIsTableType={setIsTableType} />
+      </CustomCard>
+    </div>;
 };
 
 export default RenderTable;

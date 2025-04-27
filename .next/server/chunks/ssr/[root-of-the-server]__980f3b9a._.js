@@ -255,7 +255,7 @@ const __TURBOPACK__default__export__ = LeftSidebar;
 
 var { g: global, __dirname } = __turbopack_context__;
 {
-__turbopack_context__.v(JSON.parse("{\"name\":\"luma\",\"version\":\"0.1.19\",\"currentDate\":\"04/2025\",\"lastCommit\":\"chore: clean up build manifests by removing unused entries and updating font manifest structure\",\"lastLoginCommit\":\"elio.lima\",\"lastDateCommit\":\"04/2025\",\"private\":true,\"author\":\"Neocoode High Defintion\",\"scripts\":{\"dev\":\"next dev --turbopack -p 3000\",\"build\":\"next build\",\"start\":\"next start\",\"lint\":\"next lint\",\"prepush\":\"node hooves/prepush.js\",\"prepare\":\"husky install\"},\"dependencies\":{\"@reduxjs/toolkit\":\"^2.7.0\",\"@svgr/webpack\":\"^8.1.0\",\"axios\":\"^1.9.0\",\"components-styled\":\"^0.0.2\",\"dotenv\":\"^16.5.0\",\"husky\":\"^9.1.7\",\"keen-slider\":\"^6.8.6\",\"lucide-react\":\"^0.503.0\",\"next\":\"15.3.1\",\"react\":\"^19.0.0\",\"react-dom\":\"^19.0.0\",\"react-image-gallery\":\"^1.4.0\",\"react-redux\":\"^9.2.0\",\"react-toastify\":\"^11.0.5\",\"redux-saga\":\"^1.3.0\"},\"devDependencies\":{\"@eslint/eslintrc\":\"^3\",\"@tailwindcss/postcss\":\"^4\",\"@types/node\":\"^20\",\"@types/react\":\"^19\",\"@types/react-dom\":\"^19\",\"@typescript-eslint/eslint-plugin\":\"^8.31.0\",\"@typescript-eslint/parser\":\"^8.31.0\",\"eslint\":\"^9.25.1\",\"eslint-config-next\":\"15.3.1\",\"eslint-config-prettier\":\"^10.1.2\",\"tailwindcss\":\"^4\",\"typescript\":\"^5\"}}"));}}),
+__turbopack_context__.v(JSON.parse("{\"name\":\"luma\",\"version\":\"0.1.20\",\"currentDate\":\"04/2025\",\"lastCommit\":\"chore: remove .next directory cleanup from prepush script\",\"lastLoginCommit\":\"elio.lima\",\"lastDateCommit\":\"04/2025\",\"private\":true,\"author\":\"Neocoode High Defintion\",\"scripts\":{\"dev\":\"next dev --turbopack -p 3000\",\"build\":\"next build\",\"start\":\"next start\",\"lint\":\"next lint\",\"prepush\":\"node hooves/prepush.js\",\"prepare\":\"husky install\"},\"dependencies\":{\"@reduxjs/toolkit\":\"^2.7.0\",\"@svgr/webpack\":\"^8.1.0\",\"axios\":\"^1.9.0\",\"components-styled\":\"^0.0.2\",\"dotenv\":\"^16.5.0\",\"husky\":\"^9.1.7\",\"keen-slider\":\"^6.8.6\",\"lucide-react\":\"^0.503.0\",\"next\":\"15.3.1\",\"react\":\"^19.0.0\",\"react-dom\":\"^19.0.0\",\"react-image-gallery\":\"^1.4.0\",\"react-redux\":\"^9.2.0\",\"react-toastify\":\"^11.0.5\",\"redux-saga\":\"^1.3.0\"},\"devDependencies\":{\"@eslint/eslintrc\":\"^3\",\"@tailwindcss/postcss\":\"^4\",\"@types/node\":\"^20\",\"@types/react\":\"^19\",\"@types/react-dom\":\"^19\",\"@typescript-eslint/eslint-plugin\":\"^8.31.0\",\"@typescript-eslint/parser\":\"^8.31.0\",\"eslint\":\"^9.25.1\",\"eslint-config-next\":\"15.3.1\",\"eslint-config-prettier\":\"^10.1.2\",\"tailwindcss\":\"^4\",\"typescript\":\"^5\"}}"));}}),
 "[project]/src/components/inputMessage/components/footer.tsx [app-ssr] (ecmascript)": ((__turbopack_context__) => {
 "use strict";
 
@@ -668,37 +668,150 @@ const __TURBOPACK__default__export__ = CustomCard;
 
 var { g: global, __dirname } = __turbopack_context__;
 {
-__turbopack_context__.s({
+/**
+ * Componente RenderCode
+ * 
+ * Este componente é responsável por renderizar blocos de código com funcionalidades de:
+ * - Copiar código para a área de transferência
+ * - Download do código como arquivo de texto
+ * - Suporte a temas
+ * - Interface adaptativa
+ */ __turbopack_context__.s({
     "default": (()=>__TURBOPACK__default__export__)
 });
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$modules$2f$toast$2f$slice$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/modules/toast/slice.ts [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$themes$2f$themeContext$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/themes/themeContext.tsx [app-ssr] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$customCard$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/components/customCard.tsx [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$copy$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Copy$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/copy.js [app-ssr] (ecmascript) <export default as Copy>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$download$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Download$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/download.js [app-ssr] (ecmascript) <export default as Download>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$redux$2f$dist$2f$react$2d$redux$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/react-redux/dist/react-redux.mjs [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$customCard$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/components/customCard.tsx [app-ssr] (ecmascript)");
+;
+;
 ;
 ;
 ;
 ;
 const RenderCode = ({ value, key })=>{
     const { themeSelected } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$themes$2f$themeContext$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useTheme"])();
+    const dispatch = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$redux$2f$dist$2f$react$2d$redux$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useDispatch"])();
+    // Função para copiar o código para a área de transferência
+    // Se o código for maior que 1MB, redireciona para download
+    const handleCopy = async ()=>{
+        try {
+            if (value.length > 1000000) {
+                handleDownload();
+                return;
+            }
+            await navigator.clipboard.writeText(value);
+            dispatch((0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$modules$2f$toast$2f$slice$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["showToast"])({
+                message: 'Código copiado com sucesso!',
+                type: 'success'
+            }));
+        } catch (error) {
+            dispatch((0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$modules$2f$toast$2f$slice$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["showToast"])({
+                message: 'Erro ao copiar código',
+                type: 'error'
+            }));
+            console.error('Erro ao copiar:', error);
+        }
+    };
+    // Função para fazer download do código como arquivo de texto
+    const handleDownload = ()=>{
+        try {
+            const blob = new Blob([
+                value
+            ], {
+                type: 'text/plain'
+            });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'codigo.txt';
+            document.body.appendChild(a);
+            a.click();
+            window.URL.revokeObjectURL(url);
+            document.body.removeChild(a);
+            dispatch((0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$modules$2f$toast$2f$slice$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["showToast"])({
+                message: 'Download efetuado com sucesso!',
+                type: 'success'
+            }));
+        } catch (error) {
+            dispatch((0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$modules$2f$toast$2f$slice$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["showToast"])({
+                message: 'Erro ao baixar arquivo',
+                type: 'error'
+            }));
+            console.error('Erro ao baixar:', error);
+        }
+    };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$customCard$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
         title: "Código",
         rightIcon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$copy$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Copy$3e$__["Copy"], {
-                size: 20,
-                className: `
-            cursor-pointer
-          ${themeSelected.colors.text} 
-        `
-            }, void 0, false, {
-                fileName: "[project]/src/components/renderMessage/renderCode.tsx",
-                lineNumber: 14,
-                columnNumber: 9
-            }, void 0)
-        }, void 0, false, {
+            className: "flex gap-2",
+            children: [
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    className: "tooltip",
+                    children: [
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$copy$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Copy$3e$__["Copy"], {
+                            size: 20,
+                            onClick: handleCopy,
+                            className: `
+                cursor-pointer
+                ${themeSelected.colors.text} 
+              `
+                        }, void 0, false, {
+                            fileName: "[project]/src/components/renderMessage/renderCode.tsx",
+                            lineNumber: 66,
+                            columnNumber: 13
+                        }, void 0),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                            className: "tooltip-text",
+                            children: "Copiar"
+                        }, void 0, false, {
+                            fileName: "[project]/src/components/renderMessage/renderCode.tsx",
+                            lineNumber: 74,
+                            columnNumber: 13
+                        }, void 0)
+                    ]
+                }, void 0, true, {
+                    fileName: "[project]/src/components/renderMessage/renderCode.tsx",
+                    lineNumber: 65,
+                    columnNumber: 11
+                }, void 0),
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    className: "tooltip",
+                    children: [
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$download$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Download$3e$__["Download"], {
+                            size: 20,
+                            onClick: handleDownload,
+                            className: `
+                cursor-pointer
+                ${themeSelected.colors.text} 
+              `
+                        }, void 0, false, {
+                            fileName: "[project]/src/components/renderMessage/renderCode.tsx",
+                            lineNumber: 78,
+                            columnNumber: 13
+                        }, void 0),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                            className: "tooltip-text",
+                            children: "Baixar"
+                        }, void 0, false, {
+                            fileName: "[project]/src/components/renderMessage/renderCode.tsx",
+                            lineNumber: 86,
+                            columnNumber: 13
+                        }, void 0)
+                    ]
+                }, void 0, true, {
+                    fileName: "[project]/src/components/renderMessage/renderCode.tsx",
+                    lineNumber: 77,
+                    columnNumber: 11
+                }, void 0)
+            ]
+        }, void 0, true, {
             fileName: "[project]/src/components/renderMessage/renderCode.tsx",
-            lineNumber: 13,
-            columnNumber: 18
+            lineNumber: 63,
+            columnNumber: 9
         }, void 0),
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("pre", {
             className: `
@@ -711,17 +824,17 @@ const RenderCode = ({ value, key })=>{
                 children: value
             }, void 0, false, {
                 fileName: "[project]/src/components/renderMessage/renderCode.tsx",
-                lineNumber: 29,
+                lineNumber: 98,
                 columnNumber: 9
             }, this)
         }, void 0, false, {
             fileName: "[project]/src/components/renderMessage/renderCode.tsx",
-            lineNumber: 23,
+            lineNumber: 92,
             columnNumber: 7
         }, this)
     }, key, false, {
         fileName: "[project]/src/components/renderMessage/renderCode.tsx",
-        lineNumber: 10,
+        lineNumber: 59,
         columnNumber: 5
     }, this);
 };
@@ -1548,44 +1661,61 @@ const RenderTable = ({ value, key })=>{
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$customCard$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
             title: "Tabela",
             rightIcon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$download$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Download$3e$__["Download"], {
-                    size: 20,
-                    className: `
-            cursor-pointer
-          ${themeSelected.colors.text} 
-        `,
-                    onClick: ()=>{
-                        const now = Date.now();
-                        if (now - lastClickTime < 3000) return; // Previne múltiplos cliques em 1 segundo
-                        lastClickTime = now;
-                        if (isTableType === __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$interface$2f$tableSchema$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["ETableType"].schema && typeof value === 'string') {
-                            (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$renderMessage$2f$renderTable$2f$modules$2f$downloadTableSchema$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["downloadTableSchema"])(value, {
-                                dispatch
-                            });
-                        }
-                    }
-                }, void 0, false, {
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    className: "tooltip",
+                    children: [
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$download$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Download$3e$__["Download"], {
+                            size: 20,
+                            className: `
+              cursor-pointer
+              ${themeSelected.colors.text} 
+            `,
+                            onClick: ()=>{
+                                const now = Date.now();
+                                if (now - lastClickTime < 3000) return; // Previne múltiplos cliques em 1 segundo
+                                lastClickTime = now;
+                                if (isTableType === __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$interface$2f$tableSchema$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["ETableType"].schema && typeof value === 'string') {
+                                    (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$renderMessage$2f$renderTable$2f$modules$2f$downloadTableSchema$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["downloadTableSchema"])(value, {
+                                        dispatch
+                                    });
+                                }
+                            }
+                        }, void 0, false, {
+                            fileName: "[project]/src/components/renderMessage/renderTable/renderTable.tsx",
+                            lineNumber: 31,
+                            columnNumber: 13
+                        }, void 0),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                            className: "tooltip-text",
+                            children: "Baixar"
+                        }, void 0, false, {
+                            fileName: "[project]/src/components/renderMessage/renderTable/renderTable.tsx",
+                            lineNumber: 46,
+                            columnNumber: 13
+                        }, void 0)
+                    ]
+                }, void 0, true, {
                     fileName: "[project]/src/components/renderMessage/renderTable/renderTable.tsx",
                     lineNumber: 30,
-                    columnNumber: 9
+                    columnNumber: 11
                 }, void 0)
             }, void 0, false, {
                 fileName: "[project]/src/components/renderMessage/renderTable/renderTable.tsx",
                 lineNumber: 29,
-                columnNumber: 18
+                columnNumber: 20
             }, void 0),
             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$renderMessage$2f$renderTable$2f$components$2f$renderTableContent$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["RenderTableContent"], {
                 value: value,
                 setIsTableType: setIsTableType
             }, key, false, {
                 fileName: "[project]/src/components/renderMessage/renderTable/renderTable.tsx",
-                lineNumber: 47,
-                columnNumber: 7
+                lineNumber: 50,
+                columnNumber: 9
             }, this)
         }, void 0, false, {
             fileName: "[project]/src/components/renderMessage/renderTable/renderTable.tsx",
             lineNumber: 27,
-            columnNumber: 5
+            columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/src/components/renderMessage/renderTable/renderTable.tsx",

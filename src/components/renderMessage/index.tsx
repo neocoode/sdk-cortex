@@ -1,5 +1,5 @@
 import { EMessageType, IResponseChat } from "@/interface/chats";
-import RenderCode from "./renderCode";
+import RenderCode from "./renderCode/renderCode";
 import RenderDivider from "./renderDivider";
 import RenderGroupLink from "./renderGroupLink";
 import RenderImageUrl from "./renderImageUrl";

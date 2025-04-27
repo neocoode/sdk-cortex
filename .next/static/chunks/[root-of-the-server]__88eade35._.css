@@ -1389,6 +1389,10 @@
     justify-content: flex-start;
   }
 
+  .gap-2 {
+    gap: calc(var(--spacing) * 2);
+  }
+
   :where(.space-y-2 > :not(:last-child)) {
     --tw-space-y-reverse: 0;
     margin-block-start: calc(calc(var(--spacing) * 2) * var(--tw-space-y-reverse));
@@ -2045,6 +2049,35 @@ body {
 * {
   scrollbar-width: thin;
   scrollbar-color: #434343 #1e1e1e;
+}
+
+.tooltip {
+  display: inline-block;
+  position: relative;
+}
+
+.tooltip-text {
+  visibility: hidden;
+  color: #fff;
+  text-align: center;
+  z-index: 1;
+  opacity: 0;
+  pointer-events: none;
+  background-color: #333;
+  border-radius: 4px;
+  width: max-content;
+  padding: 4px 8px;
+  font-size: 12px;
+  transition: opacity .2s;
+  position: absolute;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.tooltip:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
 }
 
 @property --tw-translate-x {

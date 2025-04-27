@@ -41,7 +41,7 @@ const Toast = () => {
       const timer = setTimeout(() => {
         toast.dismiss(toastId);
         dispatch(hideToast());
-      }, 15000);
+      }, 5000);
 
       return () => clearTimeout(timer);
     }
@@ -50,7 +50,7 @@ const Toast = () => {
   return (
     <ToastContainer
       position="bottom-center"
-      autoClose={15000}
+      autoClose={5000}
       hideProgressBar={false}
       newestOnTop
       closeOnClick
