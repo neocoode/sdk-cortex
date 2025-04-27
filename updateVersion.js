@@ -7,6 +7,8 @@
  * - Incrementa a versão patch (x.y.z+1)
  * - Captura a mensagem do último commit
  * - Atualiza o package.json com as novas informações
+ * - Adiciona a data atual (mês/ano)
+ * - Registra a data do último commit
  */
 
 const fs = require('fs');
@@ -44,6 +46,30 @@ function getUserLogin() {
 }
 
 /**
+ * Obtém a data atual no formato MM/YYYY
+ * @returns {string} Data atual formatada
+ */
+function getCurrentDate() {
+    const now = new Date();
+    const month = String(now.getMonth() + 1).padStart(2, '0');
+    const year = now.getFullYear();
+    return `${month}/${year}`;
+}
+
+/**
+ * Obtém a data do último commit
+ * @returns {string} Data do último commit ou string vazia em caso de erro
+ */
+function getLastCommitDate() {
+    try {
+        return execSync('git log -1 --format=%cd --date=format:"%m/%Y"').toString().trim();
+    } catch (error) {
+        console.error('Erro ao obter data do último commit:', error);
+        return '';
+    }
+}
+
+/**
  * Atualiza a versão no package.json
  * Incrementa a versão patch e adiciona a mensagem do último commit
  * @throws {Error} Se houver erro na leitura ou escrita do package.json
@@ -72,6 +98,15 @@ function updateVersion() {
             packageJson.lastLoginCommit = userLogin;
         }
 
+        // Adiciona a data atual
+        packageJson.currentDate = getCurrentDate();
+
+        // Adiciona a data do último commit
+        const lastCommitDate = getLastCommitDate();
+        if (lastCommitDate) {
+            packageJson.lastDateCommit = lastCommitDate;
+        }
+
         // Escreve o arquivo atualizado
         fs.writeFileSync(packagePath, JSON.stringify(packageJson, null, 2) + '\n');
 
@@ -81,6 +116,10 @@ function updateVersion() {
         }
         if (userLogin) {
             console.log(`Usuário: ${packageJson.lastLoginCommit}`);
+        }
+        console.log(`Data atual: ${packageJson.currentDate}`);
+        if (lastCommitDate) {
+            console.log(`Data do último commit: ${packageJson.lastDateCommit}`);
         }
     } catch (error) {
         console.error('Erro ao atualizar a versão:', error);
