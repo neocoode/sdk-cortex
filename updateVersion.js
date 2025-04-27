@@ -28,6 +28,22 @@ function getCurrentCommitMessage() {
 }
 
 /**
+ * Obtém o login do usuário que está fazendo o commit
+ * @returns {string} Login do usuário ou string vazia em caso de erro
+ */
+function getUserLogin() {
+    try {
+        // Tenta obter o email do git config
+        const email = execSync('git config user.email').toString().trim();
+        // Extrai o login do email (parte antes do @)
+        return email.split('@')[0];
+    } catch (error) {
+        console.error('Erro ao obter login do usuário:', error);
+        return '';
+    }
+}
+
+/**
  * Atualiza a versão no package.json
  * Incrementa a versão patch e adiciona a mensagem do último commit
  * @throws {Error} Se houver erro na leitura ou escrita do package.json
@@ -50,12 +66,21 @@ function updateVersion() {
             packageJson.lastCommit = commitMessage;
         }
 
+        // Adiciona o login do usuário
+        const userLogin = getUserLogin();
+        if (userLogin) {
+            packageJson.lastLoginCommit = userLogin;
+        }
+
         // Escreve o arquivo atualizado
         fs.writeFileSync(packagePath, JSON.stringify(packageJson, null, 2) + '\n');
 
         console.log(`Versão atualizada para ${packageJson.version}`);
         if (commitMessage) {
             console.log(`Commit atual: ${packageJson.lastCommit}`);
+        }
+        if (userLogin) {
+            console.log(`Usuário: ${packageJson.lastLoginCommit}`);
         }
     } catch (error) {
         console.error('Erro ao atualizar a versão:', error);
