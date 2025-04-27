@@ -1,4 +1,5 @@
 export enum ETableType {
+    error = 'error',
     schema = 'schema',
 }
 

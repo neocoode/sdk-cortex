@@ -2,13 +2,13 @@ import { EMessageType, IResponseChat } from "@/interface/chats";
 import RenderCode from "./renderCode";
 import RenderDivider from "./renderDivider";
 import RenderGroupLink from "./renderGroupLink";
+import RenderImageUrl from "./renderImageUrl";
 import RenderLink from "./renderLink";
 import RenderMessage from "./renderMessage";
-import RenderTable from "./renderTable";
+import RenderTable from "./renderTable/renderTable";
 import RenderText from "./renderText";
 import RenderTitle from "./renderTitle";
 import RenderUser from "./renderUser";
-import RenderImageUrl from "./renderImageUrl";
 
 
 const DisplaySentenseUser: React.FC<IResponseChat> = (data) => {
