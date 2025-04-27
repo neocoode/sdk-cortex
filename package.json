@@ -1,9 +1,9 @@
 {
   "name": "luma",
-  "version": "0.1.15",
+  "version": "0.1.16",
   "currentDate": "04/2025",
-  "lastCommit": "fix: update package.json path in updateVersion.js to use path.join for improved accuracy",
-  "lastLoginCommit": "elio.limas",
+  "lastCommit": "fix: correct lastLoginCommit typo in package.json for consistency",
+  "lastLoginCommit": "elio.lima",
   "lastDateCommit": "04/2025",
   "private": true,
   "author": "Neocoode High Defintion",
@@ -13,7 +13,7 @@
     "start": "next start",
     "lint": "next lint",
     "prepush": "node hooves/prepush.js",
-    "precommit": "node hooves/updateVersion.js"
+    "prepare": "husky install"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.7.0",
@@ -21,6 +21,7 @@
     "axios": "^1.9.0",
     "components-styled": "^0.0.2",
     "dotenv": "^16.5.0",
+    "husky": "^9.1.7",
     "keen-slider": "^6.8.6",
     "lucide-react": "^0.503.0",
     "next": "15.3.1",
