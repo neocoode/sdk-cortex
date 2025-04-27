@@ -1,8 +1,9 @@
 {
   "name": "luma",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "date": "04/2025",
   "private": true,
+  "author": "Neocoode High Tech Defintion",
   "scripts": {
     "dev": "next dev --turbopack -p 3000",
     "build": "next build",
