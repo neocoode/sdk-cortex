@@ -1,8 +1,8 @@
 {
   "name": "luma",
-  "version": "0.1.12",
+  "version": "0.1.13",
   "currentDate": "04/2025",
-  "lastCommit": "chore: remove .gitattributes file and enhance updateVersion.js with current date and last commit date tracking",
+  "lastCommit": "chore: update package.json to include currentDate and lastDateCommit fields, and modify footer component to display date before version",
   "lastLoginCommit": "elio.lima",
   "lastDateCommit": "04/2025",
   "private": true,
