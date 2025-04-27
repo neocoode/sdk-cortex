@@ -12,12 +12,3 @@ try {
 } catch (error) {
   console.log('Nenhum processo na porta 3000 para finalizar.');
 }
-
-// Remove a pasta .next se existir
-const nextPath = path.join(process.cwd(), '.next');
-if (fs.existsSync(nextPath)) {
-  fs.rmSync(nextPath, { recursive: true, force: true });
-  console.log('Pasta .next removida.');
-} else {
-  console.log('Pasta .next não encontrada.');
-} 
