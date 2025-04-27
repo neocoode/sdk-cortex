@@ -263,7 +263,7 @@ if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelper
 
 var { g: global, __dirname } = __turbopack_context__;
 {
-__turbopack_context__.v(JSON.parse("{\"name\":\"luma\",\"version\":\"0.1.10\",\"date\":\"04/2025\",\"lastCommit\":\"chore: add user login retrieval in updateVersion.js and update package.json with lastLoginCommit\",\"lastLoginCommit\":\"elio.lima\",\"private\":true,\"author\":\"Neocoode High Tech Defintion\",\"scripts\":{\"dev\":\"next dev --turbopack -p 3000\",\"build\":\"next build\",\"start\":\"next start\",\"lint\":\"next lint\"},\"dependencies\":{\"@reduxjs/toolkit\":\"^2.7.0\",\"@svgr/webpack\":\"^8.1.0\",\"axios\":\"^1.9.0\",\"components-styled\":\"^0.0.2\",\"dotenv\":\"^16.5.0\",\"keen-slider\":\"^6.8.6\",\"lucide-react\":\"^0.503.0\",\"next\":\"15.3.1\",\"react\":\"^19.0.0\",\"react-dom\":\"^19.0.0\",\"react-image-gallery\":\"^1.4.0\",\"react-redux\":\"^9.2.0\",\"react-toastify\":\"^11.0.5\",\"redux-saga\":\"^1.3.0\"},\"devDependencies\":{\"@eslint/eslintrc\":\"^3\",\"@tailwindcss/postcss\":\"^4\",\"@types/node\":\"^20\",\"@types/react\":\"^19\",\"@types/react-dom\":\"^19\",\"@typescript-eslint/eslint-plugin\":\"^8.31.0\",\"@typescript-eslint/parser\":\"^8.31.0\",\"eslint\":\"^9.25.1\",\"eslint-config-next\":\"15.3.1\",\"eslint-config-prettier\":\"^10.1.2\",\"tailwindcss\":\"^4\",\"typescript\":\"^5\"}}"));}}),
+__turbopack_context__.v(JSON.parse("{\"name\":\"luma\",\"version\":\"0.1.11\",\"lastCommit\":\"chore: add lastLoginCommit field in package.json to track user login information\",\"lastLoginCommit\":\"elio.lima\",\"currentDate\":\"04/2025\",\"lastDateCommit\":\"04/2025\",\"private\":true,\"author\":\"Neocoode High Tech Defintion\",\"scripts\":{\"dev\":\"next dev --turbopack -p 3000\",\"build\":\"next build\",\"start\":\"next start\",\"lint\":\"next lint\"},\"dependencies\":{\"@reduxjs/toolkit\":\"^2.7.0\",\"@svgr/webpack\":\"^8.1.0\",\"axios\":\"^1.9.0\",\"components-styled\":\"^0.0.2\",\"dotenv\":\"^16.5.0\",\"keen-slider\":\"^6.8.6\",\"lucide-react\":\"^0.503.0\",\"next\":\"15.3.1\",\"react\":\"^19.0.0\",\"react-dom\":\"^19.0.0\",\"react-image-gallery\":\"^1.4.0\",\"react-redux\":\"^9.2.0\",\"react-toastify\":\"^11.0.5\",\"redux-saga\":\"^1.3.0\"},\"devDependencies\":{\"@eslint/eslintrc\":\"^3\",\"@tailwindcss/postcss\":\"^4\",\"@types/node\":\"^20\",\"@types/react\":\"^19\",\"@types/react-dom\":\"^19\",\"@typescript-eslint/eslint-plugin\":\"^8.31.0\",\"@typescript-eslint/parser\":\"^8.31.0\",\"eslint\":\"^9.25.1\",\"eslint-config-next\":\"15.3.1\",\"eslint-config-prettier\":\"^10.1.2\",\"tailwindcss\":\"^4\",\"typescript\":\"^5\"}}"));}}),
 "[project]/src/components/inputMessage/components/footer.tsx [app-client] (ecmascript)": ((__turbopack_context__) => {
 "use strict";
 
@@ -280,7 +280,7 @@ var _s = __turbopack_context__.k.signature();
 'use client';
 ;
 ;
-const Footer = ({ version = __TURBOPACK__imported__module__$5b$project$5d2f$package$2e$json__$28$json$29$__["default"].version, date = __TURBOPACK__imported__module__$5b$project$5d2f$package$2e$json__$28$json$29$__["default"].date })=>{
+const Footer = ({ version = __TURBOPACK__imported__module__$5b$project$5d2f$package$2e$json__$28$json$29$__["default"].version, date = __TURBOPACK__imported__module__$5b$project$5d2f$package$2e$json__$28$json$29$__["default"].currentDate })=>{
     _s();
     const { themeSelected } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$themes$2f$themeContext$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useTheme"])();
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -290,10 +290,10 @@ const Footer = ({ version = __TURBOPACK__imported__module__$5b$project$5d2f$pack
         ${themeSelected.colors.textSecondary}
       `,
         children: [
-            "Luma ",
-            version,
-            " - ",
-            date
+            "Luma - ",
+            date,
+            " ",
+            version
         ]
     }, void 0, true, {
         fileName: "[project]/src/components/inputMessage/components/footer.tsx",

@@ -11,7 +11,7 @@ interface FooterProps {
 
 const Footer: React.FC<FooterProps> = ({
   version = packageJson.version,
-  date = packageJson.date
+  date = packageJson.currentDate
 }) => {
   const { themeSelected } = useTheme();
 
@@ -23,7 +23,7 @@ const Footer: React.FC<FooterProps> = ({
         ${themeSelected.colors.textSecondary}
       `}
     >
-      Luma {version} - {date}
+      Luma - {date} {version}
     </div>
   );
 };
