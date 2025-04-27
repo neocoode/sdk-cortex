@@ -46,3 +46,51 @@ cortex.tar.enc
 
 
 node_modules
+
+# Next.js
+.next/
+out/
+build/
+dist/
+
+# Dependências
+.pnp/
+.pnp.js
+
+# Cache
+.next/
+.cache/
+.eslintcache
+.stylelintcache
+.prettiercache
+
+# Coverage
+coverage/
+
+# Debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Local
+*.local
+.vercel
+.turbo
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
+
+# PWA
+public/sw.js
+public/workbox-*.js
+public/worker-*.js
+public/sw.js.map
+public/workbox-*.js.map
+public/worker-*.js.map
+
+# Misc
+.DS_Store
+*.pem
+.vercel
