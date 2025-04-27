@@ -15,46 +15,19 @@ const RenderTableSchema: React.FC<{ fields: ITableSchema[], key: string }> = ({ 
               <tr className={`
                 ${themeSelected.colors.backgroundTableHeader}
               `}>
-                <th className={`
-                  w-[20%] px-4 py-2 border-b text-left uppercase tracking-wider
-                  ${themeSelected.typography.fontSize.small}
-                  ${themeSelected.colors.text}
-                  ${themeSelected.borders.default}
-                `}>
-                  Campo
-                </th>
-                <th className={`
-                  w-[20%] px-4 py-2 border-b text-left uppercase tracking-wider
-                  ${themeSelected.typography.fontSize.msmall}
-                  ${themeSelected.colors.text}
-                  ${themeSelected.borders.default}
-                `}>
-                  Tipo
-                </th>
-                <th className={`
-                  w-[20%] px-4 py-2 border-b text-left uppercase tracking-wider
-                  ${themeSelected.typography.fontSize.msmall}
-                  ${themeSelected.colors.text}
-                  ${themeSelected.borders.default}
-                `}>
-                  Exemplo
-                </th>
-                <th className={`
-                  w-[25%] px-4 py-2 border-b text-left uppercase tracking-wider
-                  ${themeSelected.typography.fontSize.msmall}
-                  ${themeSelected.colors.text}
-                  ${themeSelected.borders.default}
-                `}>
-                  Descrição
-                </th>
-                <th className={`
-                  w-[15%] px-4 py-2 border-b text-left uppercase tracking-wider
-                  ${themeSelected.typography.fontSize.msmall}
-                  ${themeSelected.colors.text}
-                  ${themeSelected.borders.default}
-                `}>
-                  Fonte
-                </th>
+                {fields[0] && Object.keys(fields[0]).map((key) => (
+                  <th
+                    key={key}
+                    className={`
+                      px-4 py-2 border-b text-left uppercase tracking-wider
+                      ${themeSelected.typography.fontSize.small}
+                      ${themeSelected.colors.text}
+                      ${themeSelected.borders.default}
+                    `}
+                  >
+                    {key.charAt(0).toUpperCase() + key.slice(1)}
+                  </th>
+                ))}
               </tr>
             </thead>
             <tbody>
@@ -65,7 +38,7 @@ const RenderTableSchema: React.FC<{ fields: ITableSchema[], key: string }> = ({ 
                   <td className={`
                     w-[20%] px-4 py-2 border-bbreak-words
                     ${themeSelected.borders.default}
-                    ${themeSelected.typography.fontSize.msmall}
+                    ${themeSelected.typography.fontSize.small}
                     ${themeSelected.colors.text}
                   `}>
                     {field.field}
@@ -73,7 +46,7 @@ const RenderTableSchema: React.FC<{ fields: ITableSchema[], key: string }> = ({ 
                   <td className={`
                     w-[20%] px-4 py-2 border-b break-words
                     ${themeSelected.borders.default}
-                    ${themeSelected.typography.fontSize.msmall}
+                    ${themeSelected.typography.fontSize.small}
                     ${themeSelected.colors.text}
                   `}>
                     {field.type}
@@ -81,7 +54,7 @@ const RenderTableSchema: React.FC<{ fields: ITableSchema[], key: string }> = ({ 
                   <td className={`
                     w-[20%] px-4 py-2 border-b break-words
                     ${themeSelected.borders.default}
-                    ${themeSelected.typography.fontSize.msmall}
+                    ${themeSelected.typography.fontSize.small}
                     ${themeSelected.colors.text}
                   `}>
                     {typeof field.example === 'object' ? JSON.stringify(field.example) : field.example}
@@ -89,7 +62,7 @@ const RenderTableSchema: React.FC<{ fields: ITableSchema[], key: string }> = ({ 
                   <td className={`
                     w-[25%] px-4 py-2 border-b break-words
                     ${themeSelected.borders.default}
-                    ${themeSelected.typography.fontSize.msmall}
+                    ${themeSelected.typography.fontSize.small}
                     ${themeSelected.colors.text}
                   `}>
                     {field.description}
@@ -97,7 +70,7 @@ const RenderTableSchema: React.FC<{ fields: ITableSchema[], key: string }> = ({ 
                   <td className={`
                     w-[15%] px-4 py-2 border-b break-words
                     ${themeSelected.borders.default}
-                    ${themeSelected.typography.fontSize.msmall}
+                    ${themeSelected.typography.fontSize.small}
                     ${themeSelected.colors.text}
                   `}>
                     {field.source}

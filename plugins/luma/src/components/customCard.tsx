@@ -1,5 +1,4 @@
 import { useTheme } from "@/themes/themeContext";
-
 interface CustomCardProps {
   title?: string;
   rightIcon?: React.ReactNode;
@@ -23,7 +22,9 @@ const CustomCard: React.FC<CustomCardProps> = ({ title, rightIcon, children }) =
             ${themeSelected.typography.fontSize.small}
             ${themeSelected.typography.fontWeight.xbold}
             `}>{title}</h3>}
-          {rightIcon && <div className="flex items-center">{rightIcon}</div>}
+          {rightIcon && <div
+            className={`flex items-center m-2`}
+          >{rightIcon}</div>}
         </div>
       )}
       <div className={`

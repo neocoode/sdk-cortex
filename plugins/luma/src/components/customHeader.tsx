@@ -1,7 +1,8 @@
 'use client';
-import SvgIcon from '@/components/svgIcon';
-import { useTheme } from '@/themes/themeContext';
 import React from 'react';
+import { Settings, Download, PanelLeft } from 'lucide-react';
+
+import { useTheme } from '@/themes/themeContext';
 
 interface CustomHeaderProps {
     toggleSidebar: () => void;
@@ -13,20 +14,35 @@ const CustomHeader: React.FC<CustomHeaderProps> = ({ toggleSidebar }) => {
     return (
         <header className={`flex h-18 p-4 ${themeSelected.shadows.small} flex justify-between items-center`}>
             <div className="flex items-center">
-                <button onClick={toggleSidebar} >
-                    <SvgIcon name="menu2" className={`${themeSelected.colors.text} w-10 h-10`} />
-                </button>
+                <PanelLeft size={28} className={`${themeSelected.colors.text} m-2 cursor-pointer`} strokeWidth={1} onClick={toggleSidebar} />
+                <Settings size={28} className={`${themeSelected.colors.text} m-2 cursor-pointer`} strokeWidth={1} />
                 <div className={`${themeSelected.colors.text} ${themeSelected.typography.fontSize.large}`}></div>
             </div>
             <div className="flex items-center">
-                <button className={`flex items-center ${themeSelected.borders.default} ${themeSelected.typography.fontSize.small} ${themeSelected.colors.text} ${themeSelected.borderRadius.xxlarge} bg-transparent hover:${themeSelected.colors.backgroundSecondary} ${themeSelected.transitions.fast} py-1 px-4`}>
-                    <SvgIcon 
-                        name="search2" 
-                        className={`${themeSelected.colors.text} mr-2`} 
-                        width={25} 
-                        height={25} 
+                <button
+                    className={`
+                        flex flex-row items-center justify-between 
+                        ${themeSelected.borders.default} 
+                        ${themeSelected.typography.fontSize.small} 
+                        ${themeSelected.colors.text} 
+                        ${themeSelected.borderRadius.xlarge} 
+                        ${themeSelected.transitions.fast} 
+                        bg-transparent hover:${themeSelected.colors.backgroundSecondary} 
+                    `}>
+                    <Download
+                        size={20}
+                        className={`
+                            ml-3 mr-2 my-2 cursor-pointer
+                            ${themeSelected.colors.text} 
+                        `}
+                        strokeWidth={1}
                     />
-                    Compartilhar
+                    <span 
+                        className={`
+                            mr-3 my-2 cursor-pointer
+                        ${themeSelected.colors.text} 
+                        `}
+                    >Compartilhar</span>
                 </button>
             </div>
         </header>

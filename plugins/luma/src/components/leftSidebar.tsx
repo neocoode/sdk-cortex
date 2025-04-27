@@ -1,13 +1,15 @@
 'use client';
 import React, { useEffect, useState } from 'react';
+import { Plus } from 'lucide-react';
+import { useTheme } from '@/themes/themeContext';
 
 interface LeftSidebarProps {
-  onSelectChat?: (chatId: string) => void;
   isSidebarVisible: boolean;
 }
 
-const LeftSidebar: React.FC<LeftSidebarProps> = ({ onSelectChat, isSidebarVisible }) => {
+const LeftSidebar: React.FC<LeftSidebarProps> = ({  isSidebarVisible }) => {
   const [renderContent, setRenderContent] = useState(isSidebarVisible);
+  const { themeSelected } = useTheme();
 
   // Controla renderização interna com atraso para permitir a animação de fechamento
   useEffect(() => {
@@ -21,16 +23,30 @@ const LeftSidebar: React.FC<LeftSidebarProps> = ({ onSelectChat, isSidebarVisibl
 
   return (
     <aside
-      className={`bg-[#1e1e1e] text-white flex flex-col h-full overflow-hidden transition-all duration-300 ${
-        isSidebarVisible ? 'w-80 opacity-100' : 'w-0 opacity-0'
-      }`}
+      className={`
+        bg-[#1e1e1e] 
+        text-white 
+        flex flex-col 
+        h-full 
+        overflow-hidden 
+        transition-all 
+        duration-300 
+        ${isSidebarVisible ? 'w-80 opacity-100' : 'w-0 opacity-0'}
+      `}
     >
       {renderContent && (
         <>
           {/* Topo */}
-          <div className="p-4 border-b border-gray-700 flex justify-between items-center">
+          <div className="p-4 flex justify-between items-center">
             <h3 className="font-semibold text-2xl">Luma Beta</h3>
-            <button className="text-white text-4xl">+</button>
+            <Plus
+              className={`
+              cursor-pointer
+              my-1
+              ${themeSelected.colors.text} 
+            `}
+              size={30}
+            />
           </div>
 
           {/* Centro - Lista de Chats */}

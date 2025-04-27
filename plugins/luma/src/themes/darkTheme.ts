@@ -12,6 +12,12 @@ export const darkTheme: Theme = {
     backgroundPrimary: 'bg-[#1E1E1E]',      // topo, cards principais
     backgroundSecondary: 'bg-[#4F4F4FFF]',    // área de mensagens
     backgroundForeground: 'bg-[#F3F4F6]',    // área de mensagens
+    
+    iconBackgroundHover: ' hover:bg-[#656565FF]',    
+    iconBackgroundActive: ' active:bg-[#474747FF]',    
+  iconBackgroundSecondaryHover: ' hover:bg-[#656565FF]',    
+    iconBackgroundSecondaryActive: ' active:bg-[#474747FF]',
+        
     backgroundAccent: 'bg-[#4A4A4AFF]',       // input/chat
     backgroundError: 'bg-[#EF4444]',        // vermelho erro
     backgroundSuccess: 'bg-[#22C55E]',      // verde sucesso

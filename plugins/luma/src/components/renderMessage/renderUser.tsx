@@ -1,22 +1,20 @@
 import { IResponseChat } from "@/interface/chats";
 import { useTheme } from "@/themes/themeContext";
-import SvgIcon from "../svgIcon";
-interface iprops extends IResponseChat {
-}
+import { Repeat } from 'lucide-react';
 
-const RenderUser: React.FC<iprops> = ({ key, value, onReplay }) => {
+const RenderUser: React.FC<IResponseChat> = ({ key, value, onReplay }) => {
   const { themeSelected } = useTheme();
 
   return (
-    <div 
-      key={key} 
+    <div
+      key={key}
       className={`
-        flex flex-wrap py-1 text-justify items-center flex-row justify-between px-1 mt-1 mb-2
+        flex flex-wrap text-justify items-center flex-row justify-between mt-1 mb-2 py-2 pr-3  
         ${themeSelected.colors.backgroundTertiary} 
         ${themeSelected.borderRadius.xxlarge} 
       `}
     >
-      <div 
+      <div
         className={`
           pr-1 pl-1 mx-2
           ${themeSelected.typography.fontSize.medium} 
@@ -25,14 +23,11 @@ const RenderUser: React.FC<iprops> = ({ key, value, onReplay }) => {
       >
         {value}
       </div>
-      <SvgIcon
-        name="replay"
+      <Repeat 
+        size={20}
         className={`
           cursor-pointer
           ${themeSelected.colors.text} 
-          ${themeSelected.colors.backgroundTertiary} 
-          ${themeSelected.borderRadius.xxlarge} 
-          hover:${themeSelected.colors.backgroundSecondary}
         `}
         onClick={onReplay ? () => onReplay(value) : undefined}
       />

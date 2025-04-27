@@ -1,6 +1,6 @@
 'use client';
 import { useEffect } from 'react';
-import { toast } from 'react-toastify';
+import { toast, ToastContainer } from 'react-toastify';
 
 import { hideToast } from '@/modules/toast/slice';
 import { RootState } from '@/store';
@@ -37,7 +37,20 @@ const Toast = () => {
     }
   }, [isVisible, message, type, dispatch]);
 
-  return null;
+  return (
+    <ToastContainer
+      position="top-right"
+      autoClose={15000}
+      hideProgressBar={false}
+      newestOnTop
+      closeOnClick
+      rtl={false}
+      pauseOnFocusLoss
+      draggable
+      pauseOnHover
+      theme="light"
+    />
+  );
 };
 
 export default Toast;

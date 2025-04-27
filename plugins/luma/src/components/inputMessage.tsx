@@ -1,7 +1,8 @@
 'use client';
-import SvgIcon from '@/components/svgIcon';
+
 import { useTheme } from '@/themes/themeContext';
 import React, { useEffect, useRef } from 'react';
+import { Mic, SendHorizonal, Plus } from 'lucide-react';
 
 interface InputMessageProps {
   onSend?: () => void;
@@ -41,8 +42,6 @@ const InputMessage: React.FC<InputMessageProps> = ({
     }
     onSubmit?.();
   }
-
-  const iconName = value.trim() ? 'send' : 'record';
 
   return (
     <footer className="flex flex-col m-1 mb-5 mx-[5%] pb-10 ">
@@ -88,12 +87,13 @@ const InputMessage: React.FC<InputMessageProps> = ({
           </div>
         </div>
         <div className="flex justify-between items-center px-4 pb-4">
-          <SvgIcon
-            name="plus"
-            className={`${themeSelected.colors.text} ${themeSelected.colors.backgroundSecondary}`}
+          <Plus
+            className={`
+              cursor-pointer
+              ${themeSelected.colors.text} 
+            `}
             onClick={onAdd}
-            width={30}
-            height={30}
+            size={30}
           />
           <div 
             className={`
@@ -104,18 +104,26 @@ const InputMessage: React.FC<InputMessageProps> = ({
           >
             Luma Beta - 04/2025
           </div>
-          <SvgIcon
-            name={iconName}
-            className={`
-              ${themeSelected.colors.text} 
-              ${themeSelected.colors.backgroundForeground} 
-              ${themeSelected.transitions.fast} 
-              hover:${themeSelected.colors.backgroundAccent}
-            `}
-            onClick={handleSubmit}
-            width={30}
-            height={30}
-          />
+
+          {value.trim() ? (
+            <SendHorizonal
+              className={`
+                ${themeSelected.colors.text} 
+                cursor-pointer
+              `}
+              onClick={handleSubmit}
+              size={30}
+            />
+          ) : (
+            <Mic
+              className={`
+                ${themeSelected.colors.text} 
+                cursor-pointer
+              `}
+              onClick={handleSubmit}
+              size={30}
+            />
+          )}
         </div>
       </form>
     </footer>

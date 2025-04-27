@@ -9,6 +9,12 @@ export interface ThemeColors {
   secondaryForeground: string;
   backgroundPrimary: string;
   backgroundSecondary: string;
+  
+  iconBackgroundHover: string;
+  iconBackgroundActive: string;
+  iconBackgroundSecondaryHover: string;
+  iconBackgroundSecondaryActive: string;
+  
   backgroundAccent: string;
   backgroundError: string;
   backgroundSuccess: string;

@@ -1,5 +1,23 @@
+# Luma Chat
 
-https://chat.vercel.ai/
+## Links Úteis
+- [Chat Vercel AI](https://chat.vercel.ai/)
+- [Lucide Icons](https://lucide.dev/icons/)
 
-# NEXT_PUBLIC_API_URL=https://api.neocoode.com.br
-NEXT_PUBLIC_API_URL=http://localhost:3525
+## Configuração do Ambiente
+
+### Variáveis de Ambiente
+> (Adicione aqui as variáveis necessárias para o projeto)
+
+---
+
+# Ícones
+
+Para usar ícones no projeto, utilizamos a biblioteca [Lucide Icons](https://lucide.dev/icons/).
+
+### Instalação
+
+Execute o comando:
+
+```bash
+npm install lucide-react

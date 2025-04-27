@@ -1,7 +1,7 @@
 import { IResponseChat } from "@/interface/chats";
 import { useTheme } from "@/themes/themeContext";
 import CustomCard from "../customCard";
-import SvgIcon from "../svgIcon";
+import { Copy } from 'lucide-react';
 
 const RenderCode: React.FC<IResponseChat> = ({ value, key }) => {
   const { themeSelected } = useTheme();
@@ -11,7 +11,13 @@ const RenderCode: React.FC<IResponseChat> = ({ value, key }) => {
       key={key}
       title="Código"
       rightIcon={<div>
-        <SvgIcon name="copy" className="bg-[#4f4f4f]" width={35} height={35} />
+        <Copy
+          size={20}
+          className={`
+            cursor-pointer
+          ${themeSelected.colors.text} 
+        `}
+        />
       </div>}
     >
       <pre className={`
