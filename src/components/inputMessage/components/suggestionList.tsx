@@ -1,5 +1,7 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 'use client';
 
+import { useTheme } from '@/themes/themeContext';
 import React, { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 
@@ -19,6 +21,7 @@ const SuggestionList: React.FC<SuggestionListProps> = ({
   inputRef,
 }) => {
   const [position, setPosition] = useState<{ top: number; left: number; width: number }>({ top: 0, left: 0, width: 0 });
+  const { themeSelected } = useTheme();
 
   useEffect(() => {
     if (inputRef.current) {
@@ -56,10 +59,7 @@ const SuggestionList: React.FC<SuggestionListProps> = ({
         zIndex: 9999,
         height: dynamicHeight, // 👈 altura ajustada dinamicamente
         overflowY: suggestions.length > maxItems ? 'auto' : 'hidden', // scroll só se ultrapassar
-        backgroundColor: 'white',
-        border: '1px solid #ccc',
-        borderRadius: '0.5rem',
-        boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+        backgroundColor: themeSelected.colors.backgroundSuggestionPrimary,
       }}
     >
       {suggestions.map((suggestion, index) => (
@@ -68,8 +68,14 @@ const SuggestionList: React.FC<SuggestionListProps> = ({
           onMouseEnter={() => onHover(index)}
           onClick={() => onSelect(suggestion)}
           className={`
-            cursor-pointer select-none py-2 px-3
-            ${index === activeIndex ? 'bg-blue-600 text-white' : 'text-gray-900'}
+            cursor-pointer select-none py-3 px-3 justify-center 
+            ${themeSelected.typography.fontSize.medium}
+            ${themeSelected.borders.suggestions}
+            ${index === activeIndex ? `
+                  ${themeSelected.colors.backgroundSuggestionSecondary} ${themeSelected.colors.colorSuggestionSecondary}
+              ` : `
+                  ${themeSelected.colors.backgroundSuggestionPrimary} ${themeSelected.colors.colorSuggestionPrimary}
+              `}
           `}
           style={{ height: itemHeight }}
         >

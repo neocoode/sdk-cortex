@@ -3,6 +3,8 @@
 import React, { useEffect, useState } from 'react';
 import InputAutoComplete from './inputAutoComplete';
 import SuggestionList from './suggestionList';
+import { RootState } from '@/store';
+import { useSelector } from 'react-redux';
 
 interface AutoCompleteInputProps {
     value: string;
@@ -25,13 +27,11 @@ const AutoCompleteInput: React.FC<AutoCompleteInputProps> = ({
     const [suggestions, setSuggestions] = useState<string[]>([]);
     const [manualClose, setManualClose] = useState(false); // 👈 Controle de fechamento manual
 
+    const suggestionsState = useSelector((state: RootState) => state.suggestions);
+
     useEffect(() => {
-        setSuggestions([
-            'api', 'orders', 'api orders', 'api orders 1', 'api orders 2',
-            'api orders 3', 'api orders 4', 'api orders 5', 'api orders 6',
-            'api orders 7', 'api orders 8', 'api orders 9', 'api orders 10', 'achou', 'carro 1', 'carro 2'
-        ]);
-    }, []);
+        setSuggestions(suggestionsState.response);
+    }, [suggestionsState]);
 
     useEffect(() => {
         setQuery(value);
@@ -39,20 +39,20 @@ const AutoCompleteInput: React.FC<AutoCompleteInputProps> = ({
 
     useEffect(() => {
         if (manualClose) {
-            return; // 👈 Se foi fechado manualmente, não reabre a lista
-        }
-
-        if (query === '') {
+            return; 
+          }
+        
+          if (query.length < 7) { // 👈 Agora exige 7 ou mais caracteres
             setFilteredSuggestions([]);
             setActiveIndex(-1);
             return;
-        }
-
-        const filtered = suggestions.filter((suggestion) =>
+          }
+        
+          const filtered = suggestions.filter((suggestion) =>
             suggestion.toLowerCase().includes(query.toLowerCase())
-        );
-        setFilteredSuggestions(filtered);
-        setActiveIndex(-1);
+          );
+          setFilteredSuggestions(filtered);
+          setActiveIndex(-1);
     }, [query, suggestions, manualClose]);
 
     const handleInputKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {

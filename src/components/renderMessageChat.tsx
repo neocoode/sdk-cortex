@@ -37,8 +37,10 @@ const RenderMessageChat: React.FC<iprops> = ({ messageResponse }) => {
           } });
 
           if (Array.isArray(responses)) {
-            for (const responseItem of response.response) {
-              messages.push({ type: responseItem.type, value: responseItem.value });
+            if (Array.isArray(response.response)) {
+              for (const responseItem of response.response) {
+                messages.push({ type: responseItem.type, value: responseItem.value });
+              }
             }
           }
           messages.push({ type: "divider", value: "" });

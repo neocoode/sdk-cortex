@@ -153,3 +153,19 @@ Execute o comando:
 
 ```bash
 npm install lucide-react
+
+```
+
+# API Configuration
+NEXT_PUBLIC_API_URL=https://api.example.com
+NEXT_PUBLIC_API_VERSION=v1
+
+# Authentication
+NEXT_PUBLIC_AUTH_TOKEN_KEY=auth_token
+
+# Application
+NEXT_PUBLIC_APP_NAME=Luma
+NEXT_PUBLIC_APP_VERSION=0.1.24
+
+# Environment
+NODE_ENV=production

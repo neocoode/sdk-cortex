@@ -5,6 +5,7 @@ import chatSelectedReducer from '@/modules/chatSelected/slice';
 import profileReducer from '@/modules/profile/slice';
 import sendMessageReducer from '@/modules/sendMessage/slice';
 import sessionReducer from '@/modules/session/slice';
+import suggestionsReducer from '@/modules/suggestions/slice';
 import toastReducer from '@/modules/toast/slice';
 
 export const rootReducer = combineReducers({
@@ -13,4 +14,5 @@ export const rootReducer = combineReducers({
   sendMessage: sendMessageReducer,
   chatSelected: chatSelectedReducer,
   toast: toastReducer,
+  suggestions: suggestionsReducer,
 });

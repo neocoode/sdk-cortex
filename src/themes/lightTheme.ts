@@ -2,10 +2,10 @@ import { animations, borderRadius, spacing, transitions, typography } from './co
 import { Theme } from './types';
 
 export const lightTheme: Theme = {
-  colors: {
+  colors: {   
     background: 'bg-[#FFFFFF]', // fundo geral
     foreground: 'text-[#181A1B]', // texto padrão
-    primary: 'bg-[#2563EB]', // cor primária
+    primary: 'bg-[#2E2E30FF]', // cor primária
     primaryForeground: 'text-[#FFFFFF]', // texto sobre primária
     secondary: 'bg-[#E5E7EB]', // cor secundária
     secondaryForeground: 'text-[#23272A]', // texto sobre secundária
@@ -36,7 +36,12 @@ export const lightTheme: Theme = {
     backgroundTertiary: 'bg-[#F3F4F6]',
     
     backgroundTableHeader: 'bg-[#F3F4F6]',
-    backgroundTable: 'bg-[#F3F4F6]'
+    backgroundTable: 'bg-[#F3F4F6]',
+
+    backgroundSuggestionPrimary: 'bg-[#252525FF]',    
+    backgroundSuggestionSecondary: 'bg-[#104F8AFF]',   
+    colorSuggestionPrimary: 'text-[#A8A8A8FF]',    
+    colorSuggestionSecondary: 'text-[#FFFFFFFF]',   
   },
 
   typography: typography,
@@ -60,6 +65,7 @@ export const lightTheme: Theme = {
     default: 'border border-[#D1D5DB]',       // borda padrão cinza clara
     focus: 'border border-[#2563EB]',          // borda em foco azul
     error: 'border border-[#EF4444]',          // borda em erro
+    suggestions: 'border border-[#D1D5DB]',
   },
   
   buttons: {

@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 'use client';
 
 import { HttpClient } from "./httpClient";
@@ -47,4 +49,9 @@ export class ApiService {
   async sendMessage(chatId: string, message: string): Promise<Json> {
     return this.api.post<Json>('/chat/message', { message }, { headers: { chti: chatId } });
   }
+
+  async getSuggestions(chatId: string, message: string): Promise<Json> {
+    return this.api.post<Json>('/chat/suggestions', { message }, { headers: { chti: chatId } });
+  }
+
 }

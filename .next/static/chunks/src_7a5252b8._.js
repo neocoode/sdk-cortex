@@ -611,7 +611,7 @@ if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelper
 
 var { g: global, __dirname, k: __turbopack_refresh__, m: module } = __turbopack_context__;
 {
-__turbopack_context__.s({
+/* eslint-disable @typescript-eslint/no-explicit-any */ __turbopack_context__.s({
     "ApiService": (()=>ApiService)
 });
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
@@ -655,6 +655,15 @@ class ApiService {
     }
     async sendMessage(chatId, message) {
         return this.api.post('/chat/message', {
+            message
+        }, {
+            headers: {
+                chti: chatId
+            }
+        });
+    }
+    async getSuggestions(chatId, message) {
+        return this.api.post('/chat/suggestions', {
             message
         }, {
             headers: {

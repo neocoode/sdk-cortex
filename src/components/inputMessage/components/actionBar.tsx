@@ -9,16 +9,12 @@ interface ActionBarProps {
   value: string;
   onAdd?: () => void;
   onSubmit?: () => void;
-  version?: string;
-  date?: string;
 }
 
 const ActionBar: React.FC<ActionBarProps> = ({
   value,
   onAdd,
   onSubmit,
-  version,
-  date,
 }) => {
   const { themeSelected } = useTheme();
 
@@ -32,7 +28,7 @@ const ActionBar: React.FC<ActionBarProps> = ({
         onClick={onAdd}
         size={30}
       />
-      <Footer version={version} />
+      <Footer  />
       {value.trim() ? (
         <SendHorizonal
           className={`

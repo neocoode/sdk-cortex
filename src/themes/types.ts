@@ -32,6 +32,11 @@ export interface ThemeColors {
   backgroundTertiary: string;
   backgroundTableHeader: string;
   backgroundTable: string;
+
+  backgroundSuggestionPrimary: string;
+  backgroundSuggestionSecondary: string;
+  colorSuggestionPrimary: string;
+  colorSuggestionSecondary: string;
 }
 
 export interface ThemeTypography {
@@ -91,6 +96,7 @@ export interface ThemeBorders {
   default: string;
   focus: string;
   error: string;
+  suggestions: string;
 }
 
 export interface ThemeButtons {

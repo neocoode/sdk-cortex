@@ -1014,7 +1014,7 @@ Object.defineProperty(exports, "HeadManagerContext", {
         return HeadManagerContext;
     }
 });
-const _interop_require_default = __turbopack_context__.r("[project]/node_modules/@swc/helpers/cjs/_interop_require_default.cjs [client] (ecmascript)");
+const _interop_require_default = __turbopack_context__.r("[project]/node_modules/next/node_modules/@swc/helpers/cjs/_interop_require_default.cjs [client] (ecmascript)");
 const _react = /*#__PURE__*/ _interop_require_default._(__turbopack_context__.r("[project]/node_modules/react/index.js [client] (ecmascript)"));
 const HeadManagerContext = _react.default.createContext({});
 if ("TURBOPACK compile-time truthy", 1) {
@@ -1088,7 +1088,7 @@ Object.defineProperty(exports, "RouterContext", {
         return RouterContext;
     }
 });
-const _interop_require_default = __turbopack_context__.r("[project]/node_modules/@swc/helpers/cjs/_interop_require_default.cjs [client] (ecmascript)");
+const _interop_require_default = __turbopack_context__.r("[project]/node_modules/next/node_modules/@swc/helpers/cjs/_interop_require_default.cjs [client] (ecmascript)");
 const _react = /*#__PURE__*/ _interop_require_default._(__turbopack_context__.r("[project]/node_modules/react/index.js [client] (ecmascript)"));
 const RouterContext = _react.default.createContext(null);
 if ("TURBOPACK compile-time truthy", 1) {
@@ -3171,7 +3171,7 @@ _export(exports, {
         return markAssetError;
     }
 });
-const _interop_require_default = __turbopack_context__.r("[project]/node_modules/@swc/helpers/cjs/_interop_require_default.cjs [client] (ecmascript)");
+const _interop_require_default = __turbopack_context__.r("[project]/node_modules/next/node_modules/@swc/helpers/cjs/_interop_require_default.cjs [client] (ecmascript)");
 const _getassetpathfromroute = /*#__PURE__*/ _interop_require_default._(__turbopack_context__.r("[project]/node_modules/next/dist/shared/lib/router/utils/get-asset-path-from-route.js [client] (ecmascript)"));
 const _trustedtypes = __turbopack_context__.r("[project]/node_modules/next/dist/client/trusted-types.js [client] (ecmascript)");
 const _requestidlecallback = __turbopack_context__.r("[project]/node_modules/next/dist/client/request-idle-callback.js [client] (ecmascript)");
@@ -3764,7 +3764,7 @@ _export(exports, {
         return WEBPACK_STATS;
     }
 });
-const _interop_require_default = __turbopack_context__.r("[project]/node_modules/@swc/helpers/cjs/_interop_require_default.cjs [client] (ecmascript)");
+const _interop_require_default = __turbopack_context__.r("[project]/node_modules/next/node_modules/@swc/helpers/cjs/_interop_require_default.cjs [client] (ecmascript)");
 const _modernbrowserslisttarget = /*#__PURE__*/ _interop_require_default._(__turbopack_context__.r("[project]/node_modules/next/dist/shared/lib/modern-browserslist-target.js [client] (ecmascript)"));
 const COMPILER_NAMES = {
     client: 'client',
@@ -3907,7 +3907,7 @@ Object.defineProperty(exports, "default", {
         return PageLoader;
     }
 });
-const _interop_require_default = __turbopack_context__.r("[project]/node_modules/@swc/helpers/cjs/_interop_require_default.cjs [client] (ecmascript)");
+const _interop_require_default = __turbopack_context__.r("[project]/node_modules/next/node_modules/@swc/helpers/cjs/_interop_require_default.cjs [client] (ecmascript)");
 const _addbasepath = __turbopack_context__.r("[project]/node_modules/next/dist/client/add-base-path.js [client] (ecmascript)");
 const _interpolateas = __turbopack_context__.r("[project]/node_modules/next/dist/shared/lib/router/utils/interpolate-as.js [client] (ecmascript)");
 const _getassetpathfromroute = /*#__PURE__*/ _interop_require_default._(__turbopack_context__.r("[project]/node_modules/next/dist/shared/lib/router/utils/get-asset-path-from-route.js [client] (ecmascript)"));
@@ -4263,8 +4263,8 @@ _export(exports, {
         return initScriptLoader;
     }
 });
-const _interop_require_default = __turbopack_context__.r("[project]/node_modules/@swc/helpers/cjs/_interop_require_default.cjs [client] (ecmascript)");
-const _interop_require_wildcard = __turbopack_context__.r("[project]/node_modules/@swc/helpers/cjs/_interop_require_wildcard.cjs [client] (ecmascript)");
+const _interop_require_default = __turbopack_context__.r("[project]/node_modules/next/node_modules/@swc/helpers/cjs/_interop_require_default.cjs [client] (ecmascript)");
+const _interop_require_wildcard = __turbopack_context__.r("[project]/node_modules/next/node_modules/@swc/helpers/cjs/_interop_require_wildcard.cjs [client] (ecmascript)");
 const _jsxruntime = __turbopack_context__.r("[project]/node_modules/react/jsx-runtime.js [client] (ecmascript)");
 const _reactdom = /*#__PURE__*/ _interop_require_default._(__turbopack_context__.r("[project]/node_modules/react-dom/index.js [client] (ecmascript)"));
 const _react = /*#__PURE__*/ _interop_require_wildcard._(__turbopack_context__.r("[project]/node_modules/react/index.js [client] (ecmascript)"));
@@ -6365,7 +6365,7 @@ _export(exports, {
         return urlObjectKeys;
     }
 });
-const _interop_require_wildcard = __turbopack_context__.r("[project]/node_modules/@swc/helpers/cjs/_interop_require_wildcard.cjs [client] (ecmascript)");
+const _interop_require_wildcard = __turbopack_context__.r("[project]/node_modules/next/node_modules/@swc/helpers/cjs/_interop_require_wildcard.cjs [client] (ecmascript)");
 const _querystring = /*#__PURE__*/ _interop_require_wildcard._(__turbopack_context__.r("[project]/node_modules/next/dist/shared/lib/router/utils/querystring.js [client] (ecmascript)"));
 const slashedProtocols = /https?|ftp|gopher|file/;
 function formatUrl(urlObj) {
@@ -6970,8 +6970,8 @@ _export(exports, {
         return matchesMiddleware;
     }
 });
-const _interop_require_default = __turbopack_context__.r("[project]/node_modules/@swc/helpers/cjs/_interop_require_default.cjs [client] (ecmascript)");
-const _interop_require_wildcard = __turbopack_context__.r("[project]/node_modules/@swc/helpers/cjs/_interop_require_wildcard.cjs [client] (ecmascript)");
+const _interop_require_default = __turbopack_context__.r("[project]/node_modules/next/node_modules/@swc/helpers/cjs/_interop_require_default.cjs [client] (ecmascript)");
+const _interop_require_wildcard = __turbopack_context__.r("[project]/node_modules/next/node_modules/@swc/helpers/cjs/_interop_require_wildcard.cjs [client] (ecmascript)");
 const _removetrailingslash = __turbopack_context__.r("[project]/node_modules/next/dist/shared/lib/router/utils/remove-trailing-slash.js [client] (ecmascript)");
 const _routeloader = __turbopack_context__.r("[project]/node_modules/next/dist/client/route-loader.js [client] (ecmascript)");
 const _script = __turbopack_context__.r("[project]/node_modules/next/dist/client/script.js [client] (ecmascript)");
@@ -8539,7 +8539,7 @@ Object.defineProperty(exports, "default", {
         return withRouter;
     }
 });
-const _interop_require_default = __turbopack_context__.r("[project]/node_modules/@swc/helpers/cjs/_interop_require_default.cjs [client] (ecmascript)");
+const _interop_require_default = __turbopack_context__.r("[project]/node_modules/next/node_modules/@swc/helpers/cjs/_interop_require_default.cjs [client] (ecmascript)");
 const _jsxruntime = __turbopack_context__.r("[project]/node_modules/react/jsx-runtime.js [client] (ecmascript)");
 const _react = /*#__PURE__*/ _interop_require_default._(__turbopack_context__.r("[project]/node_modules/react/index.js [client] (ecmascript)"));
 const _router = __turbopack_context__.r("[project]/node_modules/next/dist/client/router.js [client] (ecmascript)");
@@ -8609,7 +8609,7 @@ _export(exports, {
         return _withrouter.default;
     }
 });
-const _interop_require_default = __turbopack_context__.r("[project]/node_modules/@swc/helpers/cjs/_interop_require_default.cjs [client] (ecmascript)");
+const _interop_require_default = __turbopack_context__.r("[project]/node_modules/next/node_modules/@swc/helpers/cjs/_interop_require_default.cjs [client] (ecmascript)");
 const _react = /*#__PURE__*/ _interop_require_default._(__turbopack_context__.r("[project]/node_modules/react/index.js [client] (ecmascript)"));
 const _router = /*#__PURE__*/ _interop_require_default._(__turbopack_context__.r("[project]/node_modules/next/dist/shared/lib/router/router.js [client] (ecmascript)"));
 const _routercontextsharedruntime = __turbopack_context__.r("[project]/node_modules/next/dist/shared/lib/router-context.shared-runtime.js [client] (ecmascript)");
@@ -8795,7 +8795,7 @@ _export(exports, {
         return _default;
     }
 });
-const _interop_require_default = __turbopack_context__.r("[project]/node_modules/@swc/helpers/cjs/_interop_require_default.cjs [client] (ecmascript)");
+const _interop_require_default = __turbopack_context__.r("[project]/node_modules/next/node_modules/@swc/helpers/cjs/_interop_require_default.cjs [client] (ecmascript)");
 const _jsxruntime = __turbopack_context__.r("[project]/node_modules/react/jsx-runtime.js [client] (ecmascript)");
 const _react = /*#__PURE__*/ _interop_require_default._(__turbopack_context__.r("[project]/node_modules/react/index.js [client] (ecmascript)"));
 const _router = __turbopack_context__.r("[project]/node_modules/next/dist/client/router.js [client] (ecmascript)");
@@ -8947,7 +8947,7 @@ Object.defineProperty(exports, "ImageConfigContext", {
         return ImageConfigContext;
     }
 });
-const _interop_require_default = __turbopack_context__.r("[project]/node_modules/@swc/helpers/cjs/_interop_require_default.cjs [client] (ecmascript)");
+const _interop_require_default = __turbopack_context__.r("[project]/node_modules/next/node_modules/@swc/helpers/cjs/_interop_require_default.cjs [client] (ecmascript)");
 const _react = /*#__PURE__*/ _interop_require_default._(__turbopack_context__.r("[project]/node_modules/react/index.js [client] (ecmascript)"));
 const _imageconfig = __turbopack_context__.r("[project]/node_modules/next/dist/shared/lib/image-config.js [client] (ecmascript)");
 const ImageConfigContext = _react.default.createContext(_imageconfig.imageConfigDefault);
@@ -8995,7 +8995,7 @@ _export(exports, {
         return TemplateContext;
     }
 });
-const _interop_require_default = __turbopack_context__.r("[project]/node_modules/@swc/helpers/cjs/_interop_require_default.cjs [client] (ecmascript)");
+const _interop_require_default = __turbopack_context__.r("[project]/node_modules/next/node_modules/@swc/helpers/cjs/_interop_require_default.cjs [client] (ecmascript)");
 const _react = /*#__PURE__*/ _interop_require_default._(__turbopack_context__.r("[project]/node_modules/react/index.js [client] (ecmascript)"));
 const AppRouterContext = _react.default.createContext(null);
 const LayoutRouterContext = _react.default.createContext(null);
@@ -9105,7 +9105,7 @@ _export(exports, {
         return adaptForSearchParams;
     }
 });
-const _interop_require_wildcard = __turbopack_context__.r("[project]/node_modules/@swc/helpers/cjs/_interop_require_wildcard.cjs [client] (ecmascript)");
+const _interop_require_wildcard = __turbopack_context__.r("[project]/node_modules/next/node_modules/@swc/helpers/cjs/_interop_require_wildcard.cjs [client] (ecmascript)");
 const _jsxruntime = __turbopack_context__.r("[project]/node_modules/react/jsx-runtime.js [client] (ecmascript)");
 const _react = /*#__PURE__*/ _interop_require_wildcard._(__turbopack_context__.r("[project]/node_modules/react/index.js [client] (ecmascript)"));
 const _hooksclientcontextsharedruntime = __turbopack_context__.r("[project]/node_modules/next/dist/shared/lib/hooks-client-context.shared-runtime.js [client] (ecmascript)");
@@ -9352,7 +9352,7 @@ Object.defineProperty(exports, "getReactStitchedError", {
         return getReactStitchedError;
     }
 });
-const _interop_require_default = __turbopack_context__.r("[project]/node_modules/@swc/helpers/cjs/_interop_require_default.cjs [client] (ecmascript)");
+const _interop_require_default = __turbopack_context__.r("[project]/node_modules/next/node_modules/@swc/helpers/cjs/_interop_require_default.cjs [client] (ecmascript)");
 const _react = /*#__PURE__*/ _interop_require_default._(__turbopack_context__.r("[project]/node_modules/react/index.js [client] (ecmascript)"));
 const _iserror = /*#__PURE__*/ _interop_require_default._(__turbopack_context__.r("[project]/node_modules/next/dist/lib/is-error.js [client] (ecmascript)"));
 const _errortelemetryutils = __turbopack_context__.r("[project]/node_modules/next/dist/lib/error-telemetry-utils.js [client] (ecmascript)");
@@ -9418,7 +9418,7 @@ Object.defineProperty(exports, "onRecoverableError", {
         return onRecoverableError;
     }
 });
-const _interop_require_default = __turbopack_context__.r("[project]/node_modules/@swc/helpers/cjs/_interop_require_default.cjs [client] (ecmascript)");
+const _interop_require_default = __turbopack_context__.r("[project]/node_modules/next/node_modules/@swc/helpers/cjs/_interop_require_default.cjs [client] (ecmascript)");
 const _bailouttocsr = __turbopack_context__.r("[project]/node_modules/next/dist/shared/lib/lazy-dynamic/bailout-to-csr.js [client] (ecmascript)");
 const _reportglobalerror = __turbopack_context__.r("[project]/node_modules/next/dist/client/react-client-callbacks/report-global-error.js [client] (ecmascript)");
 const _stitchederror = __turbopack_context__.r("[project]/node_modules/next/dist/client/components/errors/stitched-error.js [client] (ecmascript)");
@@ -9458,7 +9458,7 @@ Object.defineProperty(exports, "default", {
         return _default;
     }
 });
-const _interop_require_default = __turbopack_context__.r("[project]/node_modules/@swc/helpers/cjs/_interop_require_default.cjs [client] (ecmascript)");
+const _interop_require_default = __turbopack_context__.r("[project]/node_modules/next/node_modules/@swc/helpers/cjs/_interop_require_default.cjs [client] (ecmascript)");
 const _mitt = /*#__PURE__*/ _interop_require_default._(__turbopack_context__.r("[project]/node_modules/next/dist/shared/lib/mitt.js [client] (ecmascript)"));
 class Span {
     end(endTime) {
@@ -9714,7 +9714,7 @@ Object.defineProperty(exports, "PagesDevOverlayErrorBoundary", {
         return PagesDevOverlayErrorBoundary;
     }
 });
-const _interop_require_default = __turbopack_context__.r("[project]/node_modules/@swc/helpers/cjs/_interop_require_default.cjs [client] (ecmascript)");
+const _interop_require_default = __turbopack_context__.r("[project]/node_modules/next/node_modules/@swc/helpers/cjs/_interop_require_default.cjs [client] (ecmascript)");
 const _react = /*#__PURE__*/ _interop_require_default._(__turbopack_context__.r("[project]/node_modules/react/index.js [client] (ecmascript)"));
 class PagesDevOverlayErrorBoundary extends _react.default.PureComponent {
     static getDerivedStateFromError(error) {
@@ -10255,7 +10255,7 @@ _export(exports, {
         return testReactHydrationWarning;
     }
 });
-const _interop_require_default = __turbopack_context__.r("[project]/node_modules/@swc/helpers/cjs/_interop_require_default.cjs [client] (ecmascript)");
+const _interop_require_default = __turbopack_context__.r("[project]/node_modules/next/node_modules/@swc/helpers/cjs/_interop_require_default.cjs [client] (ecmascript)");
 const _iserror = /*#__PURE__*/ _interop_require_default._(__turbopack_context__.r("[project]/node_modules/next/dist/lib/is-error.js [client] (ecmascript)"));
 const hydrationErrorRegex = /hydration failed|while hydrating|content does not match|did not match|HTML didn't match|text didn't match/i;
 const reactUnifiedMismatchWarning = "Hydration failed because the server rendered HTML didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:";
@@ -10392,7 +10392,7 @@ function parseStack(stack) {
             const res = regexNextStatic.exec(url.pathname);
             if (res) {
                 var _process_env___NEXT_DIST_DIR_replace, _process_env___NEXT_DIST_DIR;
-                const distDir = (_process_env___NEXT_DIST_DIR = ("TURBOPACK compile-time value", "/Users/elioglima/projects/neocoode/sdk-cortex/plugins/luma/.next")) == null ? void 0 : (_process_env___NEXT_DIST_DIR_replace = _process_env___NEXT_DIST_DIR.replace(/\\/g, '/')) == null ? void 0 : _process_env___NEXT_DIST_DIR_replace.replace(/\/$/, '');
+                const distDir = (_process_env___NEXT_DIST_DIR = ("TURBOPACK compile-time value", "/Users/elioglima/prj/neocode/git/sdk-cortex/.next")) == null ? void 0 : (_process_env___NEXT_DIST_DIR_replace = _process_env___NEXT_DIST_DIR.replace(/\\/g, '/')) == null ? void 0 : _process_env___NEXT_DIST_DIR_replace.replace(/\/$/, '');
                 if (distDir) {
                     frame.file = 'file://' + distDir.concat(res.pop()) + url.search;
                 }
@@ -11047,7 +11047,7 @@ _export(exports, {
         return useFrames;
     }
 });
-const _interop_require_default = __turbopack_context__.r("[project]/node_modules/@swc/helpers/cjs/_interop_require_default.cjs [client] (ecmascript)");
+const _interop_require_default = __turbopack_context__.r("[project]/node_modules/next/node_modules/@swc/helpers/cjs/_interop_require_default.cjs [client] (ecmascript)");
 const _shared = __turbopack_context__.r("[project]/node_modules/next/dist/client/components/react-dev-overlay/shared.js [client] (ecmascript)");
 const _stackframe = __turbopack_context__.r("[project]/node_modules/next/dist/client/components/react-dev-overlay/utils/stack-frame.js [client] (ecmascript)");
 const _errorsource = __turbopack_context__.r("[project]/node_modules/next/dist/shared/lib/error-source.js [client] (ecmascript)");
@@ -11288,7 +11288,7 @@ _export(exports, {
         return register;
     }
 });
-const _interop_require_wildcard = __turbopack_context__.r("[project]/node_modules/@swc/helpers/cjs/_interop_require_wildcard.cjs [client] (ecmascript)");
+const _interop_require_wildcard = __turbopack_context__.r("[project]/node_modules/next/node_modules/@swc/helpers/cjs/_interop_require_wildcard.cjs [client] (ecmascript)");
 const _bus = /*#__PURE__*/ _interop_require_wildcard._(__turbopack_context__.r("[project]/node_modules/next/dist/client/components/react-dev-overlay/pages/bus.js [client] (ecmascript)"));
 const _parsestack = __turbopack_context__.r("[project]/node_modules/next/dist/client/components/react-dev-overlay/utils/parse-stack.js [client] (ecmascript)");
 const _parsecomponentstack = __turbopack_context__.r("[project]/node_modules/next/dist/client/components/react-dev-overlay/utils/parse-component-stack.js [client] (ecmascript)");
@@ -11699,7 +11699,7 @@ Object.defineProperty(exports, "default", {
         return formatWebpackMessages;
     }
 });
-const _interop_require_default = __turbopack_context__.r("[project]/node_modules/@swc/helpers/cjs/_interop_require_default.cjs [client] (ecmascript)");
+const _interop_require_default = __turbopack_context__.r("[project]/node_modules/next/node_modules/@swc/helpers/cjs/_interop_require_default.cjs [client] (ecmascript)");
 const _stripansi = /*#__PURE__*/ _interop_require_default._(__turbopack_context__.r("[project]/node_modules/next/dist/compiled/strip-ansi/index.js [client] (ecmascript)"));
 // This file is based on https://github.com/facebook/create-react-app/blob/7b1a32be6ec9f99a6c9a3c66813f3ac09c4736b9/packages/react-dev-utils/formatWebpackMessages.js
 // It's been edited to remove chalk and CRA-specific logic
@@ -11924,8 +11924,8 @@ Object.defineProperty(exports, "TurbopackHmr", {
         return TurbopackHmr;
     }
 });
-const _class_private_field_loose_base = __turbopack_context__.r("[project]/node_modules/@swc/helpers/cjs/_class_private_field_loose_base.cjs [client] (ecmascript)");
-const _class_private_field_loose_key = __turbopack_context__.r("[project]/node_modules/@swc/helpers/cjs/_class_private_field_loose_key.cjs [client] (ecmascript)");
+const _class_private_field_loose_base = __turbopack_context__.r("[project]/node_modules/next/node_modules/@swc/helpers/cjs/_class_private_field_loose_base.cjs [client] (ecmascript)");
+const _class_private_field_loose_key = __turbopack_context__.r("[project]/node_modules/next/node_modules/@swc/helpers/cjs/_class_private_field_loose_key.cjs [client] (ecmascript)");
 // How long to wait before reporting the HMR start, used to suppress irrelevant
 // `BUILDING` events. Does not impact reported latency.
 const TURBOPACK_HMR_START_DELAY_MS = 100;
@@ -12121,7 +12121,7 @@ _export(exports, {
         return performFullReload;
     }
 });
-const _interop_require_default = __turbopack_context__.r("[project]/node_modules/@swc/helpers/cjs/_interop_require_default.cjs [client] (ecmascript)");
+const _interop_require_default = __turbopack_context__.r("[project]/node_modules/next/node_modules/@swc/helpers/cjs/_interop_require_default.cjs [client] (ecmascript)");
 const _client = __turbopack_context__.r("[project]/node_modules/next/dist/client/components/react-dev-overlay/pages/client.js [client] (ecmascript)");
 const _stripansi = /*#__PURE__*/ _interop_require_default._(__turbopack_context__.r("[project]/node_modules/next/dist/compiled/strip-ansi/index.js [client] (ecmascript)"));
 const _websocket = __turbopack_context__.r("[project]/node_modules/next/dist/client/components/react-dev-overlay/pages/websocket.js [client] (ecmascript)");
@@ -12487,8 +12487,8 @@ Object.defineProperty(exports, "usePagesDevOverlay", {
         return usePagesDevOverlay;
     }
 });
-const _interop_require_default = __turbopack_context__.r("[project]/node_modules/@swc/helpers/cjs/_interop_require_default.cjs [client] (ecmascript)");
-const _interop_require_wildcard = __turbopack_context__.r("[project]/node_modules/@swc/helpers/cjs/_interop_require_wildcard.cjs [client] (ecmascript)");
+const _interop_require_default = __turbopack_context__.r("[project]/node_modules/next/node_modules/@swc/helpers/cjs/_interop_require_default.cjs [client] (ecmascript)");
+const _interop_require_wildcard = __turbopack_context__.r("[project]/node_modules/next/node_modules/@swc/helpers/cjs/_interop_require_wildcard.cjs [client] (ecmascript)");
 const _react = /*#__PURE__*/ _interop_require_default._(__turbopack_context__.r("[project]/node_modules/react/index.js [client] (ecmascript)"));
 const _bus = /*#__PURE__*/ _interop_require_wildcard._(__turbopack_context__.r("[project]/node_modules/next/dist/client/components/react-dev-overlay/pages/bus.js [client] (ecmascript)"));
 const _shared = __turbopack_context__.r("[project]/node_modules/next/dist/client/components/react-dev-overlay/shared.js [client] (ecmascript)");
@@ -12577,7 +12577,7 @@ Object.defineProperty(exports, "FontStyles", {
         return FontStyles;
     }
 });
-const _tagged_template_literal_loose = __turbopack_context__.r("[project]/node_modules/@swc/helpers/cjs/_tagged_template_literal_loose.cjs [client] (ecmascript)");
+const _tagged_template_literal_loose = __turbopack_context__.r("[project]/node_modules/next/node_modules/@swc/helpers/cjs/_tagged_template_literal_loose.cjs [client] (ecmascript)");
 const _css = __turbopack_context__.r("[project]/node_modules/next/dist/client/components/react-dev-overlay/utils/css.js [client] (ecmascript)");
 const _react = __turbopack_context__.r("[project]/node_modules/react/index.js [client] (ecmascript)");
 function _templateObject() {
@@ -12622,7 +12622,7 @@ Object.defineProperty(exports, "ShadowPortal", {
         return ShadowPortal;
     }
 });
-const _interop_require_wildcard = __turbopack_context__.r("[project]/node_modules/@swc/helpers/cjs/_interop_require_wildcard.cjs [client] (ecmascript)");
+const _interop_require_wildcard = __turbopack_context__.r("[project]/node_modules/next/node_modules/@swc/helpers/cjs/_interop_require_wildcard.cjs [client] (ecmascript)");
 const _react = /*#__PURE__*/ _interop_require_wildcard._(__turbopack_context__.r("[project]/node_modules/react/index.js [client] (ecmascript)"));
 const _reactdom = __turbopack_context__.r("[project]/node_modules/react-dom/index.js [client] (ecmascript)");
 const _shared = __turbopack_context__.r("[project]/node_modules/next/dist/client/components/react-dev-overlay/shared.js [client] (ecmascript)");
@@ -12688,7 +12688,7 @@ Object.defineProperty(exports, "Base", {
         return Base;
     }
 });
-const _tagged_template_literal_loose = __turbopack_context__.r("[project]/node_modules/@swc/helpers/cjs/_tagged_template_literal_loose.cjs [client] (ecmascript)");
+const _tagged_template_literal_loose = __turbopack_context__.r("[project]/node_modules/next/node_modules/@swc/helpers/cjs/_tagged_template_literal_loose.cjs [client] (ecmascript)");
 const _jsxruntime = __turbopack_context__.r("[project]/node_modules/react/jsx-runtime.js [client] (ecmascript)");
 const _css = __turbopack_context__.r("[project]/node_modules/next/dist/client/components/react-dev-overlay/utils/css.js [client] (ecmascript)");
 function _templateObject() {
@@ -12850,7 +12850,7 @@ Object.defineProperty(exports, "HotlinkedText", {
         return HotlinkedText;
     }
 });
-const _interop_require_default = __turbopack_context__.r("[project]/node_modules/@swc/helpers/cjs/_interop_require_default.cjs [client] (ecmascript)");
+const _interop_require_default = __turbopack_context__.r("[project]/node_modules/next/node_modules/@swc/helpers/cjs/_interop_require_default.cjs [client] (ecmascript)");
 const _jsxruntime = __turbopack_context__.r("[project]/node_modules/react/jsx-runtime.js [client] (ecmascript)");
 const _react = /*#__PURE__*/ _interop_require_default._(__turbopack_context__.r("[project]/node_modules/react/index.js [client] (ecmascript)"));
 const _magicidentifier = __turbopack_context__.r("[project]/node_modules/next/dist/shared/lib/magic-identifier.js [client] (ecmascript)");
@@ -13671,7 +13671,7 @@ _export(exports, {
         return parseLineNumberFromCodeFrameLine;
     }
 });
-const _interop_require_default = __turbopack_context__.r("[project]/node_modules/@swc/helpers/cjs/_interop_require_default.cjs [client] (ecmascript)");
+const _interop_require_default = __turbopack_context__.r("[project]/node_modules/next/node_modules/@swc/helpers/cjs/_interop_require_default.cjs [client] (ecmascript)");
 const _anser = /*#__PURE__*/ _interop_require_default._(__turbopack_context__.r("[project]/node_modules/next/dist/compiled/anser/index.js [client] (ecmascript)"));
 const _stripansi = /*#__PURE__*/ _interop_require_default._(__turbopack_context__.r("[project]/node_modules/next/dist/compiled/strip-ansi/index.js [client] (ecmascript)"));
 function formatCodeFrame(codeFrame) {
@@ -13880,7 +13880,7 @@ Object.defineProperty(exports, "useOnClickOutside", {
         return useOnClickOutside;
     }
 });
-const _interop_require_wildcard = __turbopack_context__.r("[project]/node_modules/@swc/helpers/cjs/_interop_require_wildcard.cjs [client] (ecmascript)");
+const _interop_require_wildcard = __turbopack_context__.r("[project]/node_modules/next/node_modules/@swc/helpers/cjs/_interop_require_wildcard.cjs [client] (ecmascript)");
 const _react = /*#__PURE__*/ _interop_require_wildcard._(__turbopack_context__.r("[project]/node_modules/react/index.js [client] (ecmascript)"));
 function useOnClickOutside(el, cssSelectorsToExclude, handler) {
     _react.useEffect({
@@ -13994,7 +13994,7 @@ Object.defineProperty(exports, "Dialog", {
         return Dialog;
     }
 });
-const _interop_require_wildcard = __turbopack_context__.r("[project]/node_modules/@swc/helpers/cjs/_interop_require_wildcard.cjs [client] (ecmascript)");
+const _interop_require_wildcard = __turbopack_context__.r("[project]/node_modules/next/node_modules/@swc/helpers/cjs/_interop_require_wildcard.cjs [client] (ecmascript)");
 const _jsxruntime = __turbopack_context__.r("[project]/node_modules/react/jsx-runtime.js [client] (ecmascript)");
 const _react = /*#__PURE__*/ _interop_require_wildcard._(__turbopack_context__.r("[project]/node_modules/react/index.js [client] (ecmascript)"));
 const _useonclickoutside = __turbopack_context__.r("[project]/node_modules/next/dist/client/components/react-dev-overlay/ui/hooks/use-on-click-outside.js [client] (ecmascript)");
@@ -14107,7 +14107,7 @@ Object.defineProperty(exports, "DialogBody", {
         return DialogBody;
     }
 });
-const _interop_require_wildcard = __turbopack_context__.r("[project]/node_modules/@swc/helpers/cjs/_interop_require_wildcard.cjs [client] (ecmascript)");
+const _interop_require_wildcard = __turbopack_context__.r("[project]/node_modules/next/node_modules/@swc/helpers/cjs/_interop_require_wildcard.cjs [client] (ecmascript)");
 const _jsxruntime = __turbopack_context__.r("[project]/node_modules/react/jsx-runtime.js [client] (ecmascript)");
 const _react = /*#__PURE__*/ _interop_require_wildcard._(__turbopack_context__.r("[project]/node_modules/react/index.js [client] (ecmascript)"));
 const DialogBody = function DialogBody(param) {
@@ -14140,7 +14140,7 @@ Object.defineProperty(exports, "DialogContent", {
         return DialogContent;
     }
 });
-const _interop_require_wildcard = __turbopack_context__.r("[project]/node_modules/@swc/helpers/cjs/_interop_require_wildcard.cjs [client] (ecmascript)");
+const _interop_require_wildcard = __turbopack_context__.r("[project]/node_modules/next/node_modules/@swc/helpers/cjs/_interop_require_wildcard.cjs [client] (ecmascript)");
 const _jsxruntime = __turbopack_context__.r("[project]/node_modules/react/jsx-runtime.js [client] (ecmascript)");
 const _react = /*#__PURE__*/ _interop_require_wildcard._(__turbopack_context__.r("[project]/node_modules/react/index.js [client] (ecmascript)"));
 const DialogContent = function DialogContent(param) {
@@ -14173,7 +14173,7 @@ Object.defineProperty(exports, "DialogHeader", {
         return DialogHeader;
     }
 });
-const _interop_require_wildcard = __turbopack_context__.r("[project]/node_modules/@swc/helpers/cjs/_interop_require_wildcard.cjs [client] (ecmascript)");
+const _interop_require_wildcard = __turbopack_context__.r("[project]/node_modules/next/node_modules/@swc/helpers/cjs/_interop_require_wildcard.cjs [client] (ecmascript)");
 const _jsxruntime = __turbopack_context__.r("[project]/node_modules/react/jsx-runtime.js [client] (ecmascript)");
 const _react = /*#__PURE__*/ _interop_require_wildcard._(__turbopack_context__.r("[project]/node_modules/react/index.js [client] (ecmascript)"));
 const DialogHeader = function DialogHeader(param) {
@@ -14325,7 +14325,7 @@ _export(exports, {
         return CopyButton;
     }
 });
-const _interop_require_wildcard = __turbopack_context__.r("[project]/node_modules/@swc/helpers/cjs/_interop_require_wildcard.cjs [client] (ecmascript)");
+const _interop_require_wildcard = __turbopack_context__.r("[project]/node_modules/next/node_modules/@swc/helpers/cjs/_interop_require_wildcard.cjs [client] (ecmascript)");
 const _jsxruntime = __turbopack_context__.r("[project]/node_modules/react/jsx-runtime.js [client] (ecmascript)");
 const _react = /*#__PURE__*/ _interop_require_wildcard._(__turbopack_context__.r("[project]/node_modules/react/index.js [client] (ecmascript)"));
 const _cx = __turbopack_context__.r("[project]/node_modules/next/dist/client/components/react-dev-overlay/ui/utils/cx.js [client] (ecmascript)");
@@ -16542,7 +16542,7 @@ Object.defineProperty(exports, "Overlay", {
         return Overlay;
     }
 });
-const _interop_require_wildcard = __turbopack_context__.r("[project]/node_modules/@swc/helpers/cjs/_interop_require_wildcard.cjs [client] (ecmascript)");
+const _interop_require_wildcard = __turbopack_context__.r("[project]/node_modules/next/node_modules/@swc/helpers/cjs/_interop_require_wildcard.cjs [client] (ecmascript)");
 const _jsxruntime = __turbopack_context__.r("[project]/node_modules/react/jsx-runtime.js [client] (ecmascript)");
 const _react = /*#__PURE__*/ _interop_require_wildcard._(__turbopack_context__.r("[project]/node_modules/react/index.js [client] (ecmascript)"));
 const _bodylocker = __turbopack_context__.r("[project]/node_modules/next/dist/client/components/react-dev-overlay/ui/components/overlay/body-locker.js [client] (ecmascript)");
@@ -16939,7 +16939,7 @@ _export(exports, {
         return styles;
     }
 });
-const _interop_require_wildcard = __turbopack_context__.r("[project]/node_modules/@swc/helpers/cjs/_interop_require_wildcard.cjs [client] (ecmascript)");
+const _interop_require_wildcard = __turbopack_context__.r("[project]/node_modules/next/node_modules/@swc/helpers/cjs/_interop_require_wildcard.cjs [client] (ecmascript)");
 const _jsxruntime = __turbopack_context__.r("[project]/node_modules/react/jsx-runtime.js [client] (ecmascript)");
 const _react = /*#__PURE__*/ _interop_require_wildcard._(__turbopack_context__.r("[project]/node_modules/react/index.js [client] (ecmascript)"));
 const _dialog = __turbopack_context__.r("[project]/node_modules/next/dist/client/components/react-dev-overlay/ui/components/dialog/index.js [client] (ecmascript)");
@@ -17202,8 +17202,8 @@ _export(exports, {
         return Terminal;
     }
 });
-const _interop_require_default = __turbopack_context__.r("[project]/node_modules/@swc/helpers/cjs/_interop_require_default.cjs [client] (ecmascript)");
-const _interop_require_wildcard = __turbopack_context__.r("[project]/node_modules/@swc/helpers/cjs/_interop_require_wildcard.cjs [client] (ecmascript)");
+const _interop_require_default = __turbopack_context__.r("[project]/node_modules/next/node_modules/@swc/helpers/cjs/_interop_require_default.cjs [client] (ecmascript)");
+const _interop_require_wildcard = __turbopack_context__.r("[project]/node_modules/next/node_modules/@swc/helpers/cjs/_interop_require_wildcard.cjs [client] (ecmascript)");
 const _jsxruntime = __turbopack_context__.r("[project]/node_modules/react/jsx-runtime.js [client] (ecmascript)");
 const _anser = /*#__PURE__*/ _interop_require_default._(__turbopack_context__.r("[project]/node_modules/next/dist/compiled/anser/index.js [client] (ecmascript)"));
 const _react = /*#__PURE__*/ _interop_require_wildcard._(__turbopack_context__.r("[project]/node_modules/react/index.js [client] (ecmascript)"));
@@ -17390,7 +17390,7 @@ Object.defineProperty(exports, "Toast", {
         return Toast;
     }
 });
-const _interop_require_wildcard = __turbopack_context__.r("[project]/node_modules/@swc/helpers/cjs/_interop_require_wildcard.cjs [client] (ecmascript)");
+const _interop_require_wildcard = __turbopack_context__.r("[project]/node_modules/next/node_modules/@swc/helpers/cjs/_interop_require_wildcard.cjs [client] (ecmascript)");
 const _jsxruntime = __turbopack_context__.r("[project]/node_modules/react/jsx-runtime.js [client] (ecmascript)");
 const _react = /*#__PURE__*/ _interop_require_wildcard._(__turbopack_context__.r("[project]/node_modules/react/index.js [client] (ecmascript)"));
 const _cx = __turbopack_context__.r("[project]/node_modules/next/dist/client/components/react-dev-overlay/ui/utils/cx.js [client] (ecmascript)");
@@ -17504,8 +17504,8 @@ _export(exports, {
         return styles;
     }
 });
-const _interop_require_default = __turbopack_context__.r("[project]/node_modules/@swc/helpers/cjs/_interop_require_default.cjs [client] (ecmascript)");
-const _interop_require_wildcard = __turbopack_context__.r("[project]/node_modules/@swc/helpers/cjs/_interop_require_wildcard.cjs [client] (ecmascript)");
+const _interop_require_default = __turbopack_context__.r("[project]/node_modules/next/node_modules/@swc/helpers/cjs/_interop_require_default.cjs [client] (ecmascript)");
+const _interop_require_wildcard = __turbopack_context__.r("[project]/node_modules/next/node_modules/@swc/helpers/cjs/_interop_require_wildcard.cjs [client] (ecmascript)");
 const _jsxruntime = __turbopack_context__.r("[project]/node_modules/react/jsx-runtime.js [client] (ecmascript)");
 const _react = /*#__PURE__*/ _interop_require_wildcard._(__turbopack_context__.r("[project]/node_modules/react/index.js [client] (ecmascript)"));
 const _stripansi = /*#__PURE__*/ _interop_require_default._(__turbopack_context__.r("[project]/node_modules/next/dist/compiled/strip-ansi/index.js [client] (ecmascript)"));
@@ -18238,8 +18238,8 @@ _export(exports, {
         return NextLogo;
     }
 });
-const _interop_require_default = __turbopack_context__.r("[project]/node_modules/@swc/helpers/cjs/_interop_require_default.cjs [client] (ecmascript)");
-const _tagged_template_literal_loose = __turbopack_context__.r("[project]/node_modules/@swc/helpers/cjs/_tagged_template_literal_loose.cjs [client] (ecmascript)");
+const _interop_require_default = __turbopack_context__.r("[project]/node_modules/next/node_modules/@swc/helpers/cjs/_interop_require_default.cjs [client] (ecmascript)");
+const _tagged_template_literal_loose = __turbopack_context__.r("[project]/node_modules/next/node_modules/@swc/helpers/cjs/_tagged_template_literal_loose.cjs [client] (ecmascript)");
 const _jsxruntime = __turbopack_context__.r("[project]/node_modules/react/jsx-runtime.js [client] (ecmascript)");
 const _react = __turbopack_context__.r("[project]/node_modules/react/index.js [client] (ecmascript)");
 const _css = __turbopack_context__.r("[project]/node_modules/next/dist/client/components/react-dev-overlay/utils/css.js [client] (ecmascript)");
@@ -19603,8 +19603,8 @@ _export(exports, {
         return UserPreferences;
     }
 });
-const _interop_require_default = __turbopack_context__.r("[project]/node_modules/@swc/helpers/cjs/_interop_require_default.cjs [client] (ecmascript)");
-const _tagged_template_literal_loose = __turbopack_context__.r("[project]/node_modules/@swc/helpers/cjs/_tagged_template_literal_loose.cjs [client] (ecmascript)");
+const _interop_require_default = __turbopack_context__.r("[project]/node_modules/next/node_modules/@swc/helpers/cjs/_interop_require_default.cjs [client] (ecmascript)");
+const _tagged_template_literal_loose = __turbopack_context__.r("[project]/node_modules/next/node_modules/@swc/helpers/cjs/_tagged_template_literal_loose.cjs [client] (ecmascript)");
 const _jsxruntime = __turbopack_context__.r("[project]/node_modules/react/jsx-runtime.js [client] (ecmascript)");
 const _react = __turbopack_context__.r("[project]/node_modules/react/index.js [client] (ecmascript)");
 const _css = __turbopack_context__.r("[project]/node_modules/next/dist/client/components/react-dev-overlay/utils/css.js [client] (ecmascript)");
@@ -19922,7 +19922,7 @@ _export(exports, {
         return DevToolsIndicator;
     }
 });
-const _interop_require_default = __turbopack_context__.r("[project]/node_modules/@swc/helpers/cjs/_interop_require_default.cjs [client] (ecmascript)");
+const _interop_require_default = __turbopack_context__.r("[project]/node_modules/next/node_modules/@swc/helpers/cjs/_interop_require_default.cjs [client] (ecmascript)");
 const _jsxruntime = __turbopack_context__.r("[project]/node_modules/react/jsx-runtime.js [client] (ecmascript)");
 const _react = __turbopack_context__.r("[project]/node_modules/react/index.js [client] (ecmascript)");
 const _toast = __turbopack_context__.r("[project]/node_modules/next/dist/client/components/react-dev-overlay/ui/components/toast/index.js [client] (ecmascript)");
@@ -20311,7 +20311,7 @@ Object.defineProperty(exports, "ComponentStyles", {
         return ComponentStyles;
     }
 });
-const _tagged_template_literal_loose = __turbopack_context__.r("[project]/node_modules/@swc/helpers/cjs/_tagged_template_literal_loose.cjs [client] (ecmascript)");
+const _tagged_template_literal_loose = __turbopack_context__.r("[project]/node_modules/next/node_modules/@swc/helpers/cjs/_tagged_template_literal_loose.cjs [client] (ecmascript)");
 const _jsxruntime = __turbopack_context__.r("[project]/node_modules/react/jsx-runtime.js [client] (ecmascript)");
 const _codeframe = __turbopack_context__.r("[project]/node_modules/next/dist/client/components/react-dev-overlay/ui/components/code-frame/code-frame.js [client] (ecmascript)");
 const _dialog = __turbopack_context__.r("[project]/node_modules/next/dist/client/components/react-dev-overlay/ui/components/dialog/index.js [client] (ecmascript)");
@@ -20396,8 +20396,8 @@ Object.defineProperty(exports, "CssReset", {
         return CssReset;
     }
 });
-const _interop_require_wildcard = __turbopack_context__.r("[project]/node_modules/@swc/helpers/cjs/_interop_require_wildcard.cjs [client] (ecmascript)");
-const _tagged_template_literal_loose = __turbopack_context__.r("[project]/node_modules/@swc/helpers/cjs/_tagged_template_literal_loose.cjs [client] (ecmascript)");
+const _interop_require_wildcard = __turbopack_context__.r("[project]/node_modules/next/node_modules/@swc/helpers/cjs/_interop_require_wildcard.cjs [client] (ecmascript)");
+const _tagged_template_literal_loose = __turbopack_context__.r("[project]/node_modules/next/node_modules/@swc/helpers/cjs/_tagged_template_literal_loose.cjs [client] (ecmascript)");
 const _jsxruntime = __turbopack_context__.r("[project]/node_modules/react/jsx-runtime.js [client] (ecmascript)");
 const _react = /*#__PURE__*/ _interop_require_wildcard._(__turbopack_context__.r("[project]/node_modules/react/index.js [client] (ecmascript)"));
 const _css = __turbopack_context__.r("[project]/node_modules/next/dist/client/components/react-dev-overlay/utils/css.js [client] (ecmascript)");
@@ -20437,7 +20437,7 @@ Object.defineProperty(exports, "Colors", {
         return Colors;
     }
 });
-const _tagged_template_literal_loose = __turbopack_context__.r("[project]/node_modules/@swc/helpers/cjs/_tagged_template_literal_loose.cjs [client] (ecmascript)");
+const _tagged_template_literal_loose = __turbopack_context__.r("[project]/node_modules/next/node_modules/@swc/helpers/cjs/_tagged_template_literal_loose.cjs [client] (ecmascript)");
 const _jsxruntime = __turbopack_context__.r("[project]/node_modules/react/jsx-runtime.js [client] (ecmascript)");
 const _css = __turbopack_context__.r("[project]/node_modules/next/dist/client/components/react-dev-overlay/utils/css.js [client] (ecmascript)");
 function _templateObject() {
@@ -20672,7 +20672,7 @@ Object.defineProperty(exports, "DarkTheme", {
         return DarkTheme;
     }
 });
-const _tagged_template_literal_loose = __turbopack_context__.r("[project]/node_modules/@swc/helpers/cjs/_tagged_template_literal_loose.cjs [client] (ecmascript)");
+const _tagged_template_literal_loose = __turbopack_context__.r("[project]/node_modules/next/node_modules/@swc/helpers/cjs/_tagged_template_literal_loose.cjs [client] (ecmascript)");
 const _jsxruntime = __turbopack_context__.r("[project]/node_modules/react/jsx-runtime.js [client] (ecmascript)");
 const _css = __turbopack_context__.r("[project]/node_modules/next/dist/client/components/react-dev-overlay/utils/css.js [client] (ecmascript)");
 function _templateObject() {
@@ -20903,7 +20903,7 @@ _export(exports, {
         return version;
     }
 });
-const _interop_require_default = __turbopack_context__.r("[project]/node_modules/@swc/helpers/cjs/_interop_require_default.cjs [client] (ecmascript)");
+const _interop_require_default = __turbopack_context__.r("[project]/node_modules/next/node_modules/@swc/helpers/cjs/_interop_require_default.cjs [client] (ecmascript)");
 const _jsxruntime = __turbopack_context__.r("[project]/node_modules/react/jsx-runtime.js [client] (ecmascript)");
 __turbopack_context__.r("[project]/node_modules/next/dist/build/polyfills/polyfill-module.js [client] (ecmascript)");
 const _react = /*#__PURE__*/ _interop_require_default._(__turbopack_context__.r("[project]/node_modules/react/index.js [client] (ecmascript)"));
@@ -21518,7 +21518,7 @@ Object.defineProperty(exports, "default", {
         return _default;
     }
 });
-const _interop_require_default = __turbopack_context__.r("[project]/node_modules/@swc/helpers/cjs/_interop_require_default.cjs [client] (ecmascript)");
+const _interop_require_default = __turbopack_context__.r("[project]/node_modules/next/node_modules/@swc/helpers/cjs/_interop_require_default.cjs [client] (ecmascript)");
 const _hotreloaderclient = /*#__PURE__*/ _interop_require_default._(__turbopack_context__.r("[project]/node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js [client] (ecmascript)"));
 const _websocket = __turbopack_context__.r("[project]/node_modules/next/dist/client/components/react-dev-overlay/pages/websocket.js [client] (ecmascript)");
 let reloading = false;
@@ -21654,7 +21654,7 @@ Object.defineProperty(exports, "default", {
         return _default;
     }
 });
-const _interop_require_default = __turbopack_context__.r("[project]/node_modules/@swc/helpers/cjs/_interop_require_default.cjs [client] (ecmascript)");
+const _interop_require_default = __turbopack_context__.r("[project]/node_modules/next/node_modules/@swc/helpers/cjs/_interop_require_default.cjs [client] (ecmascript)");
 const _router = /*#__PURE__*/ _interop_require_default._(__turbopack_context__.r("[project]/node_modules/next/dist/client/router.js [client] (ecmascript)"));
 const _websocket = __turbopack_context__.r("[project]/node_modules/next/dist/client/components/react-dev-overlay/pages/websocket.js [client] (ecmascript)");
 const _default = async (page)=>{
@@ -21809,7 +21809,7 @@ Object.defineProperty(exports, "pageBootstrap", {
         return pageBootstrap;
     }
 });
-const _interop_require_default = __turbopack_context__.r("[project]/node_modules/@swc/helpers/cjs/_interop_require_default.cjs [client] (ecmascript)");
+const _interop_require_default = __turbopack_context__.r("[project]/node_modules/next/node_modules/@swc/helpers/cjs/_interop_require_default.cjs [client] (ecmascript)");
 __turbopack_context__.r("[project]/node_modules/next/dist/lib/require-instrumentation-client.js [client] (ecmascript)");
 const _ = __turbopack_context__.r("[project]/node_modules/next/dist/client/index.js [client] (ecmascript)");
 const _ondemandentriesclient = /*#__PURE__*/ _interop_require_default._(__turbopack_context__.r("[project]/node_modules/next/dist/client/dev/on-demand-entries-client.js [client] (ecmascript)"));
@@ -21937,7 +21937,7 @@ var { g: global, __dirname, m: module, e: exports } = __turbopack_context__;
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-const _interop_require_default = __turbopack_context__.r("[project]/node_modules/@swc/helpers/cjs/_interop_require_default.cjs [client] (ecmascript)");
+const _interop_require_default = __turbopack_context__.r("[project]/node_modules/next/node_modules/@swc/helpers/cjs/_interop_require_default.cjs [client] (ecmascript)");
 const _ = __turbopack_context__.r("[project]/node_modules/next/dist/client/index.js [client] (ecmascript)");
 const _hotmiddlewareclient = /*#__PURE__*/ _interop_require_default._(__turbopack_context__.r("[project]/node_modules/next/dist/client/dev/hot-middleware-client.js [client] (ecmascript)"));
 const _pagebootstrap = __turbopack_context__.r("[project]/node_modules/next/dist/client/page-bootstrap.js [client] (ecmascript)");
@@ -21996,7 +21996,7 @@ Object.defineProperty(exports, "default", {
         return App;
     }
 });
-const _interop_require_default = __turbopack_context__.r("[project]/node_modules/@swc/helpers/cjs/_interop_require_default.cjs [client] (ecmascript)");
+const _interop_require_default = __turbopack_context__.r("[project]/node_modules/next/node_modules/@swc/helpers/cjs/_interop_require_default.cjs [client] (ecmascript)");
 const _jsxruntime = __turbopack_context__.r("[project]/node_modules/react/jsx-runtime.js [client] (ecmascript)");
 const _react = /*#__PURE__*/ _interop_require_default._(__turbopack_context__.r("[project]/node_modules/react/index.js [client] (ecmascript)"));
 const _utils = __turbopack_context__.r("[project]/node_modules/next/dist/shared/lib/utils.js [client] (ecmascript)");

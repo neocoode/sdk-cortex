@@ -576,7 +576,7 @@ class HttpClient {
 
 var { g: global, __dirname } = __turbopack_context__;
 {
-__turbopack_context__.s({
+/* eslint-disable @typescript-eslint/no-explicit-any */ __turbopack_context__.s({
     "ApiService": (()=>ApiService)
 });
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$services$2f$httpClient$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/services/httpClient.ts [app-ssr] (ecmascript)");
@@ -619,6 +619,15 @@ class ApiService {
     }
     async sendMessage(chatId, message) {
         return this.api.post('/chat/message', {
+            message
+        }, {
+            headers: {
+                chti: chatId
+            }
+        });
+    }
+    async getSuggestions(chatId, message) {
+        return this.api.post('/chat/suggestions', {
             message
         }, {
             headers: {

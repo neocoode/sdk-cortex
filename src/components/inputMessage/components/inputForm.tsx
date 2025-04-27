@@ -2,8 +2,11 @@
 
 import { useTheme } from '@/themes/themeContext';
 import React, { RefObject, useEffect, useRef } from 'react';
+import { useDispatch, useSelector } from 'react-redux'; // 👈 IMPORTA
 import ActionBar from './actionBar';
 import AutoCompleteInput from './autoCompleteInput';
+import { suggestionsRequest } from '@/modules/suggestions/slice';
+import { RootState } from '@/store';
 
 interface InputFormProps {
   onSend?: () => void;
@@ -12,22 +15,19 @@ interface InputFormProps {
   value: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onSubmit?: (e?: React.FormEvent) => void;
-  version?: string;
-  date?: string;
 }
 
 const InputForm: React.FC<InputFormProps> = ({
   onAdd,
-  placeholder = 'Digite sua mensagem...',
+  placeholder = 'Pergunte alguma coisa',
   value,
   onChange,
   onSubmit,
-  version,
-  date,
 }) => {
   const { themeSelected } = useTheme();
-
+  const dispatch = useDispatch(); // 👈 USA DISPATCH
   const inputRef = useRef<HTMLInputElement>(null);
+  const chatSelectedState = useSelector((state: RootState) => state.chatSelected);
 
   useEffect(() => {
     inputRef.current?.focus();
@@ -39,14 +39,14 @@ const InputForm: React.FC<InputFormProps> = ({
       inputRef.current.value = '';
     }
     onSubmit?.();
-  }
+  };
 
   const handleSubmit = (e?: React.FormEvent) => {
     if (e) {
       e.preventDefault();
     }
     onSubmit?.();
-  }
+  };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
@@ -55,6 +55,15 @@ const InputForm: React.FC<InputFormProps> = ({
       if (inputRef.current) {
         inputRef.current.value = '';
       }
+    }
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const text = e.target.value;
+    onChange(e);
+
+    if (text.length > 3) {
+      dispatch(suggestionsRequest({ chatId: chatSelectedState.chatId || '', message: text })); // 👈 FAZ O DISPATCH
     }
   };
 
@@ -74,11 +83,12 @@ const InputForm: React.FC<InputFormProps> = ({
             flex items-center justify-between w-full p-1
             ${themeSelected.colors.backgroundAccent} 
             ${themeSelected.borderRadius.xxlarge} 
-          `}>
+          `}
+        >
           <AutoCompleteInput
             inputRef={inputRef as RefObject<HTMLInputElement>}
             value={value}
-            onChange={onChange}
+            onChange={handleChange} // 👈 AGORA USA handleChange (não onChange direto)
             placeholder={placeholder}
             onKeyDown={handleKeyDown}
           />
@@ -88,11 +98,9 @@ const InputForm: React.FC<InputFormProps> = ({
         value={value}
         onAdd={onAdd}
         onSubmit={handleSubmit}
-        version={version}
-        date={date}
       />
     </form>
   );
 };
 
-export default InputForm; 
+export default InputForm;

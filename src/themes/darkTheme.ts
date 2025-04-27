@@ -13,9 +13,14 @@ export const darkTheme: Theme = {
     backgroundSecondary: 'bg-[#4F4F4FFF]',    // área de mensagens
     backgroundForeground: 'bg-[#F3F4F6]',    // área de mensagens
     
+    backgroundSuggestionPrimary: 'bg-[#252525FF]',    
+    backgroundSuggestionSecondary: 'bg-[#104F8AFF]',   
+    colorSuggestionPrimary: 'text-[#A8A8A8FF]',    
+    colorSuggestionSecondary: 'text-[#FFFFFFFF]',   
+    
     iconBackgroundHover: ' hover:bg-[#656565FF]',    
     iconBackgroundActive: ' active:bg-[#474747FF]',    
-  iconBackgroundSecondaryHover: ' hover:bg-[#656565FF]',    
+    iconBackgroundSecondaryHover: ' hover:bg-[#656565FF]',    
     iconBackgroundSecondaryActive: ' active:bg-[#474747FF]',
         
     backgroundAccent: 'bg-[#4A4A4AFF]',       // input/chat
@@ -52,6 +57,7 @@ export const darkTheme: Theme = {
 
 
   borders: {
+    suggestions: 'border border-[#3A3C40FF]',       // borda padrão
     default: 'border border-[#46608BFF]',       // borda padrão
     focus: 'border border-[#3F5B87FF]',          // borda em foco (inputs, botões)
     error: 'border border-[#EF4444]',          // borda em erro
