@@ -1,8 +1,22 @@
+/**
+ * Script para atualização automática de versão no package.json
+ * Este script incrementa automaticamente a versão patch do projeto
+ * e adiciona a mensagem do último commit como referência
+ * 
+ * Funcionalidades:
+ * - Incrementa a versão patch (x.y.z+1)
+ * - Captura a mensagem do último commit
+ * - Atualiza o package.json com as novas informações
+ */
+
 const fs = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');
 
-// Função para obter a mensagem do último commit
+/**
+ * Obtém a mensagem do último commit do repositório
+ * @returns {string} Mensagem do último commit ou string vazia em caso de erro
+ */
 function getLastCommitMessage() {
     try {
         return execSync('git log -1 --pretty=%B').toString().trim();
@@ -12,7 +26,11 @@ function getLastCommitMessage() {
     }
 }
 
-// Função para atualizar a versão no package.json
+/**
+ * Atualiza a versão no package.json
+ * Incrementa a versão patch e adiciona a mensagem do último commit
+ * @throws {Error} Se houver erro na leitura ou escrita do package.json
+ */
 function updateVersion() {
     try {
         // Lê o package.json
@@ -39,4 +57,4 @@ function updateVersion() {
     }
 }
 
-updateVersion(); 
+updateVersion();

@@ -1,6 +1,6 @@
 {
   "name": "luma",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "date": "04/2025",
   "lastcommit": "Neocoode High Tech Defintion",
   "private": true,
@@ -41,5 +41,5 @@
     "tailwindcss": "^4",
     "typescript": "^5"
   },
-  "lastCommit": "chore: add author information in package.json"
+  "lastCommit": "chore: add last commit message retrieval in updateVersion.js and update package.json"
 }
