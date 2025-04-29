@@ -1,9 +1,9 @@
 ---
 description: 
 globs: 
-alwaysApply: true
+alwaysApply: false
 ---
 
 # Your rule content
 
-- You can use markdown but dont have to
+- criar sugestoes de commites em portugues

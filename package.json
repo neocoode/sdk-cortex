@@ -1,8 +1,8 @@
 {
   "name": "luma",
-  "version": "0.1.26",
+  "version": "0.1.27",
   "currentDate": "04/2025",
-  "lastCommit": "chore: update environment variables in README and improve build manifests",
+  "lastCommit": "docs: add environment variables section to README",
   "lastLoginCommit": "elio.lima",
   "lastDateCommit": "04/2025",
   "private": true,
