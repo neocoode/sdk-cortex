@@ -6,15 +6,21 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 interface SessionState {
   valid: boolean;
   loading: boolean;
+  id: string | null;
   chatId: string | null;
   name: string | null;
+  email: string | null;
+  avatar: string | null;
 }
 
 const initialState: SessionState = {
   valid: false,
   loading: false,
+  id: null,
   chatId: null,
   name: null,
+  email: null,
+  avatar: null,
 };
 
 const sessionSlice = createSlice({
@@ -27,8 +33,11 @@ const sessionSlice = createSlice({
     profileSuccess: (state, action: PayloadAction<any>) => {
       state.loading = false;
       state.valid = true;
-      state.chatId = action.payload.chatId; 
+      state.id = action.payload.id;
       state.name = action.payload.name;
+      state.email = action.payload.email;
+      state.avatar = action.payload.avatar;
+      state.chatId = action.payload.chatId; 
     },
     profileFailure: (state) => {
       state.loading = false;

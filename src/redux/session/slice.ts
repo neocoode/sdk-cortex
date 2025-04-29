@@ -14,7 +14,7 @@ interface SessionState {
 const initialState: SessionState = {
   valid: false,
   loading: false,
-  userId: null,
+  userId: '67cfa19fbca330b02331873d',
   token: null,
   chatId: null,
 };

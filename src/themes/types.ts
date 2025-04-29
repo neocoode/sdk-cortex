@@ -9,7 +9,9 @@ export interface ThemeColors {
   secondaryForeground: string;
   backgroundPrimary: string;
   backgroundSecondary: string;
-  
+  backgroundTertiary: string;
+  backgroundQuaternary: string;
+
   iconBackgroundHover: string;
   iconBackgroundActive: string;
   iconBackgroundSecondaryHover: string;
@@ -29,7 +31,6 @@ export interface ThemeColors {
   textWarning: string;
   textInfo: string;
   backgroundForeground: string;
-  backgroundTertiary: string;
   backgroundTableHeader: string;
   backgroundTable: string;
 
@@ -42,6 +43,9 @@ export interface ThemeColors {
 export interface ThemeTypography {
   fontFamily: string;
   fontSize: {
+    msmall1: string;
+    msmall2: string;
+    msmall3: string;
     msmall: string;
     small: string;
     medium: string;
@@ -97,6 +101,12 @@ export interface ThemeBorders {
   focus: string;
   error: string;
   suggestions: string;
+  primary: string;
+  secondary: string;
+  tertiary: string;
+  quaternary: string;
+  quinary: string;
+  senary: string;
 }
 
 export interface ThemeButtons {
@@ -119,13 +129,55 @@ export interface Theme {
   colors: ThemeColors;
   typography: ThemeTypography;
   spacing: ThemeSpacing;
-  borderRadius: ThemeBorderRadius;
   shadows: ThemeShadows;
   transitions: ThemeTransitions;
   borders: ThemeBorders;
   buttons: ThemeButtons;
   icons: ThemeIcons;
   animations: ThemeAnimations;
+  
+  hovers: ThemeHovers;
+  actives: ThemeActives;
+  
+  borderRadius: ThemeBorderRadius;
+  borderHover: ThemeBorderHover; 
+  borderActive: ThemeBorderActive;
+}
+
+export interface ThemeHovers {
+  primary: string;
+  secondary: string;
+  tertiary: string;
+  quaternary: string;
+  quinary: string;
+  senary: string;
+}
+
+export interface ThemeActives {
+  primary: string;
+  secondary: string;
+  tertiary: string;
+  quaternary: string;
+  quinary: string;
+  senary: string;
+}
+
+export interface ThemeBorderHover {
+  primary: string;
+  secondary: string;
+  tertiary: string; 
+  quaternary: string;
+  quinary: string;
+  senary: string;
+}
+
+export interface ThemeBorderActive {
+  primary: string;
+  secondary: string;
+  tertiary: string;
+  quaternary: string;
+  quinary: string;
+  senary: string;
 }
 
 export interface ThemeContextType {

@@ -12,7 +12,7 @@
  * @param dispatch - Função dispatch do Redux para gerenciar estados
  */
 
-import { showToast } from "@/modules/toast/slice";
+import { showToast } from "@/redux/toast/slice";
 
 export const handleDownload = (value: string, dispatch: any) => {
     try {

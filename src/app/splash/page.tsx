@@ -1,6 +1,6 @@
 'use client';
 
-import { validateSessionRequest } from '@/modules/session/slice';
+import { validateSessionRequest } from '@/redux/session/slice';
 import { RootState } from '@/store';
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
@@ -21,7 +21,7 @@ export default function SplashPage() {
     if (!loading && valid) {
       const timer = setTimeout(() => {
         router.push('/chat');
-      }, 1000);
+      }, 500);
 
       return () => clearTimeout(timer);
     }

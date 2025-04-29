@@ -9,7 +9,7 @@
 import { useEffect } from 'react';
 import { toast, ToastContainer } from 'react-toastify';
 
-import { hideToast } from '@/modules/toast/slice';
+import { hideToast } from '@/redux/toast/slice';
 import { RootState } from '@/store';
 import { useDispatch, useSelector } from 'react-redux';
 import 'react-toastify/dist/ReactToastify.css';

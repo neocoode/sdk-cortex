@@ -6,7 +6,7 @@
  */
 
 import { ETableType } from "@/interface/tableSchema";
-import { showToast } from "@/modules/toast/slice";
+import { showToast } from "@/redux/toast/slice";
 import { strToITable } from "@/utils/strToITable";
 
 interface IDownloadTableSchema {

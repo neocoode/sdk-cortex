@@ -1,12 +1,13 @@
 // src/store/rootReducer.ts
 import { combineReducers } from '@reduxjs/toolkit';
 
-import chatSelectedReducer from '@/modules/chatSelected/slice';
-import profileReducer from '@/modules/profile/slice';
-import sendMessageReducer from '@/modules/sendMessage/slice';
-import sessionReducer from '@/modules/session/slice';
-import suggestionsReducer from '@/modules/suggestions/slice';
-import toastReducer from '@/modules/toast/slice';
+import chatSelectedReducer from '@/redux/chatSelected/slice';
+import configAllReducer from '@/redux/configAll/slice';
+import profileReducer from '@/redux/profile/slice';
+import sendMessageReducer from '@/redux/sendMessage/slice';
+import sessionReducer from '@/redux/session/slice';
+import suggestionsReducer from '@/redux/suggestions/slice';
+import toastReducer from '@/redux/toast/slice';
 
 export const rootReducer = combineReducers({
   session: sessionReducer,
@@ -15,4 +16,5 @@ export const rootReducer = combineReducers({
   chatSelected: chatSelectedReducer,
   toast: toastReducer,
   suggestions: suggestionsReducer,
+  configAll: configAllReducer,
 });

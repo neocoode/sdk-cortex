@@ -1,8 +1,8 @@
 {
   "name": "luma",
-  "version": "0.1.27",
+  "version": "0.1.28",
   "currentDate": "04/2025",
-  "lastCommit": "docs: add environment variables section to README",
+  "lastCommit": "fix: update alwaysApply property in minha-regra.mdc to false",
   "lastLoginCommit": "elio.lima",
   "lastDateCommit": "04/2025",
   "private": true,
@@ -28,6 +28,7 @@
     "next": "15.3.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-icons": "^5.5.0",
     "react-image-gallery": "^1.4.0",
     "react-redux": "^9.2.0",
     "react-toastify": "^11.0.5",

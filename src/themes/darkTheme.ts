@@ -11,6 +11,8 @@ export const darkTheme: Theme = {
     secondaryForeground: 'text-[#E5E7EB]', // texto sobre secundária
     backgroundPrimary: 'bg-[#1E1E1E]',      // topo, cards principais
     backgroundSecondary: 'bg-[#4F4F4FFF]',    // área de mensagens
+    backgroundTertiary: 'bg-[#2F2F2FFF]',
+    backgroundQuaternary: 'bg-[#252525FF]',    
     backgroundForeground: 'bg-[#F3F4F6]',    // área de mensagens
     
     backgroundSuggestionPrimary: 'bg-[#252525FF]',    
@@ -40,7 +42,6 @@ export const darkTheme: Theme = {
     textSuccess: 'text-[#34D399]',           // texto de sucesso
     textWarning: 'text-[#FBBF24]',           // texto de aviso
     textInfo: 'text-[#60A5FA]',              // texto de informação
-    backgroundTertiary: 'bg-[#2F2F2FFF]',
   },
 
   typography: typography,
@@ -50,18 +51,30 @@ export const darkTheme: Theme = {
   animations: animations,
 
   shadows: {
-    small: 'shadow-[0_1px_2px_0_rgba(0,0,0,0.05)]',
-    medium: 'shadow-[0_2px_4px_rgba(0,0,0,0.08)]',
-    large: 'shadow-[0_4px_6px_rgba(0,0,0,0.1)]',
+    small: 'shadow-[0_1px_2px_0_#4F4F4FFF]',
+    medium: 'shadow-[0_2px_4px_#4F4F4FFF]',
+    large: 'shadow-[0_4px_6px_#4F4F4FFF]',
   },
 
-
-  borders: {
-    suggestions: 'border border-[#3A3C40FF]',       // borda padrão
-    default: 'border border-[#46608BFF]',       // borda padrão
-    focus: 'border border-[#3F5B87FF]',          // borda em foco (inputs, botões)
-    error: 'border border-[#EF4444]',          // borda em erro
+  hovers: {
+    primary: 'hover:bg-[#7B7B7BFF]',
+    secondary: 'hover:bg-[#676767FF]',
+    tertiary: 'hover:bg-[#3A3A3AFF]',
+    quaternary: 'hover:bg-[#222222FF]',
+    quinary: 'hover:bg-[#1F1F1FFF]',
+    senary: 'hover:bg-[#0F0F0FFF]',
   },
+
+  actives: {
+    primary: 'active:bg-[#7B7B7BFF]',
+    secondary: 'active:bg-[#676767FF]',
+    tertiary: 'active:bg-[#3A3A3AFF]',
+    quaternary: 'active:bg-[#222222FF]',
+    quinary: 'active:bg-[#1F1F1FFF]',
+    senary: 'active:bg-[#0F0F0FFF]',
+  },
+
+  
 
   buttons: {
     primary: 'bg-[#2563EB] text-[#FFFFFF] hover:bg-[#1D4ED8]',         // botão primário
@@ -72,5 +85,37 @@ export const darkTheme: Theme = {
   icons: {
     primary: 'text-[#9CA3AF]',         // cor de ícones padrão
     accent: 'text-[#60A5FA]',           // cor de ícones destacados
+  },
+
+  borderHover: {
+    primary: 'hover:border-[#7B7B7BFF]',
+    secondary: 'hover:border-[#676767FF]',
+    tertiary: 'hover:border-[#3A3A3AFF]',
+    quaternary: 'hover:border-[#222222FF]',
+    quinary: 'hover:border-[#1F1F1FFF]',
+    senary: 'hover:border-[#0F0F0FFF]',
+  },
+
+  borderActive: {
+    primary: 'active:border-[#7B7B7BFF]',
+    secondary: 'active:border-[#676767FF]',
+    tertiary: 'active:border-[#3A3A3AFF]',
+    quaternary: 'active:border-[#222222FF]',
+    quinary: 'active:border-[#1F1F1FFF]',
+    senary: 'active:border-[#0F0F0FFF]',
+  },
+
+  borders: {
+    suggestions: 'border border-[#3A3C40FF]',       // borda padrão
+    default: 'border border-[#46608BFF]',       // borda padrão
+    focus: 'border border-[#3F5B87FF]',          // borda em foco (inputs, botões)
+    error: 'border border-[#EF4444]',   
+    
+    primary: 'border border-[#7B7B7BFF]',
+    secondary: 'border border-[#676767FF]',
+    tertiary: 'border border-[#3A3A3AFF]',
+    quaternary: 'border border-[#222222FF]',
+    quinary: 'border border-[#1F1F1FFF]',
+    senary: 'border border-[#0F0F0FFF]',// borda em erro
   },
 };

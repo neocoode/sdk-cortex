@@ -1,6 +1,9 @@
 export const typography = {
     fontFamily: 'font-sans',                 // fonte moderna
     fontSize: {
+        msmall3: 'text-[8px]',
+        msmall2: 'text-[9px]',
+        msmall1: 'text-[10px]',
         msmall: 'text-[11px]',
         small: 'text-[14px]',
         medium: 'text-[17px]',                 // ajuste fino

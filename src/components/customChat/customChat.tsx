@@ -4,13 +4,13 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import CustomHeader from '@/components/customHeader';
 import LeftSidebar from '@/components/leftSidebar';
-import { chatSelectedMessageClear } from '@/modules/chatSelected/slice';
-import { sendMessageRequest } from '@/modules/sendMessage/slice';
+import { chatSelectedMessageClear } from '@/redux/chatSelected/slice';
+import { sendMessageRequest } from '@/redux/sendMessage/slice';
 import { RootState } from '@/store';
 import { useTheme } from '@/themes/themeContext';
-import InputMessage from './inputMessage/inputMessage';
-import ProcessMessageStatus from './processMessageStatus';
-import CustomMessageChat from './renderMessageChat';
+import CustomMessageChat from '../customMessagesChat';
+import InputMessage from '../inputMessage/inputMessage';
+import ProcessMessageStatus from '../processMessageStatus';
 
 const CustomChat: React.FC = () => {
   const { themeSelected } = useTheme();

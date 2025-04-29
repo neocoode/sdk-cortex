@@ -4,8 +4,8 @@ import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { CoreMessageResponse, IResponseChat } from '@/interface/chats';
-import { sendMessageRequest } from '@/modules/sendMessage/slice';
-import { showToast } from '@/modules/toast/slice';
+import { sendMessageRequest } from '@/redux/sendMessage/slice';
+import { showToast } from '@/redux/toast/slice';
 import { RootState } from '@/store';
 import { useTheme } from '@/themes/themeContext';
 import RenderMessage from './renderMessage';
@@ -15,7 +15,7 @@ interface iprops {
 }
 
 
-const RenderMessageChat: React.FC<iprops> = ({ messageResponse }) => {
+const CustomMessageChat: React.FC<iprops> = ({ messageResponse }) => {
   const { themeSelected } = useTheme();
   const dispatch = useDispatch();
   
@@ -115,4 +115,4 @@ const RenderMessageChat: React.FC<iprops> = ({ messageResponse }) => {
   );
 };
 
-export default RenderMessageChat;
+export default CustomMessageChat;

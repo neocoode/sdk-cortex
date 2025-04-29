@@ -4,8 +4,8 @@ import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import CustomChat from '@/components/customChat';
-import { validateSessionRequest } from '@/modules/session/slice';
+import CustomChat from '@/components/customChat/customChat';
+import { validateSessionRequest } from '@/redux/session/slice';
 import { RootState } from '@/store';
 
 export default function ChatPage() {

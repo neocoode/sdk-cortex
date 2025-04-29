@@ -11,7 +11,7 @@
  * @param dispatch - Função dispatch do Redux para gerenciar estados
  */
 
-import { showToast } from "@/modules/toast/slice";
+import { showToast } from "@/redux/toast/slice";
 import { handleDownload } from "./handleDownload";
 
 export const handleCopy = async (value: string, dispatch: any) => {

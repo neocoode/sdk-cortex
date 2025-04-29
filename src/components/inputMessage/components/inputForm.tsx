@@ -1,12 +1,12 @@
 'use client';
 
+import { suggestionsRequest } from '@/redux/suggestions/slice';
+import { RootState } from '@/store';
 import { useTheme } from '@/themes/themeContext';
 import React, { RefObject, useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux'; // 👈 IMPORTA
 import ActionBar from './actionBar';
 import AutoCompleteInput from './autoCompleteInput';
-import { suggestionsRequest } from '@/modules/suggestions/slice';
-import { RootState } from '@/store';
 
 interface InputFormProps {
   onSend?: () => void;
