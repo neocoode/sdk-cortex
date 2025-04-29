@@ -1,9 +1,9 @@
 {
   "name": "luma",
-  "version": "0.1.25",
+  "version": "0.1.26",
   "currentDate": "04/2025",
-  "lastCommit": "refactor: remove InputField component as it is no longer needed",
-  "lastLoginCommit": "elio.designer",
+  "lastCommit": "chore: update environment variables in README and improve build manifests",
+  "lastLoginCommit": "elio.lima",
   "lastDateCommit": "04/2025",
   "private": true,
   "author": "Neocoode High Defintion",

@@ -18,6 +18,11 @@ O Luma é um plugin especializado em processamento de imagens e visão computaci
 - React Image Gallery
 - Keen Slider
 
+## variaveis de Ambiente
+
+    # NEXT_PUBLIC_API_URL=https://api.neocoode.com.br
+    NEXT_PUBLIC_API_URL=http://localhost:3525
+
 ## 📚 Bibliotecas Principais
 
 ### Core
