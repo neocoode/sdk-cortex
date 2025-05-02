@@ -1,8 +1,8 @@
 {
   "name": "luma",
-  "version": "0.1.30",
+  "version": "0.1.31",
   "currentDate": "05/2025",
-  "lastCommit": "chore: update ESLint configuration, add redux-persist dependency, and modify build manifests",
+  "lastCommit": "chore: update build manifests and remove unused login page",
   "lastLoginCommit": "elio.lima",
   "lastDateCommit": "05/2025",
   "private": true,

@@ -4,7 +4,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 // src/store/modules/session/saga.ts
-import { ApiService } from '@/services/apiSercice';
+import { ApiCortexServiceServer } from '@/services/apiCortexServiceServer';
 import { call, put, takeLatest } from 'redux-saga/effects';
 import { profileRequest } from '../profile/slice';
 import {
@@ -21,7 +21,7 @@ const handleValidateSession = function* (request: any): any {
     console.log('[1] Iniciando validação de sessão...');
     console.log('[2] Token atual:', token ? 'Presente' : 'Ausente');
 
-    const api = new ApiService(token);
+    const api = new ApiCortexServiceServer(token);
     console.log('[4] ApiService inicializado');
 
     if (!token) {

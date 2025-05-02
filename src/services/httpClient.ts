@@ -1,6 +1,4 @@
 // src/services/HttpClient.ts
-'use client';
-
 type HttpMethod = 'GET' | 'POST' | 'PUT' | 'DELETE' | 'PATCH';
 
 interface HttpOptions {
@@ -12,6 +10,7 @@ export class HttpClient {
   
   private baseUrl: string;
   private defaultHeaders: Record<string, string>;
+  private cookies: Record<string, string> = {};
 
   constructor(baseURL: string, defaultOptions: HttpOptions = {}) {
     this.baseUrl = baseURL;
@@ -27,6 +26,10 @@ export class HttpClient {
       ...this.defaultHeaders,
       ...(token ? { 'Authorization': `Bearer ${token}` } : {})
     }
+  }
+
+  getCookie(name: string): string | undefined {
+    return this.cookies[name];
   }
 
   private async request<T = any>(
@@ -46,9 +49,18 @@ export class HttpClient {
       headers,
       body: data ? JSON.stringify(data) : undefined,
       cache: options.cache || 'no-store',
+      credentials: 'include' as const,
     }
 
+    console.log('🔍 >>>>>>>>>>>>>>>>>>>>>>>> fullUrl, dataRequest', fullUrl, dataRequest);
     const response = await fetch(fullUrl, dataRequest);
+    console.log('🔍 >>>>>>>>>>>>>>>>>>>>>>>> fetch.response', response);
+    console.log('🔍 >>>>>>>>>>>>>>>>>>>>>>>> fetch.response.headers', response.headers);
+    
+    // Atualiza os cookies com base nos headers da resposta
+    const setCookieHeader = response.headers.getSetCookie();
+    console.log('🔍 >>>>>>>>>>>>>>>>>>>>>>>> fetch.response.headers.getSetCookie', setCookieHeader);
+    
     if (!response.ok) {
       const errorBody = await response.text();
       console.error(`❌ [${method}] ${url} falhou:`, errorBody);

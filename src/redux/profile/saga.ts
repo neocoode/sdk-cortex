@@ -4,7 +4,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 // src/store/modules/session/saga.ts
-import { ApiService } from '@/services/apiSercice';
+import { ApiCortexServiceServer } from '@/services/apiCortexServiceServer';
 import { RootState } from '@/store';
 import { call, put, select, takeLatest } from 'redux-saga/effects';
 import { chatSelectedSet } from '../chatSelected/slice';
@@ -35,7 +35,7 @@ const handleprofile = function* ({ payload }: any): any {
       return;
     }
 
-    const api = new ApiService(token);
+    const api = new ApiCortexServiceServer(token);
     const response = yield call([api, api.getUserProfile]);
     const data = response?.data;
     
