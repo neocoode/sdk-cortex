@@ -33,7 +33,7 @@ export function SessionProvider({ children }: ISessionProviderProps) {
   }, [profileState]);
 
   useEffect(() => {
-    setIsLoggedIn(!!sessionState.userId);
+    setIsLoggedIn(!!sessionState.logged);
   }, [sessionState]);
 
   return (

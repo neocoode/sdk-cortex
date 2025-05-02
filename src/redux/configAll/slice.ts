@@ -10,6 +10,7 @@ const stateInitial: IConfigAllState = {
     // showModalWelcomeCreative: false,
     // plan: 'bDVDyIOyqFH0B05KBrkikZgJhk',
     // planName: 'PLUS',
+    SESSION_TIMEOUT_MINUTES: 1,
   },  
 };
 

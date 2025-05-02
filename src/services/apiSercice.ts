@@ -9,7 +9,7 @@ type Json = Record<string, any>;
 export class ApiService {
   private api: HttpClient;
 
-  constructor(token?: string) {
+  constructor(token?: string | null) {
     const resolvedBaseUrl = process.env.NEXT_PUBLIC_API_URL || '';
 
     if (!resolvedBaseUrl.trim()) {

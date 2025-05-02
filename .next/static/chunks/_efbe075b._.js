@@ -23,18 +23,27 @@ var _s = __turbopack_context__.k.signature();
 function SplashPage() {
     _s();
     const router = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRouter"])();
+    const { valid, loading, token, dateCheck } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$redux$2f$dist$2f$react$2d$redux$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useSelector"])({
+        "SplashPage.useSelector": (state)=>state.session
+    }["SplashPage.useSelector"]);
+    const configAllState = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$redux$2f$dist$2f$react$2d$redux$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useSelector"])({
+        "SplashPage.useSelector[configAllState]": (state)=>state.configAll
+    }["SplashPage.useSelector[configAllState]"]);
     const dispatch = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$redux$2f$dist$2f$react$2d$redux$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useDispatch"])();
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
         "SplashPage.useEffect": ()=>{
-            dispatch((0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$redux$2f$session$2f$slice$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["validateSessionRequest"])());
+            console.log('view > splash > token', token);
+            const dataValue = {
+                token: token || null,
+                dateCheck: dateCheck || new Date(),
+                SESSION_TIMEOUT_MINUTES: configAllState.fields?.SESSION_TIMEOUT_MINUTES || 1
+            };
+            dispatch((0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$redux$2f$session$2f$slice$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["validateSessionRequest"])(dataValue));
         }
     }["SplashPage.useEffect"], []);
-    const { valid, loading } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$redux$2f$dist$2f$react$2d$redux$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useSelector"])({
-        "SplashPage.useSelector": (state)=>state.session
-    }["SplashPage.useSelector"]);
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
         "SplashPage.useEffect": ()=>{
-            if (!loading && valid) {
+            if (!loading && valid && token) {
                 const timer = setTimeout({
                     "SplashPage.useEffect.timer": ()=>{
                         router.push('/chat');
@@ -48,6 +57,7 @@ function SplashPage() {
     }["SplashPage.useEffect"], [
         loading,
         valid,
+        token,
         router
     ]);
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -60,7 +70,7 @@ function SplashPage() {
                     children: "Bem-vindo"
                 }, void 0, false, {
                     fileName: "[project]/src/app/splash/page.tsx",
-                    lineNumber: 33,
+                    lineNumber: 40,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -68,26 +78,27 @@ function SplashPage() {
                     children: "Carregando..."
                 }, void 0, false, {
                     fileName: "[project]/src/app/splash/page.tsx",
-                    lineNumber: 34,
+                    lineNumber: 41,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/src/app/splash/page.tsx",
-            lineNumber: 32,
+            lineNumber: 39,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/src/app/splash/page.tsx",
-        lineNumber: 31,
+        lineNumber: 38,
         columnNumber: 5
     }, this);
 }
-_s(SplashPage, "PdTxF4Izx6yYEowUNL6jdntI2XY=", false, function() {
+_s(SplashPage, "70zMZ3Zcy/DBfIubaHByAcCTyQE=", false, function() {
     return [
         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRouter"],
-        __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$redux$2f$dist$2f$react$2d$redux$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useDispatch"],
-        __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$redux$2f$dist$2f$react$2d$redux$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useSelector"]
+        __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$redux$2f$dist$2f$react$2d$redux$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useSelector"],
+        __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$redux$2f$dist$2f$react$2d$redux$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useSelector"],
+        __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$redux$2f$dist$2f$react$2d$redux$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useDispatch"]
     ];
 });
 _c = SplashPage;

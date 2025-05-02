@@ -27,7 +27,7 @@ const sessionSlice = createSlice({
   name: 'profile',
   initialState,
   reducers: {
-    profileRequest: (state, action: PayloadAction<{ token: string }>) => {
+    profileRequest: (state, action: PayloadAction<{ token: string, logged: boolean }>) => {
       state.loading = true;
     },
     profileSuccess: (state, action: PayloadAction<any>) => {

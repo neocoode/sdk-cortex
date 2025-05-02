@@ -180,8 +180,28 @@ darkTheme = {
           ${darkTheme.typography.fontSize.medium}
           ${darkTheme.colors.textSecondary}
     `,
-    tertiary: ' ',
-    quaternary: ' ',
+    tertiary: `
+          cursor-pointer p-2 px-4 
+          ${darkTheme.colors.backgroundForeground}
+          ${darkTheme.borders.secondary}
+          ${darkTheme.hovers.backgroundForeground}
+          ${darkTheme.actives.primary}
+          ${darkTheme.borderRadius.xxxlarge}
+          ${darkTheme.shadows.medium}
+          ${darkTheme.typography.fontSize.small}
+          ${darkTheme.colors.textQuinary}
+    `,
+    quaternary: `
+          cursor-pointer p-2 px-4 
+          ${darkTheme.colors.background}
+          ${darkTheme.borders.quaternary}
+          ${darkTheme.hovers.quaternary}
+          ${darkTheme.actives.quinary}
+          ${darkTheme.borderRadius.xxxlarge}
+          ${darkTheme.shadows.small}
+          ${darkTheme.typography.fontSize.small}
+          ${darkTheme.colors.textPrimary}
+    `,
     quinary: ' ',
     senary: ' ',
   },

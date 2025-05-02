@@ -1,10 +1,10 @@
 {
   "name": "luma",
-  "version": "0.1.29",
+  "version": "0.1.30",
   "currentDate": "05/2025",
-  "lastCommit": "chore: add react-icons dependency and update yarn.lock",
-  "lastLoginCommit": "elio.designer",
-  "lastDateCommit": "04/2025",
+  "lastCommit": "chore: update ESLint configuration, add redux-persist dependency, and modify build manifests",
+  "lastLoginCommit": "elio.lima",
+  "lastDateCommit": "05/2025",
   "private": true,
   "author": "Neocoode High Defintion",
   "scripts": {

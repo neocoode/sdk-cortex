@@ -2,8 +2,10 @@
 import { Download, PanelLeftClose, PanelLeftOpen, Settings } from 'lucide-react';
 import React, { useEffect, useState } from 'react';
 
+import { useSession } from '@/contexts/sessionContext';
 import { RootState } from '@/store';
 import { useTheme } from '@/themes/themeContext';
+import { useRouter } from 'next/navigation';
 import { useSelector } from 'react-redux';
 import UserMenu from './userMenu/userMenu';
 
@@ -13,6 +15,8 @@ interface CustomHeaderProps {
 }
 
 const CustomHeader: React.FC<CustomHeaderProps> = ({ toggleSidebar, isSidebarVisible }) => {
+    const router = useRouter();
+    const { isLoggedIn } = useSession();
     const { themeSelected } = useTheme();
     const [plan, setPlan] = useState({
         plan: '',
@@ -20,7 +24,7 @@ const CustomHeader: React.FC<CustomHeaderProps> = ({ toggleSidebar, isSidebarVis
     });
     
     const chatSelectedState = useSelector((state: RootState) => state.chatSelected);   
-    const configAllState = useSelector((state: RootState) => state.configAll);
+    const configAllState = useSelector((state: RootState) => state.configAll);    
 
     useEffect(() => {
         setPlan({
@@ -28,6 +32,15 @@ const CustomHeader: React.FC<CustomHeaderProps> = ({ toggleSidebar, isSidebarVis
             planName:configAllState.fields.planName
         })
     }, [configAllState]);
+
+    const handleAccessAccount = () => {
+        router.push('/access-account');
+    }
+
+    const handleCreateAccount = () => {
+        router.push('/create-account');
+    }
+    
     return (
         <header className={`flex h-18 p-4 ${themeSelected.shadows.small} flex justify-between items-center`}>
             <div className="flex items-center">
@@ -68,8 +81,13 @@ const CustomHeader: React.FC<CustomHeaderProps> = ({ toggleSidebar, isSidebarVis
                     </button>
                 )}
                 <div className="flex justify-center items-center px-5">
-                    {configAllState.fields.plan && (
+                    {isLoggedIn ? (
                         <UserMenu />
+                    ) : (
+                        <>
+                            <button className={`${themeSelected.button.tertiary} mx-2`} onClick={handleAccessAccount}>Entrar</button>
+                            <button className={`${themeSelected.button.quaternary}`} onClick={handleCreateAccount}>Cadastrar</button>
+                        </>
                     )}
                 </div>
             </div>

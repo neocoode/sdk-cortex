@@ -15,12 +15,26 @@ import {
 } from './slice';
 
 const handleprofile = function* ({ payload }: any): any {
-  let token = payload.token;
-  if (!token) {
-    token = yield select((state: RootState) => state.session.token);
-  }
-
+  
   try {
+    let token = payload.token;
+    let logged = payload.logged;
+
+    if (!token) {
+      const sessionState = yield select((state: RootState) => state.session);
+      token = sessionState.token;
+      logged = sessionState.logged;
+    }
+
+    if (!logged) {
+      yield put(profileSuccess({
+        chatId: null,
+        name: null,
+        valid: false,
+      }));
+      return;
+    }
+
     const api = new ApiService(token);
     const response = yield call([api, api.getUserProfile]);
     const data = response?.data;
