@@ -31,9 +31,9 @@ export class ApiService {
     return this.api.get<Json>('/chat/session');
   }
 
-  async startSession(userId: string): Promise<Json> {
+  async startSession(): Promise<Json> {
     return this.api.post<Json>('/chat/start-session', {}, {
-      headers: { usid: userId },
+      headers: {  },
     });
   }
 

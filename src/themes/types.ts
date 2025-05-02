@@ -22,9 +22,14 @@ export interface ThemeColors {
   backgroundSuccess: string;
   backgroundWarning: string;
   backgroundInfo: string;
+  
   text: string;
   textPrimary: string;
   textSecondary: string;
+  textTertiary: string;
+  textQuaternary: string;
+  textQuinary: string;
+
   textAccent: string;
   textError: string;
   textSuccess: string;
@@ -65,6 +70,8 @@ export interface ThemeTypography {
     medium: string;
     large: string;
   };
+
+  
 }
 
 export interface ThemeSpacing {
@@ -113,6 +120,7 @@ export interface ThemeButtons {
   primary: string;
   secondary: string;
   danger: string;
+  
 }
 
 export interface ThemeIcons {
@@ -126,6 +134,7 @@ export interface ThemeAnimations {
 }
 
 export interface Theme {
+  
   colors: ThemeColors;
   typography: ThemeTypography;
   spacing: ThemeSpacing;
@@ -142,6 +151,28 @@ export interface Theme {
   borderRadius: ThemeBorderRadius;
   borderHover: ThemeBorderHover; 
   borderActive: ThemeBorderActive;
+
+  links: ThemeLinks;
+
+  button: ThemeButton;
+  title: ThemeTitle;
+  link: ThemeLink;
+}
+
+export interface ThemeLink {
+  primary: string;
+  secondary: string;
+  tertiary: string;
+  quaternary: string;
+  quinary: string;
+}
+
+export interface ThemeTitle {
+  primary: string;
+  secondary: string;
+  tertiary: string;
+  quaternary: string;
+  quinary: string;
 }
 
 export interface ThemeHovers {
@@ -151,6 +182,7 @@ export interface ThemeHovers {
   quaternary: string;
   quinary: string;
   senary: string;
+  backgroundForeground: string;
 }
 
 export interface ThemeActives {
@@ -188,4 +220,18 @@ export interface ThemeContextType {
 
 export interface ThemeProviderProps {
   children: React.ReactNode;
+}
+
+export interface ThemeLinks {
+  text: string;
+  hover: string;
+}
+
+export interface ThemeButton {
+  primary: string;
+  secondary: string;
+  tertiary: string;
+  quaternary: string;
+  quinary: string;
+  senary: string;
 }

@@ -14,12 +14,11 @@ import {
 } from './slice';
 
 const handleValidateSession = function* ({ token }: { token: string }): any {
-  const mockUserId = "67cfa19fbca330b02331873d";
   try {
     const api = new ApiService(token);
 
     if (!token) {
-      const response = yield call([api, api.startSession], mockUserId);
+      const response = yield call([api, api.startSession]);
       api.setToken(response.token);
 
       // Revalida a sessão após iniciar      
@@ -30,7 +29,6 @@ const handleValidateSession = function* ({ token }: { token: string }): any {
 
       yield put(profileRequest({ token: response.token }));
       yield put(validateSessionSuccess({
-        userId: mockUserId,
         token: response.token,
         valid: true,
       }));
@@ -45,7 +43,6 @@ const handleValidateSession = function* ({ token }: { token: string }): any {
 
     yield put(profileRequest({ token: token }));
     yield put(validateSessionSuccess({
-      userId: mockUserId,
       valid: true,
     }));
     return;

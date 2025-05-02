@@ -7,8 +7,9 @@ import { IConfigAllField, IConfigAllState } from './configAll.interface';
 const nameState = 'configAll'
 const stateInitial: IConfigAllState = {
   fields: {
-    plan: 'bDVDyIOyqFH0B05KBrkikZgJhk',
-    planName: 'PLUS',
+    // showModalWelcomeCreative: false,
+    // plan: 'bDVDyIOyqFH0B05KBrkikZgJhk',
+    // planName: 'PLUS',
   },  
 };
 

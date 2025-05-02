@@ -15,7 +15,7 @@ export function SessionProvider({ children }: ISessionProviderProps) {
   const sessionState = useSelector((state: RootState) => state.session);
   const profileState = useSelector((state: RootState) => state.profile);
   const configAllState = useSelector((state: RootState) => state.configAll);
-
+  
   useEffect(() => {
     setPlan({
       id: configAllState.fields.plan,
