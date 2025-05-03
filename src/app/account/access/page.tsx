@@ -1,26 +1,39 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 'use client';
 
-import { LogIn } from '@/redux/account/slice';
-import { ApiServiceServer } from '@/services/apiServiceServer';
+import { accountAccessRequest } from '@/redux/accountAccess/slice';
+import { showToast } from '@/redux/toast/slice';
 import { RootState } from '@/store';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-const AccessAccount = () => {
-  const router = useRouter();
+const AccountAccess = () => {
   const dispatch = useDispatch();
+  const router = useRouter();
   const [step, setStep] = useState<'input' | 'password'>('input');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [passwordError, setPasswordError] = useState('');
-  const sessionState = useSelector((state: RootState) => state.session);
+  const [mail, setmail] = useState('');
+  const [pass, setPass] = useState('');
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+
+  const [passError, setPassError] = useState('');
+  const sessionState: any = useSelector((state: RootState) => state.session);
+  const accountAccessState: any = useSelector((state: RootState) => state.accountAccess);
 
   useEffect(() => {
-    if (sessionState?.logged && sessionState?.token) {
+    if (!isLoading) {
+      return;
+    }
+
+    if (!accountAccessState?.loading && !accountAccessState?.valid && accountAccessState?.error) {
+      dispatch(showToast({ message: 'Não foi possível acessar a conta!', type: 'error' }));
+      setIsLoading(false);
+    } else if (sessionState?.logged && sessionState?.token) {
+      setIsLoading(false);
       router.push('/chat');
     }
-  }, [sessionState?.logged, sessionState?.token]);
+  }, [sessionState, accountAccessState]);
 
   // Nova regex:
   // - Pelo menos uma letra maiúscula
@@ -35,20 +48,18 @@ const AccessAccount = () => {
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-    const api = new ApiServiceServer(sessionState.token);
-    const response = await api.accountAccess(email, password);
-    console.log('🔍 >>>>>>>>>>>>>>>>>>>>>>>> response', response);
-    dispatch(LogIn({ email, password }));
+    setIsLoading(true);
+    dispatch(accountAccessRequest({ mail, pass }));
   };
-  
+
 
   const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
-    setPassword(value);
+    setPass(value);
     if (!passwordRegex.test(value)) {
-      setPasswordError('A senha deve seguir os critérios exigidos.');
+      setPassError('A senha deve seguir os critérios exigidos.');
     } else {
-      setPasswordError('');
+      setPassError('');
     }
   };
 
@@ -58,16 +69,16 @@ const AccessAccount = () => {
         <h1 className="text-2xl font-semibold text-center">Que bom que você voltou</h1>
         <form onSubmit={step === 'input' ? handleContinue : handleLogin} className="space-y-6">
           <div>
-            <label htmlFor="email" className="block text-sm text-green-700 mb-1">
+            <label htmlFor="mail" className="block text-sm text-green-700 mb-1">
               Endereço de e-mail
             </label>
             <input
-              id="email"
-              type="email"
+              id="mail"
+              type="mail"
               className="w-full border border-green-600 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500"
               placeholder="nome@exemplo.com"
-              value={email}
-              onChange={e => setEmail(e.target.value)}
+              value={mail}
+              onChange={e => setmail(e.target.value)}
               disabled={step === 'password'}
             />
           </div>
@@ -82,11 +93,11 @@ const AccessAccount = () => {
                 type="password"
                 className="w-full border border-green-600 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500"
                 placeholder="Digite sua senha"
-                value={password}
+                value={pass}
                 onChange={handlePasswordChange}
               />
-              {passwordError && (
-                <p className="text-red-600 text-xs mt-1">{passwordError}</p>
+              {passError && (
+                <p className="text-red-600 text-xs mt-1">{passError}</p>
               )}
               <div className="text-xs text-gray-500 mt-2 space-y-1">
                 <p>A senha deve conter:</p>
@@ -130,4 +141,4 @@ const AccessAccount = () => {
   );
 }
 
-export default AccessAccount;
+export default AccountAccess;

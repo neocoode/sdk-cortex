@@ -6,14 +6,14 @@ export async function POST(req: NextRequest) {
   try {
     const authorization = req.headers.get('Authorization');
     const token = authorization?.replace('Bearer ', '');
-    const { email, password } = await req.json();
+    const { name, mail, phone, password } = await req.json();
 
-    if (!email || !password) {
-      return NextResponse.json({ error: 'Email e senha obrigatórios' }, { status: 400 });
+    if (!name || !mail || !phone || !password) {
+      return NextResponse.json({ error: 'Todos os campos são obrigatórios' }, { status: 400 });
     }
 
     const api = new ApiCortexServiceServer(token);
-    const response = await api.accountAccess(email, password);
+    const response = await api.accountRegister(name, mail, phone, password);
 
     if (!response) {
       return NextResponse.json({ error: 'Erro ao realizar login' }, { status: 500 });

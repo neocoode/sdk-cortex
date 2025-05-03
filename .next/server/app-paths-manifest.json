@@ -1,6 +1,9 @@
 {
   "/access-account/page": "app/access-account/page.js",
+  "/account/access/page": "app/account/access/page.js",
+  "/account/register/page": "app/account/register/page.js",
   "/api/account/access/route": "app/api/account/access/route.js",
+  "/api/session/route": "app/api/session/route.js",
   "/chat/page": "app/chat/page.js",
   "/favicon.ico/route": "app/favicon.ico/route.js",
   "/page": "app/page.js",

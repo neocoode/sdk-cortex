@@ -34,11 +34,11 @@ const CustomHeader: React.FC<CustomHeaderProps> = ({ toggleSidebar, isSidebarVis
     }, [configAllState]);
 
     const handleAccessAccount = () => {
-        router.push('/access-account');
+        router.push('/account/access');
     }
 
     const handleCreateAccount = () => {
-        router.push('/create-account');
+        router.push('/account/register');
     }
     
     return (

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { HttpClient } from "./httpClient";
 
 type Json = Record<string, any>;
@@ -18,9 +19,12 @@ export class ApiCortexServiceServer {
     });
   }
 
-  async login(email: string, password: string): Promise<Json> {
-    console.log('🔍 >>>>>>>>>>>>>>>>>>>>>>>>');
+  async accountAccess(email: string, password: string): Promise<Json> {
     return this.api.post<Json>('/account/access', { email, password });
+  }
+
+  async accountRegister(name: string, email: string, phone: string, password: string): Promise<Json> {
+    return this.api.post<Json>('/account/register', { name, email, phone, password });
   }
 
   async validateSession(): Promise<Json> {

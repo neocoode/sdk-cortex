@@ -9,9 +9,9 @@ import { RootState } from '@/store';
 import { call, put, select, takeLatest } from 'redux-saga/effects';
 import { validateSessionSuccess } from '../session/slice';
 import {
-  LogIn,
-  LogInFailure,
-  LogInSuccess
+  accountRegisterRequest,
+  accountRegisterFailure,
+  accountRegisterSuccess
 } from './slice';
 
 function getCookie(name: string): string | null {
@@ -21,14 +21,17 @@ function getCookie(name: string): string | null {
   return null;
 }
 
-function* handleLogIn(action: ReturnType<typeof LogIn>): any {
+function* handleLogIn(action: ReturnType<typeof accountRegisterRequest>): any {
   try {
-    const { email, password } = action.payload;
+    console.log('🔍 >>>>>>>>>>>>>>>>>>>>>>>> action');
+    const { name, mail, phone, pass } = action.payload;
     const sessionState: RootState['session'] = yield select((state: RootState) => state.session);
     const token = sessionState.token;
 
     const api = new ApiServiceServer(token);
-    const response = yield call([api, api.accountAccess], email, password);
+    console.log('🔍 >>>>>>>>>>>>>>>>>>>>>>>> api');
+    const response = yield call([api, api.accountRegister], name, mail, phone, pass);
+    console.log('🔍 >>>>>>>>>>>>>>>>>>>>>>>> response');
     
     if (response?.token) {
       yield put(validateSessionSuccess({
@@ -37,18 +40,18 @@ function* handleLogIn(action: ReturnType<typeof LogIn>): any {
         valid: true,
         dateCheck: new Date(),
       }));
-      yield put(LogInSuccess());
+      yield put(accountRegisterSuccess());
     } else {
       console.log('❌ Login falhou - resposta incompleta');
-      yield put(LogInFailure({ error: 'Email ou senha inválidos' }));
+      yield put(accountRegisterFailure({ error: 'Email ou senha inválidos' }));
     }
   } catch (err: any) {
     console.error('💥 Erro ao realizar login:', err);
-    yield put(LogInFailure({ error: err?.message || 'Erro desconhecido' }));
+    yield put(accountRegisterFailure({ error: err?.message || 'Erro desconhecido' }));
   }
 }
 
 export default function* accountSaga() {
   console.log('🚀 Iniciando saga de conta');
-  yield takeLatest(LogIn.type, handleLogIn);
+  yield takeLatest(accountRegisterRequest.type, handleLogIn);
 }

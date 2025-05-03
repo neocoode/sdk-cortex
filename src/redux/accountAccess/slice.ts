@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 // src/store/modules/session/slice.ts
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
@@ -14,18 +15,18 @@ const initialState: dataState = {
 };
 
 const slice = createSlice({
-  name: 'account',
+  name: 'accountAccess',
   initialState,
   reducers: {
-    LogIn: (state, _action: PayloadAction<{ email: string; password: string }>) => {
+    accountAccessRequest: (state, _action: PayloadAction<{ mail: string; pass: string }>) => {
       state.loading = true;
       state.error = null;
     },
-    LogInSuccess: (state) => {
+    accountAccessSuccess: (state) => {
       state.loading = false;
       state.valid = true;
     },
-    LogInFailure: (state, action: PayloadAction<{ error: string }>) => {
+    accountAccessFailure: (state, action: PayloadAction<{ error: string }>) => {
       state.loading = false;
       state.valid = false;
       state.error = action.payload.error;
@@ -33,5 +34,5 @@ const slice = createSlice({
   },
 });
 
-export const { LogIn, LogInSuccess, LogInFailure } = slice.actions;
+export const { accountAccessRequest, accountAccessSuccess, accountAccessFailure } = slice.actions;
 export default slice.reducer;

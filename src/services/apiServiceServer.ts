@@ -8,16 +8,13 @@ export class ApiServiceServer {
   private api: HttpClient;
 
   constructor(token?: string | null) {
-    console.log('🔧 Iniciando construção do ApiService');
     const resolvedBaseUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000';
-    console.log('🌐 URL base configurada:', resolvedBaseUrl);
 
     if (!resolvedBaseUrl.trim()) {
       console.error('❌ NEXT_PUBLIC_API_URL não está definida ou está vazia');
       throw new Error('❌ NEXT_PUBLIC_API_URL não está definida ou está vazia');
     }
 
-    console.log('🔐 Configurando headers com token:', token ? 'presente' : 'ausente');
     this.api = new HttpClient(`${resolvedBaseUrl}/api`, {
       headers: {
         ...(token ? { Authorization: `Bearer ${token}` } : {}),
@@ -26,22 +23,31 @@ export class ApiServiceServer {
   }
 
   async accountAccess(email: string, password: string): Promise<Json> {
-    console.log('🔑 Iniciando acesso à conta');
-    console.log('📧 Email:', email);
-    
     try {
       const response = await this.api.post<Json>('/account/access', { email, password }, {
         headers: {  },
       });
-
-      console.log('🔐 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> response', response);
-      // const cookieStore = await cookies();
-      // const token = cookieStore.get('loginToken');
-      // console.log('🔐 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Token recebido:', token);
-      console.log('✅ Acesso à conta realizado com sucesso');
       return response;
     } catch (error) {
-      console.error('❌ Erro ao acessar conta:', error);
+      throw error;
+    }
+  }
+
+  async accountRegister(name: string, email: string, phone: string, password: string): Promise<Json> {
+    try {
+      const response = await this.api.post<Json>('/account/register', { name, email, phone, password }, {
+        headers: {  },
+      });
+      return response;
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  async validateSession(dateCheck: Date, SESSION_TIMEOUT_MINUTES: number): Promise<Json> {
+    try {
+      return  await this.api.post<Json>('/session', { dateCheck, SESSION_TIMEOUT_MINUTES });
+    } catch (error) {
       throw error;
     }
   }

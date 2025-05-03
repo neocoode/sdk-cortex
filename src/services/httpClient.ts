@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 // src/services/HttpClient.ts
 type HttpMethod = 'GET' | 'POST' | 'PUT' | 'DELETE' | 'PATCH';
 
@@ -52,15 +53,8 @@ export class HttpClient {
       credentials: 'include' as const,
     }
 
-    console.log('🔍 >>>>>>>>>>>>>>>>>>>>>>>> fullUrl, dataRequest', fullUrl, dataRequest);
     const response = await fetch(fullUrl, dataRequest);
-    console.log('🔍 >>>>>>>>>>>>>>>>>>>>>>>> fetch.response', response);
-    console.log('🔍 >>>>>>>>>>>>>>>>>>>>>>>> fetch.response.headers', response.headers);
-    
     // Atualiza os cookies com base nos headers da resposta
-    const setCookieHeader = response.headers.getSetCookie();
-    console.log('🔍 >>>>>>>>>>>>>>>>>>>>>>>> fetch.response.headers.getSetCookie', setCookieHeader);
-    
     if (!response.ok) {
       const errorBody = await response.text();
       console.error(`❌ [${method}] ${url} falhou:`, errorBody);
