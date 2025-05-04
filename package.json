@@ -1,8 +1,8 @@
 {
   "name": "luma",
-  "version": "0.1.35",
+  "version": "0.1.36",
   "currentDate": "05/2025",
-  "lastCommit": "chore: update build manifests, refactor account registration and access routes, and enhance logging in API services",
+  "lastCommit": "chore: update build manifests, add new CSS utility classes, and enhance account access functionality with 'keep logged' option",
   "lastLoginCommit": "elio.designer",
   "lastDateCommit": "05/2025",
   "private": true,

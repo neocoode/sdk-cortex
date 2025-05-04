@@ -74,8 +74,8 @@ export class ApiCortexServiceServer {
     return this.api.post<Json>('/chat/message', { message }, { headers: { chti: chatId } });
   }
 
-  async getSuggestions(chatId: string, message: string): Promise<HttpResponse<Json>> {
-    return this.api.post<Json>('/chat/suggestions', { message }, { headers: { chti: chatId } });
+  async getSuggestions(data: { chatId: string, message: string }): Promise<HttpResponse<Json>> {
+    return this.api.post<Json>('/chat/suggestions', data);
   }
 
   setToken(token: string | undefined) {
