@@ -15,16 +15,18 @@ import {
   sendMessageRequest,
   sendMessageSuccess
 } from './slice';
+import { ApiServiceServer } from '@/services/apiServiceServer';
 
 const handlesendMessage = function* ({ payload }: any): any {
   const token = yield select((state: RootState) => state.session.token);
 
   try {
-    const api = new ApiCortexServiceServer(token);
-    const response = yield call([api, api.sendMessage], payload.chatId, payload.message);
-    yield put(chatSelectedMessageAdd({ message: response as CoreMessageResponse }));
+    const api = new ApiServiceServer(token);
+    const response = yield call([api, api.sendMessage],  payload);
+    console.log('[1/2][sendMessage route]: Resposta da API Cortex:', { status: response.status, data: response.data });
+    yield put(chatSelectedMessageAdd({ message: response?.data as CoreMessageResponse }));
     yield put(sendMessageSuccess({
-      response: response,
+      response: response?.data,
       valid: true,
     }));
     return;

@@ -20,9 +20,9 @@ export async function POST(req: NextRequest) {
 
     const { chatId, message } = await req.json();
     const api = new ApiCortexServiceServer(token);
-    const { status, data } = await api.getSuggestions({ chatId, message });
+    const { status, data } = await api.sendMessage({ chatId, message });
 
-    if (status !== 200) {
+    if (status == 200) {
       return NextResponse.json(data, { status });
     }
 

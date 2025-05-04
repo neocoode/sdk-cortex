@@ -70,8 +70,8 @@ export class ApiCortexServiceServer {
     };
   }
 
-  async sendMessage(chatId: string, message: string): Promise<HttpResponse<Json>> {
-    return this.api.post<Json>('/chat/message', { message }, { headers: { chti: chatId } });
+  async sendMessage({ chatId, message }: { chatId: string, message: string }): Promise<HttpResponse<Json>> {
+    return this.api.post<Json>('/chat/message', { message }, { headers: { chatId } });
   }
 
   async getSuggestions({ chatId, message }: { chatId: string, message: string }): Promise<HttpResponse<Json>> {

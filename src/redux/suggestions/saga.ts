@@ -21,7 +21,7 @@ const handleSuggestions = function* ({ payload }: any): any {
     const api = new ApiServiceServer(token);
     const response = yield call([api, api.getSuggestions], { chatId: payload.chatId, message: payload.message });
     yield put(suggestionsSuccess({
-      response: response as string[],
+      response: response?.data as string[],
       valid: true,
     }));
     return;

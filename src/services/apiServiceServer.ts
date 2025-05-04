@@ -59,4 +59,8 @@ export class ApiServiceServer {
   async getUserProfile(): Promise<Json> {
     return this.api.get<Json>('/account/profile');
   }
+
+  async sendMessage(data: { chatId: string, message: string }): Promise<Json> {
+    return this.api.post<Json>('/chat/message', data);
+  }
 }

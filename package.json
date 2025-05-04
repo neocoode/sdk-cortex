@@ -1,8 +1,8 @@
 {
   "name": "luma",
-  "version": "0.1.37",
+  "version": "0.1.38",
   "currentDate": "05/2025",
-  "lastCommit": "chore: refactor getSuggestions method in ApiCortexServiceServer to accept a data object",
+  "lastCommit": "chore: update build manifests, remove unused API routes, and refactor session handling in sagas",
   "lastLoginCommit": "elio.designer",
   "lastDateCommit": "05/2025",
   "private": true,
