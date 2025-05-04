@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 // src/store/modules/session/slice.ts
@@ -27,7 +28,7 @@ const sessionSlice = createSlice({
   name: 'profile',
   initialState,
   reducers: {
-    profileRequest: (state, action: PayloadAction<{ token: string, logged: boolean }>) => {
+    profileRequest: (state, _action: PayloadAction<{ token: string, logged: boolean }>) => {
       state.loading = true;
     },
     profileSuccess: (state, action: PayloadAction<any>) => {
@@ -43,6 +44,13 @@ const sessionSlice = createSlice({
       state.loading = false;
       state.valid = false;
     },
+    profileLogout: (state) => {
+      state.loading = false;
+      state.valid = false;
+      state.id = null;
+      state.name = null;
+      state.email = null;
+    },
   },
 });
 
@@ -50,6 +58,7 @@ export const {
   profileRequest,
   profileSuccess,
   profileFailure,
+  profileLogout,
 } = sessionSlice.actions;
 
 export default sessionSlice.reducer;

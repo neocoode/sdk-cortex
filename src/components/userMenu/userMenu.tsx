@@ -11,11 +11,14 @@ import {
     FaTasks
 } from 'react-icons/fa';
 import UserMenuItem from './userMenuItem';
+import { forceLogout } from '@/redux/session/slice';
+import { useDispatch } from 'react-redux';
 
 const UserMenu = () => {
+    const dispatch = useDispatch();
+
     const [open, setOpen] = useState(false);
     const { themeSelected } = useTheme();
-
     const toggleMenu = () => setOpen(!open);
     const closeMenu = () => setOpen(false);
 
@@ -25,7 +28,7 @@ const UserMenu = () => {
         { icon: FaMagic, label: 'Personalizar' },
         { icon: FaCog, label: 'Configurações' },
         { icon: FaExternalLinkAlt, label: 'Fazer upgrade do plano' },
-        { icon: FaSignOutAlt, label: 'Sair', color: themeSelected.colors.textError }
+        { icon: FaSignOutAlt, label: 'Sair', color: themeSelected.colors.textError, onClick: () => dispatch(forceLogout()) }
     ];
 
     return (
@@ -72,6 +75,7 @@ const UserMenu = () => {
                                 icon={item.icon}
                                 label={item.label}
                                 color={item?.color || themeSelected.colors.text}
+                                onClick={item.onClick}
                             />
                         ))}
                     </ul>
@@ -82,7 +86,3 @@ const UserMenu = () => {
 };
 
 export default UserMenu;
-function useAppSelector(arg0: (state: any) => any) {
-    throw new Error('Function not implemented.');
-}
-

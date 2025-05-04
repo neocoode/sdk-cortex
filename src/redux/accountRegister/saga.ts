@@ -13,36 +13,36 @@ import {
   accountRegisterFailure,
   accountRegisterSuccess
 } from './slice';
+import { redirectRoute } from '../routers/slice';
 
-function getCookie(name: string): string | null {
-  const value = `; ${document.cookie}`;
-  const parts = value.split(`; ${name}=`);
-  if (parts.length === 2) return parts.pop()?.split(';').shift() || null;
-  return null;
-}
+function* handleRegister(action: ReturnType<typeof accountRegisterRequest>): any {
+  console.log('[saga:accountRegister] 🔍 handleRegister');
 
-function* handleLogIn(action: ReturnType<typeof accountRegisterRequest>): any {
   try {
-    console.log('🔍 >>>>>>>>>>>>>>>>>>>>>>>> action');
+    console.log('[saga:accountRegister] 🔍 handleRegister', action.payload);
     const { name, mail, phone, pass } = action.payload;
+    console.log('[saga:accountRegister] 🔍 handleRegister');
+    console.log('[saga:accountRegister] 🔍 Nome:', name);
+    console.log('[saga:accountRegister] 🔍 Email:', mail);
+    console.log('[saga:accountRegister] 🔍 Telefone:', phone);
+    console.log('[saga:accountRegister] 🔍 Senha:', pass);
+
     const sessionState: RootState['session'] = yield select((state: RootState) => state.session);
     const token = sessionState.token;
 
     const api = new ApiServiceServer(token);
-    console.log('🔍 >>>>>>>>>>>>>>>>>>>>>>>> api');
-    const response = yield call([api, api.accountRegister], name, mail, phone, pass);
-    console.log('🔍 >>>>>>>>>>>>>>>>>>>>>>>> response');
+    const response = yield call([api, api.accountRegister], { name, mail, phone,  pass });
     
-    if (response?.token) {
+    if (response?.data?.token) {
       yield put(validateSessionSuccess({
-        logged: true,
-        token: response.token,
+        token: response.data.token,
         valid: true,
+        logged: true,
         dateCheck: new Date(),
       }));
       yield put(accountRegisterSuccess());
+      yield put(redirectRoute({ route: '/chat' }));
     } else {
-      console.log('❌ Login falhou - resposta incompleta');
       yield put(accountRegisterFailure({ error: 'Email ou senha inválidos' }));
     }
   } catch (err: any) {
@@ -51,7 +51,7 @@ function* handleLogIn(action: ReturnType<typeof accountRegisterRequest>): any {
   }
 }
 
-export default function* accountSaga() {
+export default function* accountRegisterSaga() {
   console.log('🚀 Iniciando saga de conta');
-  yield takeLatest(accountRegisterRequest.type, handleLogIn);
+  yield takeLatest(accountRegisterRequest.type, handleRegister);
 }

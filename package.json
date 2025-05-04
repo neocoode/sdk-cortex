@@ -1,8 +1,8 @@
 {
   "name": "luma",
-  "version": "0.1.32",
+  "version": "0.1.33",
   "currentDate": "05/2025",
-  "lastCommit": "chore: update build manifests, remove unused ApiService, and refactor sagas to use ApiCortexServiceServer",
+  "lastCommit": "chore: update build manifests, refactor account access and registration routes, and remove unused pages and redux slices",
   "lastLoginCommit": "elio.designer",
   "lastDateCommit": "05/2025",
   "private": true,

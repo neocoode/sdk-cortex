@@ -2245,6 +2245,10 @@
     user-select: none;
   }
 
+  .\[saga\:accountRegister\] {
+    saga: accountRegister;
+  }
+
   @media (hover: hover) {
     .group-hover\:block:is(:where(.group):hover *) {
       display: block;

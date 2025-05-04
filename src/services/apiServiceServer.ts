@@ -22,9 +22,9 @@ export class ApiServiceServer {
     });
   }
 
-  async accountAccess(email: string, password: string): Promise<Json> {
+  async accountAccess(data: { mail: string, pass: string }): Promise<Json> {
     try {
-      const response = await this.api.post<Json>('/account/access', { email, password }, {
+      const response = await this.api.post<Json>('/account/access', data, {
         headers: {  },
       });
       return response;
@@ -33,9 +33,9 @@ export class ApiServiceServer {
     }
   }
 
-  async accountRegister(name: string, email: string, phone: string, password: string): Promise<Json> {
+  async accountRegister(data: { name: string, mail: string, phone: string, pass: string }): Promise<Json> {
     try {
-      const response = await this.api.post<Json>('/account/register', { name, email, phone, password }, {
+      const response = await this.api.post<Json>('/account/register', data, {
         headers: {  },
       });
       return response;
@@ -44,9 +44,9 @@ export class ApiServiceServer {
     }
   }
 
-  async validateSession(dateCheck: Date, SESSION_TIMEOUT_MINUTES: number): Promise<Json> {
+  async validateSession(dateCheck: Date): Promise<Json> {
     try {
-      return  await this.api.post<Json>('/session', { dateCheck, SESSION_TIMEOUT_MINUTES });
+      return  await this.api.post<Json>('/session', { dateCheck });
     } catch (error) {
       throw error;
     }

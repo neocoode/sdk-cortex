@@ -2,9 +2,14 @@
 // src/services/HttpClient.ts
 type HttpMethod = 'GET' | 'POST' | 'PUT' | 'DELETE' | 'PATCH';
 
-interface HttpOptions {
+export interface HttpOptions {
   headers?: Record<string, string>;
   cache?: RequestCache;
+}
+
+export interface HttpResponse<T> {
+  status: number;
+  data: T;
 }
 
 export class HttpClient {
@@ -22,7 +27,7 @@ export class HttpClient {
     };
   }
 
-  setToken(token: string) {
+  setToken(token: string | undefined) {
     this.defaultHeaders = {
       ...this.defaultHeaders,
       ...(token ? { 'Authorization': `Bearer ${token}` } : {})
@@ -38,55 +43,78 @@ export class HttpClient {
     url: string,
     data?: any,
     options: HttpOptions = {}
-  ): Promise<T> {
-    const fullUrl = `${this.baseUrl}${url}`;
-    const headers = {
-      ...this.defaultHeaders,
-      ...(options.headers ? options.headers : {})
-    };
+  ): Promise<HttpResponse<T>> {
+    try {
+      const fullUrl = `${this.baseUrl}${url}`;
+      const headers = {
+        ...this.defaultHeaders,
+        ...(options.headers ? options.headers : {})
+      };
 
-    const dataRequest = {
-      method,
-      headers,
-      body: data ? JSON.stringify(data) : undefined,
-      cache: options.cache || 'no-store',
-      credentials: 'include' as const,
+      const dataRequest = {
+        method,
+        headers,
+        body: data ? JSON.stringify(data) : undefined,
+        cache: options.cache || 'no-store',
+        credentials: 'include' as const,
+      }
+
+      const response = await fetch(fullUrl, dataRequest);
+      
+      if (!response.ok) {
+        const errorBody = await response.text();
+        return {
+          status: response.status,
+          data: {
+            error: `HTTP ${response.status}: ${errorBody}`,
+            valid: false,
+            response: errorBody
+          } as T
+        };
+      }
+
+      const contentType = response.headers.get('content-type') || '';
+      let responseData: T;
+      
+      if (contentType.includes('application/json')) {
+        responseData = await response.json() as T;
+      } else {
+        responseData = await response.text() as unknown as T;
+      }
+
+      return {
+        status: response.status,
+        data: responseData
+      };
+    } catch (error: any) {
+      return {
+        status: error.status || 500,
+        data: {
+          error: error.message || 'Erro desconhecido',
+          valid: false,
+          response: error.response || null
+        } as T
+      };
     }
-
-    const response = await fetch(fullUrl, dataRequest);
-    // Atualiza os cookies com base nos headers da resposta
-    if (!response.ok) {
-      const errorBody = await response.text();
-      console.error(`❌ [${method}] ${url} falhou:`, errorBody);
-      throw new Error(`HTTP ${response.status}: ${errorBody}`);
-    }
-
-    const contentType = response.headers.get('content-type') || '';
-    if (contentType.includes('application/json')) {
-      return response.json() as Promise<T>;
-    }
-
-    // fallback para texto
-    return response.text() as unknown as T;
   }
 
-  public get<T = any>(url: string, options?: HttpOptions): Promise<T> {
+  public get<T = any>(url: string, options?: HttpOptions): Promise<HttpResponse<T>> {
     return this.request<T>('GET', url, undefined, options);
   }
 
-  public post<T = any>(url: string, data?: any, options?: HttpOptions): Promise<T> {
+  public post<T = any>(url: string, data?: any, options?: HttpOptions): Promise<HttpResponse<T>> {
     return this.request<T>('POST', url, data, options);
   }
 
-  public put<T = any>(url: string, data?: any, options?: HttpOptions): Promise<T> {
+  public put<T = any>(url: string, data?: any, options?: HttpOptions): Promise<HttpResponse<T>> {
     return this.request<T>('PUT', url, data, options);
   }
 
-  public patch<T = any>(url: string, data?: any, options?: HttpOptions): Promise<T> {
+  public patch<T = any>(url: string, data?: any, options?: HttpOptions): Promise<HttpResponse<T>> {
     return this.request<T>('PATCH', url, data, options);
   }
 
-  public delete<T = any>(url: string, options?: HttpOptions): Promise<T> {
+  public delete<T = any>(url: string, options?: HttpOptions): Promise<HttpResponse<T>> {
     return this.request<T>('DELETE', url, undefined, options);
   }
 }

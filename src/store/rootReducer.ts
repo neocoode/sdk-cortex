@@ -13,6 +13,7 @@ import suggestionsReducer from '@/redux/suggestions/slice';
 import toastReducer from '@/redux/toast/slice';
 import accountAccessReducer from '@/redux/accountAccess/slice';
 import accountRegisterReducer from '@/redux/accountRegister/slice';
+import routersReducer from '@/redux/routers/slice';
 
 const rootReducer = combineReducers({
   session: sessionReducer,
@@ -25,6 +26,7 @@ const rootReducer = combineReducers({
   modals: modalsReducer,
   accountAccess: accountAccessReducer,
   accountRegister: accountRegisterReducer,
+  routers: routersReducer,
 });
 
 const persistConfig = {

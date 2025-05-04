@@ -156,8 +156,12 @@ const AccountRegister = () => {
       return;
     }
 
-    // Se todas as validações passarem, pode enviar o formulário
-    console.log('Formulário válido, enviando dados:', formData);
+    console.log('[app:account:register] 🔍 Iniciando registro de usuário');
+    console.log('[app:account:register] 🔍 Nome:', formData.name);
+    console.log('[app:account:register] 🔍 Email:', formData.mail);
+    console.log('[app:account:register] 🔍 Telefone:', formData.phone);
+    console.log('[app:account:register] 🔍 Senha:', formData.pass);
+
     dispatch(accountRegisterRequest(formData));
   };
 

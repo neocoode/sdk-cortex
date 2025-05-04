@@ -3,53 +3,56 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-// src/store/modules/session/saga.ts
 import { ApiServiceServer } from '@/services/apiServiceServer';
 import { call, put, takeLatest } from 'redux-saga/effects';
-import { profileRequest } from '../profile/slice';
+import { profileLogout, profileRequest } from '../profile/slice';
 import {
+  forceLogout,
   validateSessionFailure,
   validateSessionRequest,
   validateSessionSuccess
 } from './slice';
+import { decodeToken } from '@/utils/jwts';
 
 const handleValidateSession = function* (request: any): any {
   try {
     const { token, dateCheck, SESSION_TIMEOUT_MINUTES } = request.payload;
 
-    try {
-      const now = new Date();
-      const diffInMinutes = Math.abs((now.getTime() - new Date(dateCheck).getTime()) / 60000);
+    // try {
+    //   const now = new Date();
+    //   const diffInMinutes = Math.abs((now.getTime() - new Date(dateCheck).getTime()) / 60000);
 
-      if (diffInMinutes <= SESSION_TIMEOUT_MINUTES) {
-        const data = {
-          valid: true,
-          token,
-          logged: false,
-        }
+    //   if (diffInMinutes <= SESSION_TIMEOUT_MINUTES) {
+    //     const data = {
+    //       valid: true,
+    //       token,
+    //       logged: false,
+    //     }
 
-        return yield put(validateSessionSuccess(data));
-      }
-    } catch (error: any) {
-      return yield put(validateSessionFailure());
-    }
+    //     return yield put(validateSessionSuccess(data));
+    //   }
+    // } catch (error: any) {
+    //   return yield put(validateSessionFailure());
+    // }
 
     const api = new ApiServiceServer(token);
-    const response = yield call([api, api.validateSession], dateCheck, SESSION_TIMEOUT_MINUTES);
-
-    if (!response?.valid) {
+    const response = yield call([api, api.validateSession], dateCheck,);
+    console.log('[handleValidateSession] 🔍 Resposta da API:', response.data);
+    if (!response?.data?.valid) {
       return yield put(validateSessionFailure());
     }
 
-    if (!response.logged) {
-      yield put(profileRequest({ token: token, logged: response.logged }));
+    if (!response.data.logged) {
+      yield put(profileRequest({ token: token, logged: response.data.logged }));
     }
 
+    const tokenDecode = decodeToken(response.data.token);
     yield put(validateSessionSuccess({
-      logged: response.logged,
-      token: response.token,
+      token: response.data.token,
       valid: true,
       dateCheck: new Date(),
+      logged: response.data.logged || tokenDecode?.logged,
+      tokenDecode,
     }));
     return;
   } catch (err: any) {
@@ -58,9 +61,17 @@ const handleValidateSession = function* (request: any): any {
   }
 }
 
+const handleForceLogout = function* (): any {
+  yield put(profileLogout());
+}
+
 export default function* sessionSaga() {
   yield takeLatest<any>(
     validateSessionRequest.type,
     handleValidateSession
+  );
+  yield takeLatest<any>(
+    forceLogout.type,
+    handleForceLogout
   );
 }

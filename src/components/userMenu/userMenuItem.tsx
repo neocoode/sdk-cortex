@@ -7,9 +7,10 @@ interface UserMenuItemProps {
     icon: IconType;
     label: string;
     color: string;
+    onClick?: () => void;
 }
 
-const UserMenuItem = ({ icon: Icon, label, color }: UserMenuItemProps) => {
+const UserMenuItem = ({ icon: Icon, label, color, onClick }: UserMenuItemProps) => {
     const { themeSelected } = useTheme();
 
     return (
@@ -19,6 +20,7 @@ const UserMenuItem = ({ icon: Icon, label, color }: UserMenuItemProps) => {
                 ${themeSelected.hovers.tertiary} 
                 ${themeSelected.borderRadius.large}                
             `}
+            onClick={onClick && onClick}
         >
             <Icon
                 className={`

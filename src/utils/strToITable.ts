@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /**
  * @file strToITable.ts
  * @description Este arquivo contém uma função utilitária que converte uma string JSON em um objeto ITable.
@@ -18,7 +19,8 @@ export const strToITable = (value: string): ITable => {
             type: ETableType.error,
             fields: []
         }
-    } catch (error) {
+    } catch (error: any) {
+        console.error('Erro ao converter string para ITable:', error);
         return {
             type: ETableType.error,
             fields: []

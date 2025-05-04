@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { HttpClient } from "./httpClient";
+import { HttpClient, HttpResponse } from "./httpClient";
 
 type Json = Record<string, any>;
 
@@ -11,7 +11,8 @@ export class ApiCortexServiceServer {
     if (!resolvedBaseUrl.trim()) {
       throw new Error('❌ NEXT_PUBLIC_CORTEX_URL is not defined');
     }
-
+    
+    console.log('[ApiCortexServiceServer]: Token recebido:', token);
     this.api = new HttpClient(`${resolvedBaseUrl}`, {
       headers: {
         ...(token ? { Authorization: `Bearer ${token}` } : {}),
@@ -19,40 +20,65 @@ export class ApiCortexServiceServer {
     });
   }
 
-  async accountAccess(email: string, password: string): Promise<Json> {
-    return this.api.post<Json>('/account/access', { email, password });
+  async accountAccess(data: { mail: string, pass: string }): Promise<HttpResponse<Json>> {
+    return this.api.post<Json>('/account/access', data);
   }
 
-  async accountRegister(name: string, email: string, phone: string, password: string): Promise<Json> {
-    return this.api.post<Json>('/account/register', { name, email, phone, password });
+  async accountRegister(data: { name: string, mail: string, phone: string, pass: string }): Promise<HttpResponse<Json>> {
+    return this.api.post<Json>('/account/register', data);
   }
 
-  async validateSession(): Promise<Json> {
-    return this.api.get<Json>('/chat/session');
+  async validateSession(): Promise<HttpResponse<Json>> {
+    try {
+      return this.api.get<Json>('/chat/session');
+    } catch (error: any) {
+      return {
+        status: error.status || 500,
+        data: {
+          error: error.message || 'Erro desconhecido',
+          valid: false,
+          response: error.response || null
+        }
+      };
+    }
   }
 
-  async startSession(): Promise<Json> {
-    return this.api.post<Json>('/chat/start-session');
+  async startSession(): Promise<HttpResponse<Json>> {
+    try {
+      return this.api.post<Json>('/chat/start-session');
+    } catch (error: any) {
+      return {
+        status: error.status || 500,
+        data: {
+          error: error.message || 'Erro desconhecido',
+          valid: false,
+          response: error.response || null
+        }
+      };
+    }
   }
 
-  async getUserProfile(): Promise<Json> {
+  async getUserProfile(): Promise<HttpResponse<Json>> {
     return this.api.get<Json>('/u/p');
   }
 
-  async listChats(): Promise<Json[]> {
-    const data = await this.api.get<Json>('/chat/list');
-    return Array.isArray(data.chats) ? data.chats : [];
+  async listChats(): Promise<HttpResponse<Json[]>> {
+    const response = await this.api.get<Json>('/chat/list');
+    return {
+      status: response.status,
+      data: Array.isArray(response.data.chats) ? response.data.chats : []
+    };
   }
 
-  async sendMessage(chatId: string, message: string): Promise<Json> {
+  async sendMessage(chatId: string, message: string): Promise<HttpResponse<Json>> {
     return this.api.post<Json>('/chat/message', { message }, { headers: { chti: chatId } });
   }
 
-  async getSuggestions(chatId: string, message: string): Promise<Json> {
+  async getSuggestions(chatId: string, message: string): Promise<HttpResponse<Json>> {
     return this.api.post<Json>('/chat/suggestions', { message }, { headers: { chti: chatId } });
   }
 
-  setToken(token: string) {
+  setToken(token: string | undefined) {
     this.api.setToken(token);
   }
 }
