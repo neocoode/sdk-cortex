@@ -39,6 +39,7 @@ export async function POST(req: NextRequest) {
 
       console.log('[7/8][session route]: Sessão válida, decodificando token');
       console.log('[7/8][session route]: recheck:', recheck);
+
       const decodedToken = decodeToken(recheck.token);
       const data = {
         logged: decodedToken?.logged || false,

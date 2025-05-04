@@ -37,20 +37,22 @@ const CustomHeader: React.FC<CustomHeaderProps> = ({ toggleSidebar, isSidebarVis
         router.push('/account/access');
     }
 
-    const handleCreateAccount = () => {
-        router.push('/account/register');
-    }
+    
     
     return (
         <header className={`flex h-18 p-4 ${themeSelected.shadows.small} flex justify-between items-center`}>
             <div className="flex items-center">
-                {isSidebarVisible ? 
-                <PanelLeftClose size={35} className={`${themeSelected.colors.text} m-2 cursor-pointer`} strokeWidth={1} onClick={toggleSidebar} />
-                :
-                <PanelLeftOpen size={35} className={`${themeSelected.colors.text} m-2 cursor-pointer`} strokeWidth={1} onClick={toggleSidebar} />
-                }
-                <Settings size={35} className={`${themeSelected.colors.text} m-2 cursor-pointer`} strokeWidth={1} />
-                <div className={`${themeSelected.colors.text} ${themeSelected.typography.fontSize.large}`}></div>
+                {isLoggedIn && (
+                    <>
+                        {isSidebarVisible ? 
+                            <PanelLeftClose size={35} className={`${themeSelected.colors.text} m-2 cursor-pointer`} strokeWidth={1} onClick={toggleSidebar} />
+                            :
+                            <PanelLeftOpen size={35} className={`${themeSelected.colors.text} m-2 cursor-pointer`} strokeWidth={1} onClick={toggleSidebar} />
+                        }
+                        <Settings size={35} className={`${themeSelected.colors.text} m-2 cursor-pointer`} strokeWidth={1} />
+                        <div className={`${themeSelected.colors.text} ${themeSelected.typography.fontSize.large}`}></div>
+                    </>
+                )}
             </div>
             <div className="flex justify-end items-center">
                 {chatSelectedState.messages.length > 0 && (
@@ -86,7 +88,6 @@ const CustomHeader: React.FC<CustomHeaderProps> = ({ toggleSidebar, isSidebarVis
                     ) : (
                         <>
                             <button className={`${themeSelected.button.tertiary} mx-2`} onClick={handleAccessAccount}>Entrar</button>
-                            <button className={`${themeSelected.button.quaternary}`} onClick={handleCreateAccount}>Cadastrar</button>
                         </>
                     )}
                 </div>

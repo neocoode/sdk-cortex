@@ -1,8 +1,8 @@
 {
   "name": "luma",
-  "version": "0.1.33",
+  "version": "0.1.35",
   "currentDate": "05/2025",
-  "lastCommit": "chore: update build manifests, refactor account access and registration routes, and remove unused pages and redux slices",
+  "lastCommit": "chore: update build manifests, refactor account registration and access routes, and enhance logging in API services",
   "lastLoginCommit": "elio.designer",
   "lastDateCommit": "05/2025",
   "private": true,

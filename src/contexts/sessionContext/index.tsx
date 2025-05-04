@@ -47,7 +47,7 @@ export function SessionProvider({ children }: ISessionProviderProps) {
   }, [profileState]);
 
   useEffect(() => {
-    setIsLoggedIn(!sessionState.logged ||sessionState.logged == true);
+    setIsLoggedIn(sessionState.logged == true);
   }, [sessionState]);
 
   return (

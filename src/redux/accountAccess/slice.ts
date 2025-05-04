@@ -18,7 +18,7 @@ const slice = createSlice({
   name: 'accountAccess',
   initialState,
   reducers: {
-    accountAccessRequest: (state, _action: PayloadAction<{ mail: string; pass: string }>) => {
+    accountAccessRequest: (state, _action: PayloadAction<{ mail: string; pass: string; keepLogged: boolean }>) => {
       state.loading = true;
       state.error = null;
     },

@@ -16,6 +16,7 @@ const AccountAccess = () => {
   const [mail, setmail] = useState('');
   const [pass, setPass] = useState('');
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [keepLogged, setKeepLogged] = useState<boolean>(false);
 
   const [passError, setPassError] = useState('');
   const sessionState: any = useSelector((state: RootState) => state.session);
@@ -35,10 +36,6 @@ const AccountAccess = () => {
     }
   }, [sessionState, accountAccessState]);
 
-  // Nova regex:
-  // - Pelo menos uma letra maiúscula
-  // - Pelo menos um dos caracteres @, # ou $
-  // - Pelo menos 4 números (não necessariamente seguidos)
   const passwordRegex = /^(?=.*[A-Z])(?=.*[@#$])(?=(?:.*\d){4,}).+$/;
 
   const handleContinue = (e: React.FormEvent) => {
@@ -49,9 +46,8 @@ const AccountAccess = () => {
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
-    dispatch(accountAccessRequest({ mail, pass }));
+    dispatch(accountAccessRequest({ mail, pass, keepLogged }));
   };
-
 
   const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
@@ -63,6 +59,9 @@ const AccountAccess = () => {
     }
   };
 
+  const handleCreateAccount = () => {
+    router.push('/account/register');
+}
   return (
     <div className="min-h-screen flex items-center justify-center bg-white px-4">
       <div className="w-full max-w-md space-y-6">
@@ -110,6 +109,18 @@ const AccountAccess = () => {
                   Exemplo: <span className="font-medium text-gray-500">Neo@2024</span>
                 </p>
               </div>
+              <div className="mt-4 flex items-center">
+                <input
+                  type="checkbox"
+                  id="keepLogged"
+                  checked={keepLogged}
+                  onChange={(e) => setKeepLogged(e.target.checked)}
+                  className="h-4 w-4 text-green-600 focus:ring-green-500 border-gray-300 rounded"
+                />
+                <label htmlFor="keepLogged" className="ml-2 block text-sm text-gray-700">
+                  Manter conectado
+                </label>
+              </div>
             </div>
           )}
 
@@ -122,7 +133,7 @@ const AccountAccess = () => {
         </form>
 
         <div className="text-center text-sm">
-          Não tem uma conta? <a href="#" className="text-green-600 hover:underline">Cadastrar</a>
+          Não tem uma conta? <a href="#" className="text-green-600 hover:underline" onClick={handleCreateAccount}>Cadastrar</a>
         </div>
 
         <div className="flex items-center justify-center space-x-2 text-sm text-gray-500">

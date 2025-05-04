@@ -38,7 +38,7 @@ const slice = createSlice({
         state.dateCheck = action.payload.dateCheck;
       }
 
-      if (action.payload.token) {
+      if (action.payload.token && action.payload.token !== '<nil>') {
         state.token = action.payload.token;
       }
 
