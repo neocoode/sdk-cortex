@@ -30,7 +30,7 @@ export class ApiCortexServiceServer {
 
   async validateSession(): Promise<HttpResponse<Json>> {
     try {
-      return this.api.get<Json>('/chat/session');
+      return this.api.get<Json>('/account/session');
     } catch (error: any) {
       return {
         status: error.status || 500,
@@ -45,7 +45,7 @@ export class ApiCortexServiceServer {
 
   async startSession(): Promise<HttpResponse<Json>> {
     try {
-      return this.api.post<Json>('/chat/start-session');
+      return this.api.post<Json>('/account/start-session');
     } catch (error: any) {
       return {
         status: error.status || 500,
@@ -59,7 +59,7 @@ export class ApiCortexServiceServer {
   }
 
   async getUserProfile(): Promise<HttpResponse<Json>> {
-    return this.api.get<Json>('/u/p');
+    return this.api.get<Json>('/user/profile');
   }
 
   async listChats(): Promise<HttpResponse<Json[]>> {
@@ -74,8 +74,8 @@ export class ApiCortexServiceServer {
     return this.api.post<Json>('/chat/message', { message }, { headers: { chti: chatId } });
   }
 
-  async getSuggestions(data: { chatId: string, message: string }): Promise<HttpResponse<Json>> {
-    return this.api.post<Json>('/chat/suggestions', data);
+  async getSuggestions({ chatId, message }: { chatId: string, message: string }): Promise<HttpResponse<Json>> {
+    return this.api.post<Json>('/chat/suggestions', { message }, { headers: { chatId } });
   }
 
   setToken(token: string | undefined) {

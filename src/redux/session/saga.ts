@@ -5,7 +5,7 @@
 
 import { ApiServiceServer } from '@/services/apiServiceServer';
 import { call, put, takeLatest } from 'redux-saga/effects';
-import { profileLogout, profileRequest } from '../profile/slice';
+import { profileLogout, profileRequest } from '../accountProfile/slice';
 import {
   forceLogout,
   validateSessionFailure,
@@ -42,16 +42,17 @@ const handleValidateSession = function* (request: any): any {
       return yield put(validateSessionFailure());
     }
 
-    if (!response.data.logged) {
+    const tokenDecode = decodeToken(response.data.token);
+    console.log('[handleValidateSession] 🔍 Token decodificado:', tokenDecode);
+    if (tokenDecode.logged) {
       yield put(profileRequest({ token: token, logged: response.data.logged }));
     }
 
-    const tokenDecode = decodeToken(response.data.token);
     yield put(validateSessionSuccess({
       token: response.data.token,
       valid: true,
       dateCheck: new Date(),
-      logged: response.data.logged || tokenDecode?.logged,
+      logged:  tokenDecode?.logged,
       tokenDecode,
     }));
     return;

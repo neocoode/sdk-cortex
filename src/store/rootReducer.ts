@@ -6,7 +6,7 @@ import storage from 'redux-persist/lib/storage';
 import chatSelectedReducer from '@/redux/chatSelected/slice';
 import configAllReducer from '@/redux/configAll/slice';
 import modalsReducer from '@/redux/modals/slice';
-import profileReducer from '@/redux/profile/slice';
+import profileReducer from '@/redux/accountProfile/slice';
 import sendMessageReducer from '@/redux/sendMessage/slice';
 import sessionReducer from '@/redux/session/slice';
 import suggestionsReducer from '@/redux/suggestions/slice';

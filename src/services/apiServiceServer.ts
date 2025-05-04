@@ -46,9 +46,17 @@ export class ApiServiceServer {
 
   async validateSession(dateCheck: Date): Promise<Json> {
     try {
-      return  await this.api.post<Json>('/session', { dateCheck });
+      return  await this.api.post<Json>('/account/session', { dateCheck });
     } catch (error) {
       throw error;
     }
+  }
+
+  async getSuggestions(data: { chatId: string, message: string }): Promise<Json> {
+    return this.api.post<Json>('/chat/suggestions', data);
+  }
+
+  async getUserProfile(): Promise<Json> {
+    return this.api.get<Json>('/account/profile');
   }
 }
