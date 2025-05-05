@@ -1,9 +1,9 @@
 {
   "name": "luma",
-  "version": "0.1.40",
+  "version": "0.1.41",
   "currentDate": "05/2025",
-  "lastCommit": "chore: update build manifests, refactor chat message handling in API services, and enhance logging in sagas",
-  "lastLoginCommit": "elio.designer",
+  "lastCommit": "chore: update README.md to include API configuration variables",
+  "lastLoginCommit": "elio.lima",
   "lastDateCommit": "05/2025",
   "private": true,
   "author": "Neocoode High Defintion",
