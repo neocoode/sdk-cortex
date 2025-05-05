@@ -174,3 +174,9 @@ NEXT_PUBLIC_APP_VERSION=0.1.24
 
 # Environment
 NODE_ENV=production
+
+
+# API Configuration
+NEXT_PUBLIC_API_URL=http://localhost:3000
+NEXT_PUBLIC_CORTEX_URL=http://localhost:3525
+NEXT_DISABLE_DEVTOOLS=true

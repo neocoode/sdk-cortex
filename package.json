@@ -1,8 +1,8 @@
 {
   "name": "luma",
-  "version": "0.1.38",
+  "version": "0.1.40",
   "currentDate": "05/2025",
-  "lastCommit": "chore: update build manifests, remove unused API routes, and refactor session handling in sagas",
+  "lastCommit": "chore: update build manifests, refactor chat message handling in API services, and enhance logging in sagas",
   "lastLoginCommit": "elio.designer",
   "lastDateCommit": "05/2025",
   "private": true,
