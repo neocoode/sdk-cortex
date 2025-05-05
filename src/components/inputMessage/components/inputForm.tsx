@@ -1,5 +1,6 @@
 'use client';
 
+import { useSession } from '@/contexts/sessionContext';
 import { suggestionsRequest } from '@/redux/suggestions/slice';
 import { RootState } from '@/store';
 import { useTheme } from '@/themes/themeContext';
@@ -24,6 +25,7 @@ const InputForm: React.FC<InputFormProps> = ({
   onChange,
   onSubmit,
 }) => {
+  const { isLoggedIn } = useSession();
   const { themeSelected } = useTheme();
   const dispatch = useDispatch(); // 👈 USA DISPATCH
   const inputRef = useRef<HTMLInputElement>(null);
@@ -62,7 +64,7 @@ const InputForm: React.FC<InputFormProps> = ({
     const text = e.target.value;
     onChange(e);
 
-    if (text.length > 3) {
+    if (isLoggedIn && text.length > 3) {
       dispatch(suggestionsRequest({ chatId: chatSelectedState.chatId || '', message: text })); // 👈 FAZ O DISPATCH
     }
   };

@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 'use client';
 
+import { useSession } from '@/contexts/sessionContext';
 import { useTheme } from '@/themes/themeContext';
 import React, { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
@@ -20,10 +21,12 @@ const SuggestionList: React.FC<SuggestionListProps> = ({
   onHover,
   inputRef,
 }) => {
+  const { isLoggedIn } = useSession();
   const [position, setPosition] = useState<{ top: number; left: number; width: number }>({ top: 0, left: 0, width: 0 });
   const { themeSelected } = useTheme();
 
   useEffect(() => {
+    if (!isLoggedIn) return;
     if (inputRef.current) {
       const rect = inputRef.current.getBoundingClientRect();
 
@@ -38,7 +41,7 @@ const SuggestionList: React.FC<SuggestionListProps> = ({
         width: rect.width,
       });
     }
-  }, [inputRef.current, suggestions.length]);
+  }, [inputRef.current, suggestions.length, isLoggedIn]);
 
   if (typeof window === 'undefined') {
     return null;
@@ -48,6 +51,8 @@ const SuggestionList: React.FC<SuggestionListProps> = ({
   const maxItems = 5;
   const visibleItems = Math.min(suggestions.length, maxItems);
   const dynamicHeight = itemHeight * visibleItems;
+  
+  if (!isLoggedIn) return <></>;
 
   return createPortal(
     <div
