@@ -26,7 +26,6 @@ const SuggestionList: React.FC<SuggestionListProps> = ({
   const { themeSelected } = useTheme();
 
   useEffect(() => {
-    if (!isLoggedIn) return;
     if (inputRef.current) {
       const rect = inputRef.current.getBoundingClientRect();
 

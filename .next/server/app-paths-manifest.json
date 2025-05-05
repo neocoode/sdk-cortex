@@ -9,5 +9,6 @@
   "/api/user/profile/route": "app/api/user/profile/route.js",
   "/chat/page": "app/chat/page.js",
   "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/page": "app/page.js",
   "/splash/page": "app/splash/page.js"
 }

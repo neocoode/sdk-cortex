@@ -70,12 +70,30 @@ export class ApiCortexServiceServer {
     };
   }
 
-  async sendMessage({ chatId, message }: { chatId: string, message: string }): Promise<HttpResponse<Json>> {
-    return this.api.post<Json>('/chat/message', { message }, { headers: { chatId } });
+  async sendMessage({ chatId, message }: { chatId: string | null, message: string }): Promise<HttpResponse<Json>> {
+    const options = {
+      headers: {
+        ...(chatId ? { chatId } : {})
+      }
+    };
+
+    const data = { 
+      message 
+    };
+    return this.api.post<Json>('/chat/message', data, options);
   }
 
   async getSuggestions({ chatId, message }: { chatId: string, message: string }): Promise<HttpResponse<Json>> {
-    return this.api.post<Json>('/chat/suggestions', { message }, { headers: { chatId } });
+    const options = {
+      headers: {
+        ...(chatId ? { chatId } : {})
+      }
+    };
+    const data = { 
+      message 
+    };
+
+    return this.api.post<Json>('/chat/suggestions', data, options);
   }
 
   setToken(token: string | undefined) {

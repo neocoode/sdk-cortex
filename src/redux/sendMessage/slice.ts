@@ -20,7 +20,7 @@ const slice = createSlice({
   name: 'sendMessage',
   initialState,
   reducers: {
-    sendMessageRequest: (state, action: PayloadAction<{ chatId: string, message: string }>) => {
+    sendMessageRequest: (state, action: PayloadAction<{ chatId: string | null, message: string }>) => {
       state.loading = true;
     },
     sendMessageSuccess: (state, action: PayloadAction<any>) => {

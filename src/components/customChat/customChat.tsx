@@ -36,13 +36,8 @@ const CustomChat: React.FC = () => {
   const handleSubmit = (e?: React.FormEvent) => {
     e?.preventDefault();
     if (!message.trim()) return;
-
-    if (!chatSelectedState.chatId) {
-      console.error('Chat ID não selecionado');
-      return;
-    }
-
-    dispatch(sendMessageRequest({ chatId: chatSelectedState.chatId, message }));
+    
+    dispatch(sendMessageRequest({ chatId: chatSelectedState?.chatId, message }));
     setMessage('');
   };
 

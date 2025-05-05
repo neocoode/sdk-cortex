@@ -1,8 +1,8 @@
 {
   "name": "luma",
-  "version": "0.1.42",
+  "version": "0.1.43",
   "currentDate": "05/2025",
-  "lastCommit": "chore: update build manifests, remove unused account profile route, and refactor user profile retrieval in ApiServiceServer",
+  "lastCommit": "chore: update build manifests, add account access and registration routes, and enhance font handling for new pages",
   "lastLoginCommit": "elio.lima",
   "lastDateCommit": "05/2025",
   "private": true,
