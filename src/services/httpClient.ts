@@ -1,4 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+
+
 // src/services/HttpClient.ts
 type HttpMethod = 'GET' | 'POST' | 'PUT' | 'DELETE' | 'PATCH';
 
@@ -46,6 +48,7 @@ export class HttpClient {
   ): Promise<HttpResponse<T>> {
     try {
       const fullUrl = `${this.baseUrl}${url}`;
+      
       const headers = {
         ...this.defaultHeaders,
         ...(options.headers ? options.headers : {})

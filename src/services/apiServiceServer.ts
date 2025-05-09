@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
+import { FINGERPRINT_KEY, IP_KEY } from "@/vars/devices";
 import { HttpClient } from "./httpClient";
 
 type Json = Record<string, any>;
@@ -15,9 +16,14 @@ export class ApiServiceServer {
       throw new Error('❌ NEXT_PUBLIC_API_URL não está definida ou está vazia');
     }
 
+    const fingerprint = localStorage.getItem(FINGERPRINT_KEY);
+    const clientIP = localStorage.getItem(IP_KEY);
+    const deviceInfo = btoa(`code:${fingerprint}:${clientIP}:end`);
+
     this.api = new HttpClient(`${resolvedBaseUrl}/api`, {
       headers: {
         ...(token ? { Authorization: `Bearer ${token}` } : {}),
+        'X-Device-Info': deviceInfo,
       },
     });
   }

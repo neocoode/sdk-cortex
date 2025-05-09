@@ -1,8 +1,8 @@
 {
   "name": "luma",
-  "version": "0.1.43",
+  "version": "0.1.44",
   "currentDate": "05/2025",
-  "lastCommit": "chore: update build manifests, add account access and registration routes, and enhance font handling for new pages",
+  "lastCommit": "chore: update build manifests, add new page routes, and refactor chat message handling to support optional chatId",
   "lastLoginCommit": "elio.lima",
   "lastDateCommit": "05/2025",
   "private": true,
@@ -16,6 +16,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@fingerprintjs/fingerprintjs": "^4.6.2",
     "@headlessui/react": "^2.2.2",
     "@reduxjs/toolkit": "^2.7.0",
     "@svgr/webpack": "^8.1.0",

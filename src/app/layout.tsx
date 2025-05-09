@@ -1,10 +1,13 @@
+
 // app/layout.tsx
 import type { Metadata } from 'next';
-import { Geist } from 'next/font/google';
-import { Providers } from './providers';
 
+import { Geist } from 'next/font/google';
+
+import CustomLayout from '@/components/customLayout';
 import Toast from '@/components/toast';
 import './globals.css';
+import { Providers } from './providers';
 
 const geist = Geist({ subsets: ['latin'] });
 
@@ -19,7 +22,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className={`h-screen relative ${geist.className} antialiased`} >
         <div id="modal-root" />
         <Providers>
-          {children}
+          <CustomLayout>
+            {children}
+          </CustomLayout>
           <Toast />
         </Providers>
       </body>
