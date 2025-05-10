@@ -19,18 +19,15 @@ export class HttpClient {
   private baseUrl: string;
   private defaultHeaders: Record<string, string>;
   private cookies: Record<string, string> = {};
-
-  constructor(baseURL: string, defaultOptions: HttpOptions = {}) {
+  private origin: string;
+  constructor(origin: string, baseURL: string, defaultOptions: HttpOptions = {}) {
     this.baseUrl = baseURL;
-    console.log(6666666, defaultOptions)
-
+    this.origin = origin;
     this.defaultHeaders = {
       'Content-Type': 'application/json',
       'Accept': 'application/json',
       ...(defaultOptions?.headers ? defaultOptions.headers : {})
     };
-    console.log(7777777, this.defaultHeaders)
-
   }
 
   setToken(token: string | undefined) {
@@ -52,14 +49,10 @@ export class HttpClient {
   ): Promise<HttpResponse<T>> {
     try {
       const fullUrl = `${this.baseUrl}${url}`;
-      
-      console.log(999999, this.defaultHeaders)
-      
       const headers = {
         ...this.defaultHeaders,
         ...(options.headers ? options.headers : {})
       };
-      console.log(888888, headers)
 
       const dataRequest = {
         method,
@@ -69,7 +62,12 @@ export class HttpClient {
         credentials: 'include' as const,
       }
 
+      console.log(this.origin, '>>>>> httpClient > request > fullUrl', fullUrl);
+      console.log(this.origin, '>>>>> httpClient > request > dataRequest', dataRequest);
+      
       const response = await fetch(fullUrl, dataRequest);
+
+      console.log(this.origin, '>>>>> httpClient > request > response', response);
       
       if (!response.ok) {
         const errorBody = await response.text();

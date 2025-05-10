@@ -25,11 +25,9 @@ const slice = createSlice({
   initialState,
   reducers: {
     validateSessionRequest: (state, action: PayloadAction<{ token: string | null, dateCheck: Date }>) => {
-      console.log('>>>>> validateSessionRequest', action.payload);
       state.loading = true;
     },
     validateSessionSuccess: (state, action: PayloadAction<any>) => {
-      console.log('>>>>> validateSessionSuccess', action.payload);
       state.loading = false;
       state.valid = true;
       state.logged = action.payload.logged;
@@ -47,7 +45,6 @@ const slice = createSlice({
       }
     },
     validateSessionFailure: (state) => {
-      console.log('>>>>> validateSessionFailure');
       state.loading = false;
       state.valid = false;
     },

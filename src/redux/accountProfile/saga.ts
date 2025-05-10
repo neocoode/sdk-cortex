@@ -6,7 +6,7 @@
 // src/store/modules/session/saga.ts
 import { ApiCortexServiceServer } from '@/services/apiCortexServiceServer';
 import { RootState } from '@/store';
-import { call, put, select, takeLatest } from 'redux-saga/effects';
+import { all, call, put, select, takeLatest } from 'redux-saga/effects';
 import { chatSelectedSet } from '../chatSelected/slice';
 import {
   profileFailure,
@@ -56,8 +56,10 @@ const handleprofile = function* ({ payload }: any): any {
 
 
 export default function* sessionSaga() {
-  yield takeLatest<any>(
-    profileRequest.type,
-    handleprofile
-  );
+  yield all([
+    takeLatest<any>(
+      profileRequest.type,
+      handleprofile
+    )
+  ]);
 }

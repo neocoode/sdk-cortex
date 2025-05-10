@@ -40,11 +40,7 @@ export const startSessionLocal = async (tokenInputString: string | undefined) =>
     };
   }
 
-  console.log('[startSessionLocal]: Sessão validada com sucesso:', { response });
-
-  const decodedToken = decodeToken(response.token);
-  console.log('[startSessionLocal]: Token decodificado:', { decodedToken });
-
+  // const decodedToken = decodeToken(response.token);
   const data = {
     logged: response.logged,
     token: response.token,

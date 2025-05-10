@@ -6,7 +6,7 @@
 
 import { ApiServiceServer } from '@/services/apiServiceServer';
 import { RootState } from '@/store';
-import { call, put, select, takeLatest } from 'redux-saga/effects';
+import { all, call, put, select, takeLatest } from 'redux-saga/effects';
 import { validateSessionSuccess } from '../session/slice';
 import {
   accountRegisterRequest,
@@ -16,17 +16,8 @@ import {
 import { redirectRoute } from '../routers/slice';
 
 function* handleRegister(action: ReturnType<typeof accountRegisterRequest>): any {
-  console.log('[saga:accountRegister] 🔍 handleRegister');
-
   try {
-    console.log('[saga:accountRegister] 🔍 handleRegister', action.payload);
     const { name, mail, phone, pass } = action.payload;
-    console.log('[saga:accountRegister] 🔍 handleRegister');
-    console.log('[saga:accountRegister] 🔍 Nome:', name);
-    console.log('[saga:accountRegister] 🔍 Email:', mail);
-    console.log('[saga:accountRegister] 🔍 Telefone:', phone);
-    console.log('[saga:accountRegister] 🔍 Senha:', pass);
-
     const sessionState: RootState['session'] = yield select((state: RootState) => state.session);
     const token = sessionState.token;
 
@@ -46,12 +37,12 @@ function* handleRegister(action: ReturnType<typeof accountRegisterRequest>): any
       yield put(accountRegisterFailure({ error: 'Email ou senha inválidos' }));
     }
   } catch (err: any) {
-    console.error('💥 Erro ao realizar login:', err);
     yield put(accountRegisterFailure({ error: err?.message || 'Erro desconhecido' }));
   }
 }
 
 export default function* accountRegisterSaga() {
-  console.log('🚀 Iniciando saga de conta');
-  yield takeLatest(accountRegisterRequest.type, handleRegister);
+  yield all([
+    takeLatest(accountRegisterRequest.type, handleRegister)
+  ]);
 }

@@ -14,7 +14,6 @@ export async function POST(req: NextRequest) {
     let token = authorization?.replace('Bearer ', '');
     console.log('[2/8][session route]: Token recebido:', token ? 'presente' : 'ausente');
 
-    console.log('>>>>>>>>> token:', token);
     if (token === '<nil>') {
       token = undefined;
     }
@@ -23,6 +22,13 @@ export async function POST(req: NextRequest) {
       const api = new ApiCortexServiceServer(token, { headers: { ...deviceInfo ? { 'device-info': deviceInfo } : {} } });
       const { status: validateStatus, data: recheck } = await api.validateSession();
       console.log('[3/8][session route]: Status da validação:', validateStatus);
+
+      if (validateStatus == 429) {
+        return NextResponse.json({
+          error: 'Erro ao validar sessão',
+          valid: false,
+        }, { status: 429 });
+      }
 
       if (validateStatus !== 200 || !recheck.valid) {
         console.log('[4/8][session route]: Sessão inválida, iniciando nova sessão');

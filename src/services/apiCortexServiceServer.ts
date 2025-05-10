@@ -24,7 +24,7 @@ export class ApiCortexServiceServer {
         ...(token ? { Authorization: `Bearer ${token}` } : {}),
     }
 
-    this.api = new HttpClient(`${resolvedBaseUrl}`, dataOptions);
+    this.api = new HttpClient('ApiCortexServiceServer', `${resolvedBaseUrl}`, dataOptions);
   }
 
   async accountAccess(data: { mail: string, pass: string }): Promise<HttpResponse<Json>> {

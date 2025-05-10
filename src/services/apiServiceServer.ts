@@ -22,7 +22,7 @@ export class ApiServiceServer {
     const clientIP = localStorage.getItem(IP_KEY);
     const deviceInfo = btoa(`code:${fingerprint}:${clientIP}:end`);
 
-    this.api = new HttpClient(`${resolvedBaseUrl}/api`, {
+    this.api = new HttpClient('ApiServiceServer', `${resolvedBaseUrl}/api`, {
       headers: {
         ...(token ? { Authorization: `Bearer ${token}` } : {}),
         ...(deviceInfo ? { datainfo: deviceInfo } : {}),

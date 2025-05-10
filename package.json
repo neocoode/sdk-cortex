@@ -1,8 +1,8 @@
 {
   "name": "luma",
-  "version": "0.1.46",
+  "version": "0.1.47",
   "currentDate": "05/2025",
-  "lastCommit": "chore: atualizar arquivos de manifesto de construção, adicionar suporte para informações de dispositivo na validação de sessão e refatorar o tratamento de cabeçalhos no ApiServiceServer",
+  "lastCommit": "chore: atualizar arquivos de manifesto de construção, adicionar nova rota para a página de splash e aprimorar o manuseio de fontes para a nova página",
   "lastLoginCommit": "elio.designer",
   "lastDateCommit": "05/2025",
   "private": true,

@@ -4,7 +4,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 import { ApiServiceServer } from '@/services/apiServiceServer';
-import { call, put, takeLatest } from 'redux-saga/effects';
+import { all, call, put, takeLatest } from 'redux-saga/effects';
 import { profileLogout, profileRequest } from '../accountProfile/slice';
 import {
   forceLogout,
@@ -13,6 +13,7 @@ import {
   validateSessionSuccess
 } from './slice';
 import { decodeToken } from '@/utils/jwts';
+import { redirectRoute } from '../routers/slice';
 
 const handleValidateSession = function* (request: any): any {
   try {
@@ -37,13 +38,17 @@ const handleValidateSession = function* (request: any): any {
 
     const api = new ApiServiceServer(token);
     const response = yield call([api, api.validateSession], dateCheck,);
-    console.log('[handleValidateSession] 🔍 Resposta da API:', response.data);
+    if (response?.status == 429) {
+      yield put(redirectRoute({ route: '/splash' }));
+      return yield put(validateSessionFailure());
+    }
+
     if (!response?.data?.valid) {
+      yield put(redirectRoute({ route: '/splash' }));
       return yield put(validateSessionFailure());
     }
 
     const tokenDecode = decodeToken(response.data.token);
-    console.log('[handleValidateSession] 🔍 Token decodificado:', tokenDecode);
     if (tokenDecode.logged) {
       yield put(profileRequest({ token: token, logged: response.data.logged }));
     }
@@ -52,9 +57,10 @@ const handleValidateSession = function* (request: any): any {
       token: response.data.token,
       valid: true,
       dateCheck: new Date(),
-      logged:  tokenDecode?.logged,
+      logged: tokenDecode?.logged,
       tokenDecode,
     }));
+    
     return;
   } catch (err: any) {
     yield put(validateSessionFailure());
@@ -67,12 +73,8 @@ const handleForceLogout = function* (): any {
 }
 
 export default function* sessionSaga() {
-  yield takeLatest<any>(
-    validateSessionRequest.type,
-    handleValidateSession
-  );
-  yield takeLatest<any>(
-    forceLogout.type,
-    handleForceLogout
-  );
+  yield all([
+    takeLatest(validateSessionRequest.type, handleValidateSession),
+    takeLatest(forceLogout.type, handleForceLogout)
+  ]);
 }

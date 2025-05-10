@@ -1,5 +1,12 @@
 {
+  "/account/access/page": "app/account/access/page.js",
+  "/account/register/page": "app/account/register/page.js",
+  "/api/account/access/route": "app/api/account/access/route.js",
+  "/api/account/register/route": "app/api/account/register/route.js",
   "/api/account/session/route": "app/api/account/session/route.js",
+  "/api/chat/message/route": "app/api/chat/message/route.js",
+  "/api/chat/suggestions/route": "app/api/chat/suggestions/route.js",
+  "/api/user/profile/route": "app/api/user/profile/route.js",
   "/chat/page": "app/chat/page.js",
   "/favicon.ico/route": "app/favicon.ico/route.js",
   "/splash/page": "app/splash/page.js"

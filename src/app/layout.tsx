@@ -1,6 +1,6 @@
-
 // app/layout.tsx
 import type { Metadata } from 'next';
+import React, { StrictMode } from 'react';
 
 import { Geist } from 'next/font/google';
 
@@ -21,12 +21,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="pt-BR">
       <body className={`h-screen relative ${geist.className} antialiased`} >
         <div id="modal-root" />
-        <Providers>
-          <CustomLayout>
-            {children}
-          </CustomLayout>
-          <Toast />
-        </Providers>
+        <StrictMode>
+          <Providers>
+            <CustomLayout>
+              {children}
+            </CustomLayout>
+            <Toast />
+          </Providers>
+        </StrictMode>
       </body>
     </html>
   );

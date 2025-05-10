@@ -6,7 +6,7 @@
 // src/store/modules/session/saga.ts
 import { ApiCortexServiceServer } from '@/services/apiCortexServiceServer';
 import { RootState } from '@/store';
-import { call, put, select, takeLatest } from 'redux-saga/effects';
+import { all, call, put, select, takeLatest } from 'redux-saga/effects';
 
 import { CoreMessageResponse } from '@/interface/chats';
 import { chatSelectedMessageAdd } from '../chatSelected/slice';
@@ -38,8 +38,10 @@ const handlesendMessage = function* ({ payload }: any): any {
 
 
 export default function* sessionSaga() {
-  yield takeLatest<any>(
-    sendMessageRequest.type,
-    handlesendMessage
-  );
+  yield all([
+    takeLatest<any>(
+      sendMessageRequest.type,
+      handlesendMessage
+    )
+  ]);
 }

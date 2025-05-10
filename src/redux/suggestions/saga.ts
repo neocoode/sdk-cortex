@@ -5,7 +5,7 @@
 
 // src/store/modules/session/saga.ts
 import { RootState } from '@/store';
-import { call, put, select, takeLatest } from 'redux-saga/effects';
+import { all, call, put, select, takeLatest } from 'redux-saga/effects';
 
 import {
   suggestionsFailure,
@@ -31,10 +31,11 @@ const handleSuggestions = function* ({ payload }: any): any {
   }
 }
 
-
 export default function* sessionSaga() {
-  yield takeLatest<any>(
-    suggestionsRequest.type,
-    handleSuggestions
-  );
+  yield all([
+    takeLatest<any>(
+      suggestionsRequest.type,
+      handleSuggestions
+    )
+  ]);
 }
