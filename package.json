@@ -1,8 +1,8 @@
 {
   "name": "luma",
-  "version": "0.1.45",
+  "version": "0.1.46",
   "currentDate": "05/2025",
-  "lastCommit": "chore: adicionar dependência do FingerprintJS e atualizar arquivos de manifesto de construção",
+  "lastCommit": "chore: atualizar arquivos de manifesto de construção, adicionar suporte para informações de dispositivo na validação de sessão e refatorar o tratamento de cabeçalhos no ApiServiceServer",
   "lastLoginCommit": "elio.designer",
   "lastDateCommit": "05/2025",
   "private": true,

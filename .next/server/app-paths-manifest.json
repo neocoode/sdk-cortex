@@ -1,5 +1,6 @@
 {
   "/api/account/session/route": "app/api/account/session/route.js",
   "/chat/page": "app/chat/page.js",
-  "/favicon.ico/route": "app/favicon.ico/route.js"
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/splash/page": "app/splash/page.js"
 }
