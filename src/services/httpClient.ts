@@ -22,11 +22,15 @@ export class HttpClient {
 
   constructor(baseURL: string, defaultOptions: HttpOptions = {}) {
     this.baseUrl = baseURL;
+    console.log(6666666, defaultOptions)
+
     this.defaultHeaders = {
       'Content-Type': 'application/json',
       'Accept': 'application/json',
-      ...(defaultOptions.headers ? defaultOptions.headers : {})
+      ...(defaultOptions?.headers ? defaultOptions.headers : {})
     };
+    console.log(7777777, this.defaultHeaders)
+
   }
 
   setToken(token: string | undefined) {
@@ -49,10 +53,13 @@ export class HttpClient {
     try {
       const fullUrl = `${this.baseUrl}${url}`;
       
+      console.log(999999, this.defaultHeaders)
+      
       const headers = {
         ...this.defaultHeaders,
         ...(options.headers ? options.headers : {})
       };
+      console.log(888888, headers)
 
       const dataRequest = {
         method,

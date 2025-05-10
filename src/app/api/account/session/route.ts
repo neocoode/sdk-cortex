@@ -8,16 +8,19 @@ export async function POST(req: NextRequest) {
   try {
     console.log('[1/8][session route]: Iniciando validação de sessão');
     const authorization = req.headers.get('Authorization');
+    const deviceInfo = req.headers.get('datainfo');
+    console.log(33333, deviceInfo)
+
     let token = authorization?.replace('Bearer ', '');
     console.log('[2/8][session route]: Token recebido:', token ? 'presente' : 'ausente');
-    
+
     console.log('>>>>>>>>> token:', token);
     if (token === '<nil>') {
       token = undefined;
     }
 
-    if (token) {
-      const api = new ApiCortexServiceServer(token);
+    if (token) {  
+      const api = new ApiCortexServiceServer(token, { headers: { ...deviceInfo ? { 'device-info': deviceInfo } : {} } });
       const { status: validateStatus, data: recheck } = await api.validateSession();
       console.log('[3/8][session route]: Status da validação:', validateStatus);
 

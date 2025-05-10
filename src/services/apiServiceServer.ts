@@ -1,6 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import { FINGERPRINT_KEY, IP_KEY } from "@/vars/devices";
+// import { FINGERPRINT_KEY, IP_KEY } from "@/vars/devices";
+import { FINGERPRINT_KEY } from "@/vars/devices";
+import { IP_KEY } from "@/vars/devices";
 import { HttpClient } from "./httpClient";
 
 type Json = Record<string, any>;
@@ -23,7 +25,7 @@ export class ApiServiceServer {
     this.api = new HttpClient(`${resolvedBaseUrl}/api`, {
       headers: {
         ...(token ? { Authorization: `Bearer ${token}` } : {}),
-        'X-Device-Info': deviceInfo,
+        ...(deviceInfo ? { datainfo: deviceInfo } : {}),
       },
     });
   }

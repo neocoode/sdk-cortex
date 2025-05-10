@@ -1,23 +1,30 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { HttpClient, HttpResponse } from "./httpClient";
+import { HttpClient, HttpOptions, HttpResponse } from "./httpClient";
 
 type Json = Record<string, any>;
 
 export class ApiCortexServiceServer {
   private api: HttpClient;
 
-  constructor(token?: string | null) {
+  constructor(token?: string | null, options?: HttpOptions) {
     const resolvedBaseUrl = process.env.NEXT_PUBLIC_CORTEX_URL || '';
     if (!resolvedBaseUrl.trim()) {
       throw new Error('❌ NEXT_PUBLIC_CORTEX_URL is not defined');
     }
-    
+
+
+
     console.log('[ApiCortexServiceServer]: Token recebido:', token);
-    this.api = new HttpClient(`${resolvedBaseUrl}`, {
-      headers: {
+    const dataOptions: HttpOptions = {
+      ...(options ? options : {}),
+    }
+
+    dataOptions.headers = {
+        ...(options?.headers ? options.headers : {}),
         ...(token ? { Authorization: `Bearer ${token}` } : {}),
-      },
-    });
+    }
+
+    this.api = new HttpClient(`${resolvedBaseUrl}`, dataOptions);
   }
 
   async accountAccess(data: { mail: string, pass: string }): Promise<HttpResponse<Json>> {
@@ -77,8 +84,8 @@ export class ApiCortexServiceServer {
       }
     };
 
-    const data = { 
-      message 
+    const data = {
+      message
     };
     return this.api.post<Json>('/chat/message', data, options);
   }
@@ -89,8 +96,8 @@ export class ApiCortexServiceServer {
         ...(chatId ? { chatId } : {})
       }
     };
-    const data = { 
-      message 
+    const data = {
+      message
     };
 
     return this.api.post<Json>('/chat/suggestions', data, options);

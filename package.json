@@ -1,9 +1,9 @@
 {
   "name": "luma",
-  "version": "0.1.44",
+  "version": "0.1.45",
   "currentDate": "05/2025",
-  "lastCommit": "chore: update build manifests, add new page routes, and refactor chat message handling to support optional chatId",
-  "lastLoginCommit": "elio.lima",
+  "lastCommit": "chore: adicionar dependência do FingerprintJS e atualizar arquivos de manifesto de construção",
+  "lastLoginCommit": "elio.designer",
   "lastDateCommit": "05/2025",
   "private": true,
   "author": "Neocoode High Defintion",
