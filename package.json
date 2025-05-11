@@ -1,8 +1,8 @@
 {
   "name": "luma",
-  "version": "0.1.48",
+  "version": "0.1.49",
   "currentDate": "05/2025",
-  "lastCommit": "chore: atualizar arquivos de manifesto de construção, adicionar novas rotas para acesso e registro de conta, e refatorar o manuseio de sessão e sagas para melhorar a estrutura do código",
+  "lastCommit": "chore: atualizar arquivos de manifesto de construção, adicionar novas rotas para a página não encontrada e a página principal, e refatorar o manuseio de fontes para incluir novos arquivos de estilo",
   "lastLoginCommit": "elio.designer",
   "lastDateCommit": "05/2025",
   "private": true,
